@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GoodWill | Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
+    body { background: #f4f7fa; color: #333; animation: fadeIn 1s ease-out; }
+
+    .btn-gold {
+      background-color: #FFD700;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .btn-gold:hover {
+      background-color: #f2c200;
+      transform: translateY(-2px);
+    }
+
+    .navbar, .footer {
+      color: #fff;
+      background: linear-gradient(135deg, #00244b, #0a66c2, #1E3A8A);
+    }
+    .navbar-brand { display: flex; align-items: center; font-size: 1.8rem; font-weight: 600; }
+    .navbar-brand img { width: 40px; height: 40px; margin-right: 0.5rem; }
+
+    .custom-container {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      padding: 40px;
+      max-width: 480px;
+      margin: 80px auto;
+      animation: zoomIn 0.8s ease-out;
+    }
+    h2 { color: #1E3A8A; font-weight: 700; text-align: center; margin-bottom: 1.5rem; }
+
+    .form-control, .form-select {
+      border: 2px solid #e0e0e0;
+      border-radius: 12px;
+      padding: 14px;
+      transition: border-color 0.3s, box-shadow 0.3s;
+      background: #f9fafb;
+    }
+    .form-control:focus, .form-select:focus {
+      border-color: #1E3A8A;
+      box-shadow: 0 0 0 0.2rem rgba(30,58,138,0.25);
+      outline: none;
+      background: #fff;
+    }
+
+    .custom-select-wrapper {
+      position: relative;
+      margin-bottom: 1rem;
+    }
+    .custom-select-wrapper .form-select {
+      appearance: none;
+      padding-right: 2rem;
+    }
+    .select-icon {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      transition: transform 0.3s ease;
+      color: #333;
+    }
+    .custom-select-wrapper.open .select-icon {
+      transform: translateY(-50%) rotate(180deg);
+    }
+
+    .login-footer {
+      text-align: center;
+      margin-top: 1rem;
+    }
+    .login-footer a {
+      color: #1E3A8A;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .login-footer a:hover {
+      text-decoration: underline;
+    }
+    .nav-link{
+        color: #fff !important;
+    }
+
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes zoomIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">GoodWill</a>
+         <img src="/original_logo.jpg" alt="Logo" class="d-inline-block align-text-top" style="width: 40px; height: 40px;">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobileNav" aria-controls="mobileNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mobileNav">
+          <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+            <!-- <li class="nav-item"><a class="nav-link" href="#">Home</a></li> -->
+            <li class="nav-item"><a class="nav-link" href="#">Courses</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Instructors</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="custom-container">
+    <h2>Login to Your Account</h2>
+
+    <!-- Role selector -->
+    <div class="custom-select-wrapper">
+      <select id="roleSelect" class="form-select">
+        <option value="">-- Select Role --</option>
+        <option value="partner">Partner</option>
+        <option value="trainee">Trainee</option>
+      </select>
+      <i class="fa fa-chevron-down select-icon"></i>
+    </div>
+
+    <!-- Login form -->
+    <form id="loginForm" class="row g-4">
+      <div class="col-12">
+        <label for="email" class="form-label">Email Address</label>
+        <input type="email" id="email" class="form-control" placeholder="you@gmail.com" required>
+      </div>
+      <div class="col-12">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" id="password" class="form-control" placeholder="••••••••" required>
+      </div>
+      <div class="col-12">
+        <a type="submit" class="btn btn-gold w-100 py-2" href="DashBoard.html">Login</a>
+      </div>
+    </form>
+
+    <div class="login-footer">
+      <small>Don’t have an account? <a href="Registration.html">Register here.</a></small>
+    </div>
+  </div>
+
+  <footer class="footer text-white text-center py-3">
+    &copy; 2025 GoodWill Courses. All Rights Reserved.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Toggle the select arrow
+    const select = document.getElementById('roleSelect');
+    const wrapper = select.closest('.custom-select-wrapper');
+    select.addEventListener('mousedown', () => wrapper.classList.toggle('open'));
+    document.addEventListener('click', e => {
+      if (!wrapper.contains(e.target)) wrapper.classList.remove('open');
+    });
+
+    // (Optional) handle login submit
+    document.getElementById('loginForm').addEventListener('submit', e => {
+      e.preventDefault();
+      // TODO: authentication logic here
+      alert('Logged in as ' + (select.value || 'No role selected'));
+    });
+  </script>
+</body>
+</html>
