@@ -6,22 +6,85 @@
   <title>Filter and Calendar UI</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-
-  <style>
- * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
+  <link rel="icon" type="image/x-icon" href="original_logo.jpg">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+ <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
     body { background: #f4f7fa; color: #333; animation: fadeIn 1s ease-out; }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
 
-    .btn-gold { background-color: #FFD700; color: #000; border: none; border-radius: 8px; transition: background 0.3s, transform 0.2s; }
-    .btn-gold:hover { background-color: #f2c200; transform: translateY(-2px); }
+    .btn-gold {
+      background: linear-gradient(135deg, #ffd700, #ffca28);
+      color: #1a1a1a;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 20px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
 
-    .custom-container { background: #fff; border-radius: 20px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); padding: 40px; animation: zoomIn 0.8s ease-out; }
+    .btn-gold:hover {
+      background: linear-gradient(135deg, #ffca28, #ffb300);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar {
+      background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #fff !important;
+      transition: transform 0.3s ease;
+    }
+
+    .navbar-brand img {
+      width: 45px;
+      height: 45px;
+      margin-right: 0.75rem;
+      transition: transform 0.3s ease;
+    }
+
+    .navbar-brand:hover {
+      transform: scale(1.05);
+    }
+
+    .nav-link {
+      color: #fff !important;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: #ffd700 !important;
+      transform: translateY(-2px);
+    }
+
+    .custom-container {
+      background: #f4f2ee;
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      animation: zoomIn 0.8s ease-out;
+    }
+
     h2 { color: #1E3A8A; font-weight: 700; }
-    .navbar, .footer { color: #fff; 
-    background: linear-gradient(135deg, #00244b, #0a66c2, #1E3A8A);}
-    .nav-link{ margin: 0 10px; color: white !important; }
+    .navbar, .footer {
+      color: #fff;
+      background: linear-gradient(135deg, #00244b, #0a66c2, #1E3A8A);
+    }
+    .nav-link { margin: 0 10px; color: white !important; }
     .navbar-brand { font-size: 1.8rem; font-weight: 600; }
 
     .form-control, .form-select {
@@ -38,7 +101,6 @@
       background: #fff;
     }
 
-    /* Custom dropdown arrow */
     .form-select {
       appearance: none;
       -webkit-appearance: none;
@@ -62,19 +124,11 @@
       background-color: #1E3A8A;
       border-color: #1E3A8A;
     }
-    .custom-container{
-        background: #f4f2ee;
-    }
     .form-check-label { margin-left: 0.5rem; color: #555; }
 
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     @keyframes zoomIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 
-/*  */
-    body {
-      background-color: #f8f9fa;
-      
-    }
+    body { background-color: #f8f9fa; }
     .filter-bar {
       background: #fff;
       padding: 15px;
@@ -82,11 +136,11 @@
       box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
       margin-bottom: 20px;
     }
-    .Arbtn{
-         background: linear-gradient(135deg, #00244b, #007bff, #1E3A8A);
+    .Arbtn {
+      background: linear-gradient(135deg, #00244b, #007bff, #1E3A8A);
     }
     .month-card .card-header {
-        background: linear-gradient(135deg, #00244b, #007bff, #1E3A8A);
+      background: linear-gradient(135deg, #00244b, #007bff, #1E3A8A);
       color: #fff;
       font-weight: bold;
       text-transform: uppercase;
@@ -104,8 +158,8 @@
       margin-top: 0.75rem;
     }
     .explore-btn {
-    float: right;
-    margin-top: 1rem;
+      float: right;
+      margin-top: 1rem;
       bottom: 1rem;
       right: 1rem;
     }
@@ -114,139 +168,199 @@
         margin-bottom: 0.75rem;
       }
     }
+
+    .month-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    }
+    .month-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      background-color: #f9fafb;
+    }
+    .month-card:hover .card-body {
+      background-color: #f9fafb;
+    }
+    .month-card:hover .card-header {
+      background: linear-gradient(135deg, #003087, #1e90ff, #4169e1);
+    }
+
     .timeline-container::before {
-  content: '';
-  position: absolute;
-  left: 15px;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background-color: #ccc;
-}
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background-color: #ccc;
+    }
 
-.timeline-content .timeline-item {
-  position: relative;
-  padding-left: 30px;
-  margin-bottom: 20px;
-}
+    .timeline-content .timeline-item {
+      position: relative;
+      padding-left: 30px;
+      margin-bottom: 20px;
+    }
 
-.timeline-content .timeline-item::before {
-  content: '';
-  position: absolute;
-  left: -1px;
-  top: 0;
-  width: 12px;
-  height: 12px;
-  background-color: #111;
-  border-radius: 50%;
-  border: 2px solid white;
-  z-index: 1;
-}
-.timeline-content .timeline-item:nth-child(5n)::before {
-  background-color: #f0cc00;
-}
-.timeline-container{
-        padding-left: 0.7rem !important;
-}
-/* New: only course items get the vertical line & dots */
-.timeline-section {
-  position: relative;
-  padding-left: 11px;
-  margin-bottom: 1.5rem;
-}
-.timeline-section::before {
-  content: '';
-  position: absolute;
-  left: 15px;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background-color: #ccc;
-}
+    .timeline-content .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -1px;
+      top: 0;
+      width: 12px;
+      height: 12px;
+      background-color: #111;
+      border-radius: 50%;
+      border: 2px solid white;
+      z-index: 1;
+    }
+    .timeline-content .timeline-item:nth-child(5n)::before {
+      background-color: #f0cc00;
+    }
+    .timeline-container {
+      padding-left: 0.7rem !important;
+    }
 
-/* re‐use your existing dot styling on the in‐section items */
-.timeline-section .timeline-item::before {
-  content: '';
-  position: absolute;
-  left: -1px;
-  top: 0;
-  width: 12px;
-  height: 12px;
-  background-color: #111;
-  border-radius: 50%;
-  border: 2px solid white;
-  z-index: 1;
-}
+    .timeline-section {
+      position: relative;
+      padding-left: 11px;
+      margin-bottom: 1.5rem;
+    }
+    .timeline-section::before {
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background-color: #ccc;
+    }
 
-/* suppress for non‐course headings */
-.timeline-item.heading::before,
-.timeline-item.subheading::before {
-  content: none;
-}
-.timeline-item.heading,
-.timeline-item.subheading {
-  padding-left: 0;
-}
+    .timeline-section .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -1px;
+      top: 0;
+      width: 12px;
+      height: 12px;
+      background-color: #111;
+      border-radius: 50%;
+      border: 2px solid white;
+      z-index: 1;
+    }
 
+    .timeline-item.heading::before,
+    .timeline-item.subheading::before {
+      content: none;
+    }
+    .timeline-item.heading,
+    .timeline-item.subheading {
+      padding-left: 0;
+    }
 
-.instructor-box {
-  background: #f8f9fa; /* Light gray background */
-  border: 1px solid #dee2e6; /* Subtle border */
-  border-left: 4px solid #198754; /* Green accent */
-  padding: 16px;
-  border-radius: 0.5rem;
-  transition: box-shadow 0.3s ease;
-}
+    .instructor-box {
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      border-left: 4px solid #198754;
+      padding: 16px;
+      border-radius: 0.5rem;
+      transition: box-shadow 0.3s ease;
+    }
 
-.instructor-box:hover {
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-}
+    .instructor-box:hover {
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
 
-.instructor-photo {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #198754;
-}
+    .instructor-photo {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #198754;
+    }
 
-.instructor-name {
-  font-weight: 600;
-  font-size: 1rem;
-}
+    .instructor-name {
+      font-weight: 600;
+      font-size: 1rem;
+    }
 
-.instructor-role {
-  font-size: 0.875rem;
-  color: #6c757d;
-  margin-bottom: 0.25rem;
-}
-a{
-  text-decoration: none;
-  font-weight: 600;
-}
-.modal-header{
+    .instructor-role {
+      font-size: 0.875rem;
+      color: #6c757d;
+      margin-bottom: 0.25rem;
+    }
+
+    a {
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .modal-header {
       background: linear-gradient(135deg, #00244b, #007bff, #1E3A8A);
-    color: #fff;
-}
-.courseImg{
-    width: 350px;
-    height: 350px;
-    object-fit: cover;
-    border-radius: 0.5rem;
-    margin-left: 25%;
-}
+      color: #fff;
+    }
 
+    .courseImg {
+      width: 350px;
+      height: 350px;
+      object-fit: cover;
+      border-radius: 0.5rem;
+      margin-left: 25%;
+    }
 
+    /* New styles for user and logout icons */
+    .user-profile {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .user-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #fff;
+      border: 2px solid #ffd700;
+      color: #1E3A8A;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+    .user-icon:hover {
+      background: #ffd700;
+      color: #1a1a1a;
+      transform: translateY(-2px);
+    }
+    .logout-btn {
+      color: #fff !important;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      transition: all 0.3s ease;
+    }
+    .logout-btn:hover {
+      color: #ffd700 !important;
+      transform: translateY(-2px);
+    }
+    .logout-btn i {
+      margin-right: 0.3rem;
+    }
+    @media (max-width: 767px) {
+      .user-profile {
+        margin-top: 0.5rem;
+        justify-content: flex-start;
+      }
+    }
   </style>
 </head>
 <body>
-
-        <header>
+   <header>
     <nav class="navbar navbar-expand-md navbar-dark sticky-top">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">GoodWill</a>
-         <img src="original_logo.jpg" alt="Logo" class="d-inline-block align-text-top" style="width: 40px; height: 40px;">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobileNav" aria-controls="mobileNav" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="#">
+          GoodWill &nbsp;
+          <img src="original_logo.jpg" alt="Logo" class="d-inline-block align-text-top">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobileNav"
+          aria-controls="mobileNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="mobileNav">
@@ -256,15 +370,18 @@ a{
             <li class="nav-item"><a class="nav-link" href="#">Instructors</a></li>
             <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+            <li class="nav-item user-profile">
+              <a href="#" class="user-icon"><i class="fas fa-user"></i></a>
+              <a href="login.html" class="nav-link logout-btn"><i class="fas fa-sign-out-alt"></i>Logout</a>
+            </li>
           </ul>
         </div>
       </div>
     </nav>
   </header>
 
-
   <div class="container-fluid">
-     <div class="row gx-2 gy-2 align-items-end filter-form mt-4 mb-4">
+    <div class="row gx-2 gy-2 align-items-end filter-form mt-4 mb-4">
       <div class="col-md">
         <label class="form-label">States</label>
         <select class="form-select">
@@ -321,14 +438,13 @@ a{
           <option>Wyoming</option>
         </select>
       </div>
-     <div class="col-md">
+      <div class="col-md">
         <label class="form-label">Zip Code</label>
         <select class="form-select">
-            <option selected>All Zip Codes</option>
+          <option selected>All Zip Codes</option>
           <option>10001</option>
           <option>20001</option>
           <option selected>30022</option>
-          <!-- ... -->
         </select>
       </div>
       <div class="col-md">
@@ -348,7 +464,7 @@ a{
           <option>2026</option>
         </select>
       </div>
-       <div class="col-md">
+      <div class="col-md">
         <label class="form-label">Description</label>
         <input type="text" class="form-control" placeholder="Enter keywords...">
       </div>
@@ -358,7 +474,6 @@ a{
     </div>
 
     <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
-      <!-- Month Card Template -->
       <div class="col">
         <div class="card month-card h-100">
           <div class="card-header">January</div>
@@ -423,7 +538,6 @@ a{
           </div>
         </div>
       </div>
-      <!-- Repeat for remaining months with modified content -->
       <div class="col">
         <div class="card month-card h-100">
           <div class="card-header">May</div>
@@ -552,209 +666,167 @@ a{
     </div>
   </div>
 
- <footer class="footer text-white text-center py-3 mt-4">
-    &copy; 2025 GoodWill Courses. All Rights Reserved.
+  <footer class="footer text-white text-center py-3 mt-4">
+    © 2025 GoodWill Courses. All Rights Reserved.
   </footer>
 
   <!-- Event Modal -->
-<div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-centered">
-    <div class="modal-content">
-      
-      <!-- Thumbnail -->
-      <div class="position-relative">
-        <!-- <img src="/Construction.jpg" alt="Event Thumbnail" class="img-fluid rounded-top" style="    margin-left: 15%; 
-    width: 70%;">-->
-        <!-- <button type="button" class="btn-close position-absolute top-0 end-0 m-2" data-bs-dismiss="modal" aria-label="Close"></button> -->
-       
-      </div>
-
-     <div class="modal-body p-3 py-4">
-       <button type="button"
-                class="btn-close "
-                data-bs-dismiss="modal"
-                aria-label="Close" style="    float: inline-end;
-    padding: 15px 0px 0px 22px;"></button>
-
-  <h5 class="modal-title fw-bold mb-3" id="eventModalLabel">Event Timeline</h5>
-  
-  <div class="position-relative ps-4 mb-4">
-    <div id="timelineContent" class="timeline-content"></div>
-  </div>
-
-  <!-- Instructor Section -->
-  <div class="border rounded p-3 mb-4 bg-light">
-    <div class="d-flex align-items-start gap-3">
-      <img src="https://jobs.goodwillindy.org/img/tile-education.jpg" alt="Instructor Photo" class="rounded-circle" width="90" height="90">
-      <div>
-        <h6 class="mb-1 fw-semibold">Dr. Samuel Bennett</h6>
-        <p class="mb-0 text-muted small">
-          <strong>Title:</strong> Senior Training Specialist<br>
-          <strong>Org:</strong> Goodwill Industries<br>
-          <strong>Email:</strong> samuel.bennett@goodwill.edu<br>
-          <strong>Phone:</strong> (555) 123-4567
-        </p>
+  <div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body p-3 py-4">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="float: inline-end; padding: 15px 0px 0px 22px;"></button>
+          <h5 class="modal-title fw-bold mb-3" id="eventModalLabel">Event Timeline</h5>
+          <div class="position-relative ps-4 mb-4">
+            <div id="timelineContent" class="timeline-content"></div>
+          </div>
+          <div class="border rounded p-3 mb-4 bg-light">
+            <div class="d-flex align-items-start gap-3">
+              <img src="https://jobs.goodwillindy.org/img/tile-education.jpg" alt="Instructor Photo" class="rounded-circle" width="90" height="90">
+              <div>
+                <h6 class="mb-1 fw-semibold">Dr. Samuel Bennett</h6>
+                <p class="mb-0 text-muted small">
+                  <strong>Title:</strong> Senior Training Specialist<br>
+                  <strong>Org:</strong> Goodwill Industries<br>
+                  <strong>Email:</strong> samuel.bennett@goodwill.edu<br>
+                  <strong>Phone:</strong> (555) 123-4567
+                </p>
+              </div>
+            </div>
+            <p class="mt-3 mb-0 small text-secondary">
+              Passionate about workforce development and career readiness, Dr. Bennett brings over 12 years of experience in training and mentoring individuals seeking employment success.
+            </p>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Notes</label>
+            <textarea class="form-control" rows="3" placeholder="Add Notes..."></textarea>
+          </div>
+          <div class="d-flex flex-wrap justify-content-end gap-2 mt-4">
+            <button class="btn btn-success">✔ Save</button>
+            <button class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown">📤 Share</button>
+            <button class="btn btn-outline-dark dropdown-toggle" data-bs-toggle="dropdown">⚙ Options</button>
+          </div>
+        </div>
       </div>
     </div>
-    <p class="mt-3 mb-0 small text-secondary">
-      Passionate about workforce development and career readiness, Dr. Bennett brings over 12 years of experience in training and mentoring individuals seeking employment success.
-    </p>
   </div>
 
-  <!-- Details Section -->
-  <div class="mb-3">
-    <label class="form-label">Notes</label>
-    <textarea class="form-control" rows="3" placeholder="Add Notes..."></textarea>
-  </div>
-
-  <div class="d-flex flex-wrap justify-content-end gap-2 mt-4">
-    <button class="btn btn-success">✔ Save</button>
-    <button class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown">📤 Share</button>
-    <button class="btn btn-outline-dark dropdown-toggle" data-bs-toggle="dropdown">⚙ Options</button>
-  </div>
-
-</div>
-
-    </div>
-  </div>
-</div>
-
-
-<!-- Course Detail Modal -->
+  <!-- Course Detail Modal -->
+ <!-- Bootstrap Course Detail Modal -->
 <div class="modal fade" id="courseModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content shadow-lg rounded-2xl">
+      <div class="modal-header bg-primary text-white">
         <h5 class="modal-title" id="courseModalLabel">Course Details</h5>
-              <button type="button"
-                class="btn-close text-light"
-                data-bs-dismiss="modal"
-                aria-label="Close" style="    float: inline-end;
-    padding: 15px 0px 0px 22px;"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body p-4">
-        <div class="card course-detail">
-          <img id="courseImg" class="courseImg" src="" alt="Course Cover">
-          <div class="card-body">
-            <div class="mb-3">
-              <label class="form-label"><strong>Course Name</strong></label>
-              <input id="courseNameInput" type="text" class="form-control">
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Course Description</label>
-              <textarea id="courseDescInput" class="form-control" rows="4"></textarea>
-            </div>
-           
+        <div class="row">
+          <div class="col-md-4 text-center">
+            <img id="courseImg" class="img-fluid rounded-xl mb-3 shadow-sm" src="/images/default.jpg" alt="Course Cover" />
+            <button id="downloadStructureBtn" class="btn btn-outline-secondary w-100 mb-2">
+              <i class="bi bi-download"></i> Download Course Structure
+            </button>
           </div>
-           
+          <div class="col-md-8">
+            <form id="courseForm">
+              <div class="mb-3">
+                <label for="courseNameInput" class="form-label fw-semibold">Course Name</label>
+                <input id="courseNameInput" type="text" class="form-control form-control-lg" />
+              </div>
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <label for="startTimeInput" class="form-label">Start Date & Time</label>
+                  <input id="startTimeInput" type="datetime-local" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                  <label for="endTimeInput" class="form-label">End Date & Time</label>
+                  <input id="endTimeInput" type="datetime-local" class="form-control" />
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="aboutCourseInput" class="form-label">About the Course</label>
+                <textarea id="aboutCourseInput" class="form-control" rows="3"></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="tocInput" class="form-label">Table of Contents</label>
+                <textarea id="tocInput" class="form-control" rows="3" placeholder="List key topics or modules separated by line breaks"></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="eligibilityInput" class="form-label">Eligibility</label>
+                <textarea id="eligibilityInput" class="form-control" rows="2" placeholder="E.g., Minimum qualifications, prerequisites"></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="attachmentInput" class="form-label">Attachment (Doc/PDF)</label>
+                <input id="attachmentInput" type="file" accept=".pdf,.doc,.docx" class="form-control" />
+              </div>
+            </form>
+          </div>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">❌ Close</button>
-        <button id="saveCourseBtn" class="btn btn-success">✔ Save</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">✖ Close</button>
+        <button id="saveCourseBtn" class="btn btn-success">✔ Save Changes</button>
       </div>
-      
     </div>
   </div>
 </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  
-<script>
-//   document.querySelectorAll('.explore-btn').forEach(button => {
-//     button.addEventListener('click', () => {
-//       const card = button.closest('.card-body');
-//       const month = button.closest('.card').querySelector('.card-header').textContent.trim();
-//       const state = card.querySelector('h5')?.textContent?.trim() || '';
-//       const courses = Array.from(card.querySelectorAll('ul li'))
-//         .map(li => li.textContent.trim())
-//         .join(', ');
-//       const deadline = card.querySelector('.deadline')?.textContent?.trim() || '';
+  <script>
+    function formatDate(dateStr) {
+      const options = { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' };
+      return new Date(dateStr).toLocaleDateString('en-US', options);
+    }
 
-//       // Populate modal
-//       document.getElementById('eventModalLabel').textContent = `${month} - ${state}`;
-//       document.querySelector('.modal-body textarea').value = `Courses: ${courses}\n${deadline}`;
+    document.querySelectorAll('.explore-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const card = button.closest('.card-body');
+        const monthName = button.closest('.card').querySelector('.card-header').textContent.trim();
+        const monthIndex = new Date(`${monthName} 1, 2025`).getMonth();
 
-//       // Show modal
-//       const modal = new bootstrap.Modal(document.getElementById('eventModal'));
-//       modal.show();
-//     });
-//   });
+        let html = '';
+        let dayCounter = 1;
 
-
-</script>
-
-<script>
- function formatDate(dateStr) {
-    const options = { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' };
-    return new Date(dateStr).toLocaleDateString('en-US', options);
-  }
-
-  document.querySelectorAll('.explore-btn').forEach(button => {
-    button.addEventListener('click', () => {
-      const card = button.closest('.card-body');
-      const monthName = button.closest('.card')
-                              .querySelector('.card-header')
-                              .textContent.trim();
-      const monthIndex = new Date(`${monthName} 1, 2025`).getMonth();
-
-      let html = '';
-      let dayCounter = 1;
-
-      // gather each h5 + its UL
-      const sections = Array.from(card.querySelectorAll('h5')).map(h5 => {
-        let ul = h5.nextElementSibling;
-        while (ul && ul.tagName !== 'UL') ul = ul.nextElementSibling;
-        return {
-          title: h5.textContent.trim(),
-          courses: ul ? Array.from(ul.querySelectorAll('li'))
-                            .map(li => li.textContent.trim())
-                       : []
-        };
-      });
-
-      // render heading once
-      // html += `<div class="timeline-item heading"><strong>${monthName} – Schedule</strong></div>`;
-
-      sections.forEach((sec, idx) => {
-        // sub‐heading for each location
-        html += `<div class="timeline-item subheading"><strong>${monthName} – ${sec.title}</strong></div>`;
-        html += `<div class="timeline-section">`;
-
-        sec.courses.forEach(course => {
-          const start = new Date(2025, monthIndex, dayCounter);
-          html += `
-            <div class="timeline-item">
-              <div>${formatDate(start.toISOString())} – ${course}</div>
-            </div>`;
-          dayCounter += 3;
+        const sections = Array.from(card.querySelectorAll('h5')).map(h5 => {
+          let ul = h5.nextElementSibling;
+          while (ul && ul.tagName !== 'UL') ul = ul.nextElementSibling;
+          return {
+            title: h5.textContent.trim(),
+            courses: ul ? Array.from(ul.querySelectorAll('li')).map(li => li.textContent.trim()) : []
+          };
         });
 
-        html += `</div>`; // close .timeline-section
+        sections.forEach((sec, idx) => {
+          html += `<div class="timeline-item subheading"><strong>${monthName} – ${sec.title}</strong></div>`;
+          html += `<div class="timeline-section">`;
+
+          sec.courses.forEach(course => {
+            const start = new Date(2025, monthIndex, dayCounter);
+            html += `
+              <div class="timeline-item">
+                <div>${formatDate(start.toISOString())} – ${course}</div>
+              </div>`;
+            dayCounter += 3;
+          });
+
+          html += `</div>`;
+        });
+
+        document.getElementById('timelineContent').innerHTML = html;
+        document.getElementById('eventModalLabel').textContent = `${monthName} – Schedule`;
+        new bootstrap.Modal(document.getElementById('eventModal')).show();
       });
-
-      document.getElementById('timelineContent').innerHTML = html;
-      document.getElementById('eventModalLabel').textContent = `${monthName} – Schedule`;
-      new bootstrap.Modal(document.getElementById('eventModal')).show();
     });
-  });
 
 
 
-  // Wrap each <li> in an anchor to make it clickable
-  document.querySelectorAll('.month-card ul li').forEach(li => {
-    const name = li.textContent.trim();
-    li.innerHTML = `<a href="#" class="course-link" data-course="${name}">${name}</a>`;
-  });
+    // Add course links to month cards
+    document.querySelectorAll('.month-card ul li').forEach(li => {
+      const name = li.textContent.trim();
+      li.innerHTML = `<a href="#" class="course-link" data-course="${name}">${name}</a>`;
+    });
 
-  // Predefined course images (update paths as needed)
-  const courseImages = {
-    'CPR/First Aid': '/cpr.jpg',
-    'Certified Guest Service (CGSP)': 'images/cgsp.jpg',
-    // add other mappings...
-  };
-
-  // Handle click on course links
+    const defaultImage = 'cpr.jpg'; // Default image path
   document.body.addEventListener('click', e => {
     if (!e.target.classList.contains('course-link')) return;
     e.preventDefault();
@@ -763,26 +835,55 @@ a{
     const modal = new bootstrap.Modal(document.getElementById('courseModal'));
     document.getElementById('courseModalLabel').textContent = course;
     document.getElementById('courseNameInput').value = course;
-    document.getElementById('courseDescInput').value = '';
-    document.getElementById('courseImg').src = courseImages[course] || '/images/default.jpg';
+    document.getElementById('aboutCourseInput').value = '';
+    document.getElementById('tocInput').value = '';
+    document.getElementById('eligibilityInput').value = '';
+    document.getElementById('startTimeInput').value = '';
+    document.getElementById('endTimeInput').value = '';
+    document.getElementById('courseImg').src = defaultImage;
+
+    // Reset file input
+    const fileInput = document.getElementById('attachmentInput');
+    fileInput.value = '';
 
     modal.show();
   });
 
-  // Save changes (example action)
+  // Save handler
   document.getElementById('saveCourseBtn').addEventListener('click', () => {
+    const form = document.getElementById('courseForm');
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
     const newName = document.getElementById('courseNameInput').value.trim();
-    // Update the original link text
+    const startTime = document.getElementById('startTimeInput').value;
+    const endTime = document.getElementById('endTimeInput').value;
+    const about = document.getElementById('aboutCourseInput').value;
+    const toc = document.getElementById('tocInput').value;
+    const eligibility = document.getElementById('eligibilityInput').value;
+    const fileInput = document.getElementById('attachmentInput');
+
+    // Update link display
     const original = document.querySelector(`.course-link[data-course]`);
     original.textContent = newName;
     original.setAttribute('data-course', newName);
-    // Close modal
+
+    // Optionally handle attachment upload and download link
+    if (fileInput.files.length) {
+      const file = fileInput.files[0];
+      const reader = new FileReader();
+      reader.onload = () => {
+        const url = reader.result;
+        const downloadBtn = document.getElementById('downloadStructureBtn');
+        downloadBtn.href = url;
+        downloadBtn.download = file.name;
+      };
+      reader.readAsDataURL(file);
+    }
+
     bootstrap.Modal.getInstance(document.getElementById('courseModal')).hide();
   });
-</script>
-
-
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </script>
 </body>
 </html>
