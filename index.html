@@ -344,14 +344,33 @@
   });
 
   // Handle login submit
-  document.getElementById('loginForm').addEventListener('submit', e => {
+  document.getElementById("loginForm").addEventListener("submit", function(e) {
     e.preventDefault();
-    // Optional: Add authentication logic here if needed
-    // For example, you can check the role, email, or password before redirecting
-    if (select.value) {
-      window.location.href = 'DashBoard.html'; // Redirect to dashboard.html
+
+    const role = document.getElementById("roleSelect").value;
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    // Dummy hardcoded credentials (replace with backend logic for real apps)
+    const credentials = {
+      partner: { email: "coolsofttech@gmail.com", password: "Coolsoft@123" },
+      instructor: { email: "coolsofttech@gmail.com", password: "Coolsoft@123" },
+      trainee: { email: "coolsofttech@gmail.com", password: "Coolsoft@123" }
+    };
+
+    // Validate
+    if (!role || !credentials[role]) {
+      alert("Please select a valid role.");
+      return;
+    }
+
+    const user = credentials[role];
+    if (email === user.email && password === user.password) {
+      // alert(`Login successful as ${role}`);
+      // Redirect or do something
+      window.location.href = `dashboard.html`;
     } else {
-      alert('Please select a role before logging in.');
+      alert("Invalid email or password.");
     }
   });
 </script>
