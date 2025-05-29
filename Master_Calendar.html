@@ -372,7 +372,7 @@
             <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
             <li class="nav-item user-profile">
               <a href="#" class="user-icon"><i class="fas fa-user"></i></a>
-              <a href="index.html" class="nav-link logout-btn"><i class="fas fa-sign-out-alt"></i>Logout</a>
+              <a href="login.html" class="nav-link logout-btn"><i class="fas fa-sign-out-alt"></i>Logout</a>
             </li>
           </ul>
         </div>
@@ -483,7 +483,7 @@
               <li>CPR/First Aid</li>
               <li>Certified Guest Service (CGSP)</li>
             </ul>
-            <h5 class="mt-2"><strong>Columbus, GA</strong></h5>
+            <h5 class="mt-4"><strong>Columbus, GA</strong></h5>
             <ul class="mb-0">
               <li>Certified Maintenance Employee</li>
               <li>CNA</li>
@@ -549,7 +549,7 @@
               <li>Manufacturing/Forklift</li>
               <li>CMA Certification</li>
             </ul>
-            <h5 class="mt-2"><strong>Valdosta, GA</strong></h5>
+            <h5 class="mt-4"><strong>Valdosta, GA</strong></h5>
             <ul class="mb-0">
               <li>Certified Guest Service (CGSP)</li>
               <li>OSHA 10 & Electrical Safety</li>
@@ -826,7 +826,7 @@
       li.innerHTML = `<a href="#" class="course-link" data-course="${name}">${name}</a>`;
     });
 
-    const defaultImage = 'Cpr.jpg'; // Default image path
+    const defaultImage = 'cpr.jpg'; // Default image path
   document.body.addEventListener('click', e => {
     if (!e.target.classList.contains('course-link')) return;
     e.preventDefault();
