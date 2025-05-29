@@ -242,15 +242,11 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12 text-center">
-        <h1 class="display-4 mt-4"><strong>US Goodwill Locations Map</strong></h1>
+        <h2 class="mt-4"><strong>US Goodwill Locations Map</strong></h2>
         <p class="lead"><strong>Explore Goodwill locations across the United States</strong></p>
+         <p class="text-muted"><strong>Click on a state to see the number of Goodwill locations</strong></p>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <p class="text-muted"><strong>Click on a state to see the number of Goodwill locations</strong></p>
-      </div>
-  </div>
 </div>
   
 
@@ -271,11 +267,11 @@
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script>
     (function() {
-      const map = L.map('map').setView([37.8, -96], 4);
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '© OpenStreetMap contributors'
-      }).addTo(map);
+    const map = L.map('map').setView([37.8, -96], 4);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
 
       // Pastel color generator
       function getPastelColor() {
@@ -362,424 +358,1869 @@
         });
 
       // Goodwill locations
-      const locations = [
-        // { name: '4209 Wheaton Way, Bremerton, WA 98310', lat: 47.5782, lng: -122.6527 },
-        // { name: '700 Dearborn Place S, Seattle, WA 98144', lat: 47.5725, lng: -122.3234 },
-        // { name: '210 SW Everett Mall Way, Everett, WA 98204', lat: 47.9153, lng: -122.2207 },
-        // { name: '242 East College Way, Mount Vernon, WA 98273', lat: 48.4213, lng: -122.3198 },
-        // { name: '1115 E Sunset Dr., Bellingham, WA 98226', lat: 48.7637, lng: -122.4700 },
-        // { name: '111 Highland Center Dr., Columbia, SC 29203', lat: 34.0124, lng: -81.0251 },
-        // { name: '555 St. Andrews Rd., Columbia, SC 29210', lat: 34.0511, lng: -81.0953 },
-        // { name: '2744 Decker Blvd., Columbia, SC 29206', lat: 34.0107, lng: -81.1613 },
-        // { name: '1671 Springdale Dr, Suite 1A, Camden, SC 29020', lat: 34.2926, lng: -80.6077 },
-        // { name: '3019 North Main St., Anderson, SC 29621', lat: 34.5034, lng: -82.6501 },
-        // { name: '7861 Augusta Rd., Piedmont, SC 29673', lat: 34.7796, lng: -82.3265 },
-        // { name: '811 Saco Lowell Rd., Easley, SC 29640', lat: 34.8299, lng: -82.5743 },
-        // { name: '1616 Sandifer Blvd., Seneca, SC 29678', lat: 34.5615, lng: -82.9734 },
-        // { name: 'West Lakes Community Center, Orlando, FL 32805', lat: 28.5280, lng: -81.3750 },
-        // { name: '1140 3rd Street NE, Washington, DC 20002', lat: 38.9008, lng: -76.9902 },
-        // { name: '2601 Cross Country Drive Building B, Columbus, GA 31906', lat: 32.5032, lng: -84.9673 },
-        // { name: '2015 N. Slappey Blvd, Albany, GA 31701', lat: 31.5830, lng: -84.1677 },
-        // { name: '3121 Highway 34 East, Newnan, GA 30265', lat: 33.3807, lng: -84.7997 },
-        // { name: '1000 N. St. Augustine Road, Valdosta, GA 31601', lat: 30.8639, lng: -83.2785 },
-        // { name: '319 Commerce Ave, LaGrange, GA 30241', lat: 33.0245, lng: -85.0255 },
-        // { name: 'Tacoma, WA Goodwill Center', lat: 47.2529, lng: -122.4443 },
-        // { name: 'Yakima, WA Goodwill Center', lat: 46.6021, lng: -120.5059 },
-        // { name: 'Longview, WA Goodwill Center', lat: 46.1382, lng: -122.9382 },
+   const locations = [
+  // Alabama
+  {
+    name: '2350 Green Springs Hwy, Birmingham, AL 35205',
+    lat: 33.5212,
+    lng: -86.7957,
+    url: 'https://www.alabamagoodwill.org/employer-services'
+  },
+  {
+    name: '2310 Center Point Pkwy, Birmingham, AL 35215',
+    lat: 33.6510,
+    lng: -86.6760,
+    url: 'https://www.alabamagoodwill.org/employer-services'
+  },
+  {
+    name: '1140 Veterans Pkwy, Tuscaloosa, AL 35404',
+    lat: 33.2035,
+    lng: -87.5256,
+    url: 'https://www.alabamagoodwill.org/employer-services'
+  },
+  {
+    name: '7105 Hwy 72 W, Huntsville, AL 35806',
+    lat: 34.7054,
+    lng: -86.6603,
+    url: 'https://www.alabamagoodwill.org/employer-services'
+  },
+  {
+    name: '8920 Memorial Pkwy SW, Huntsville, AL 35802',
+    lat: 34.6678,
+    lng: -86.7323,
+    url: 'https://www.alabamagoodwill.org/employer-services'
+  },
+  {
+    name: '3605 US Highway 431N, Phenix City, AL 36867',
+    lat: 32.4869,
+    lng: -85.0112,
+    url: 'https://www.goodwillsr.org/certification-courses'
+  },
 
-                // Alabama
-        { name: '2350 Green Springs Hwy, Birmingham, AL 35205', lat: 33.5212, lng: -86.7957 },
-        { name: '2310 Center Point Pkwy, Birmingham, AL 35215', lat: 33.6510, lng: -86.6760 },
-        { name: '1140 Veterans Pkwy, Tuscaloosa, AL 35404', lat: 33.2035, lng: -87.5256 },
-        { name: '7105 Hwy 72 W, Huntsville, AL 35806', lat: 34.7054, lng: -86.6603 },
-        { name: '8920 Memorial Pkwy SW, Huntsville, AL 35802', lat: 34.6678, lng: -86.7323 },
-        { name: '3605 US Highway 431N, Phenix City, AL 36867', lat: 32.4869, lng: -85.0112 },
+  // Alaska
+  {
+    name: '610 C St, Suite 5B, Anchorage, AK 99501',
+    lat: 61.2175,
+    lng: -149.8584,
+    url: 'https://goodwill-alaska.org/vocational-services/'
+  },
+  {
+    name: '1818 W Northern Lights Blvd, Anchorage, AK 99517',
+    lat: 61.1925,
+    lng: -149.9013,
+    url: 'https://goodwill-alaska.org/vocational-services/'
+  },
+  {
+    name: '3838 Old Seward Hwy, Anchorage, AK 99503',
+    lat: 61.1690,
+    lng: -149.8894,
+    url: 'https://goodwill-alaska.org/vocational-services/'
+  },
+  {
+    name: '8931 Old Seward Hwy, Unit B, Anchorage, AK 99515',
+    lat: 61.1305,
+    lng: -149.8717,
+    url: 'https://goodwill-alaska.org/vocational-services/'
+  },
+  {
+    name: '1660 E. Financial Drive, Wasilla, AK 99654',
+    lat: 61.5816,
+    lng: -149.4394,
+    url: 'https://goodwill-alaska.org/vocational-services/'
+  },
 
-        // Alaska
-        { name: '610 C St, Suite 5B, Anchorage, AK 99501', lat: 61.2175, lng: -149.8584 },
-        { name: '1818 W Northern Lights Blvd, Anchorage, AK 99517', lat: 61.1925, lng: -149.9013 },
-        { name: '3838 Old Seward Hwy, Anchorage, AK 99503', lat: 61.1690, lng: -149.8894 },
-        { name: '8931 Old Seward Hwy, Unit B, Anchorage, AK 99515', lat: 61.1305, lng: -149.8717 },
-        { name: '1660 E. Financial Drive, Wasilla, AK 99654', lat: 61.5816, lng: -149.4394 },
+  // Arizona
+  {
+    name: '4005 N 16th St, Phoenix, AZ 85016',
+    lat: 33.5112,
+    lng: -112.0423,
+    url: 'https://www.goodwillaz.org/education-services/'
+  },
+  {
+    name: '2702 E Washington St, Phoenix, AZ 85034',
+    lat: 33.4538,
+    lng: -112.0086
+  },
+  {
+    name: '6750 W Peoria Ave, Peoria, AZ 85345',
+    lat: 33.5836,
+    lng: -112.2413,
+    url: 'https://www.goodwillaz.org/education-services/'
+  },
+  {
+    name: '4308 E Route 66, Flagstaff, AZ 86004',
+    lat: 35.1854,
+    lng: -111.6570,
+    url: 'https://www.goodwillaz.org/education-services/'
+  },
+  {
+    name: '2105 E Fry Blvd, Sierra Vista, AZ 85635',
+    lat: 31.5548,
+    lng: -110.2625,
+    url: 'https://goodwillsouthernaz.org/'
+  },
+  {
+    name: '1325 E Florence Blvd, Casa Grande, AZ 85122',
+    lat: 32.8831,
+    lng: -111.7275,
+    url: 'https://goodwillsouthernaz.org/programs-and-services/employee-development/'
+  },
+  {
+    name: '3725 E Fort Lowell Rd, Tucson, AZ 85716',
+    lat: 32.2553,
+    lng: -110.9003,
+    url: 'https://goodwillsouthernaz.org/programs-and-services/employee-development/'
+  },
+  {
+    name: '3925 N Flowing Wells Rd, Tucson, AZ 85705',
+    lat: 32.2937,
+    lng: -111.0121,
+    url: 'https://goodwillsouthernaz.org/programs-and-services/employee-development/'
+  },
+  {
+    name: '1703 W Valencia Rd, Tucson, AZ 85746',
+    lat: 32.1417,
+    lng: -111.0073,
+    url: 'https://goodwillsouthernaz.org/programs-and-services/employee-development/'
+  },
+  {
+    name: '7201 E 22nd St, Tucson, AZ 85710',
+    lat: 32.2168,
+    lng: -110.8735,
+    url: 'https://goodwillsouthernaz.org/programs-and-services/employee-development/'
+  },
 
-        // Arizona
-        { name: '4005 N 16th St, Phoenix, AZ 85016', lat: 33.5112, lng: -112.0423 },
-        { name: '2702 E Washington St, Phoenix, AZ 85034', lat: 33.4538, lng: -112.0086 },
-        { name: '6750 W Peoria Ave, Peoria, AZ 85345', lat: 33.5836, lng: -112.2413 },
-        { name: '4308 E Route 66, Flagstaff, AZ 86004', lat: 35.1854, lng: -111.6570 },
-        { name: '2105 E Fry Blvd, Sierra Vista, AZ 85635', lat: 31.5548, lng: -110.2625 },
-        { name: '1325 E Florence Blvd, Casa Grande, AZ 85122', lat: 32.8831, lng: -111.7275 },
-        { name: '3725 E Fort Lowell Rd, Tucson, AZ 85716', lat: 32.2553, lng: -110.9003 },
-        { name: '3925 N Flowing Wells Rd, Tucson, AZ 85705', lat: 32.2937, lng: -111.0121 },
-        { name: '1703 W Valencia Rd, Tucson, AZ 85746', lat: 32.1417, lng: -111.0073 },
-        { name: '7201 E 22nd St, Tucson, AZ 85710', lat: 32.2168, lng: -110.8735 },
-
-        // Arkansas
-  { name: '7400 Scott Hamilton Drive, Little Rock, AR 72209', lat: 34.6842, lng: -92.3654 },
-  { name: '2100 S. Old Missouri Road, Springdale, AR 72764', lat: 36.1694, lng: -94.1935 },
-  { name: '1301 N. Dixieland Road, Rogers, AR 72756', lat: 36.3478, lng: -94.1246 },
-  { name: '1515 S. Caraway Road, Jonesboro, AR 72401', lat: 35.8154, lng: -90.7056 },
-  { name: '4301 S. Dixieland Road, Rogers, AR 72758', lat: 36.3102, lng: -94.1489 },
-  { name: '245 Oak Street, Conway, AR 72032', lat: 35.0870, lng: -92.4423 },
-  { name: '2425 Sanders Road, Conway, AR 72032', lat: 35.0634, lng: -92.5021 },
-  { name: '3225 S. 74th Street, Fort Smith, AR 72903', lat: 35.3257, lng: -94.3902 },
-  { name: '3610 Towson Avenue #7, Fort Smith, AR 72901', lat: 35.3679, lng: -94.3981 },
-  { name: '705 E. Appleby Road, Fayetteville, AR 72703', lat: 36.0713, lng: -94.1328 },
-  { name: '3105 M.L.K. Jr Blvd, Fayetteville, AR 72704', lat: 36.0629, lng: -94.1574 },
+  // Arkansas
+  {
+    name: '7400 Scott Hamilton Drive, Little Rock, AR 72209',
+    lat: 34.6842,
+    lng: -92.3654,
+    url: 'https://www.goodwilltec.org/'
+  },
+  {
+    name: '2100 S. Old Missouri Road, Springdale, AR 72764',
+    lat: 36.1694,
+    lng: -94.1935,
+    url: 'https://www.goodwilltec.org/'
+  },
+  {
+    name: '1301 N. Dixieland Road, Rogers, AR 72756',
+    lat: 36.3478,
+    lng: -94.1246,
+    url: 'https://www.goodwilltec.org/'
+  },
+  {
+    name: '1515 S. Caraway Road, Jonesboro, AR 72401',
+    lat: 35.8154,
+    lng: -90.7056,
+    url: 'https://www.goodwilltec.org/'
+  },
+  {
+    name: '4301 S. Dixieland Road, Rogers, AR 72758',
+    lat: 36.3102,
+    lng: -94.1489,
+    url: 'https://www.rogerslowell.com/pages/education/'
+  },
+  {
+    name: '245 Oak Street, Conway, AR 72032',
+    lat: 35.0870,
+    lng: -92.4423,
+    url: 'https://www.goodwilltec.org/'
+  },
+  {
+    name: '2425 Sanders Road, Conway, AR 72032',
+    lat: 35.0634,
+    lng: -92.5021,
+    url: 'https://www.workforcear.com/educational-training-opportunities'
+  },
+  {
+    name: '3225 S. 74th Street, Fort Smith, AR 72903',
+    lat: 35.3257,
+    lng: -94.3902,
+    url: 'https://www.goodwilltec.org/'
+  },
+  {
+    name: '3610 Towson Avenue #7, Fort Smith, AR 72901',
+    lat: 35.3679,
+    lng: -94.3981
+  },
+  {
+    name: '705 E. Appleby Road, Fayetteville, AR 72703',
+    lat: 36.0713,
+    lng: -94.1328,
+    url: 'https://www.goodwilltec.org/'
+  },
+  {
+    name: '3105 M.L.K. Jr Blvd, Fayetteville, AR 72704',
+    lat: 36.0629,
+    lng: -94.1574,
+    url: 'https://www.goodwilltec.org/'
+  },
 
   // California
-  { name: '3150 N. San Fernando Road, Los Angeles, CA 90065', lat: 34.1095, lng: -118.2335 },
-  { name: '200 N. Fairview Street, Santa Ana, CA 92703', lat: 33.7528, lng: -117.8815 },
-  { name: '800 W. Pacific Coast Hwy., Long Beach, CA 90806', lat: 33.7971, lng: -118.2013 },
-  { name: '21827 S. Avalon Blvd, Carson, CA 90745', lat: 33.8264, lng: -118.2673 },
-  { name: '750 Post Street, San Francisco, CA 94109', lat: 37.7874, lng: -122.4149 },
-  { name: '1301 30th Ave, Oakland, CA 94601', lat: 37.7805, lng: -122.2318 },
-  { name: '301 Georgia Street, Vallejo, CA 94590', lat: 38.1041, lng: -122.2567 },
-  { name: '2211 N Texas Street, Fairfield, CA 94533', lat: 38.2732, lng: -122.0438 },
-  { name: '3517 Clayton Road, Concord, CA 94519', lat: 37.9775, lng: -122.0312 },
-  { name: '1309 E Monte Vista Ave, Vacaville, CA 95688', lat: 38.3563, lng: -121.9717 },
+  {
+    name: '3150 N. San Fernando Road, Los Angeles, CA 90065',
+    lat: 34.1095,
+    lng: -118.2335,
+    url: 'https://us251.dayforcehcm.com/CandidatePortal/en-US/goodwillsocal/Site/WEXSITE/Posting'
+  },
+  {
+    name: '200 N. Fairview Street, Santa Ana, CA 92703',
+    lat: 33.7528,
+    lng: -117.8815,
+    url: 'https://www.ocgoodwill.org/workforce-development/'
+  },
+  {
+    name: '800 W. Pacific Coast Hwy., Long Beach, CA 90806',
+    lat: 33.7971,
+    lng: -118.2013,
+    url: 'https://thinkgood.org/training-programs/'
+  },
+  {
+    name: '21827 S. Avalon Blvd, Carson, CA 90745',
+    lat: 33.8264,
+    lng: -118.2673,
+    url: 'https://thinkgood.org/training-programs/'
+  },
+  {
+    name: '750 Post Street, San Francisco, CA 94109',
+    lat: 37.7874,
+    lng: -122.4149,
+    url: 'https://sfgoodwill.org/programs/entry-level-job-training/'
+  },
+  {
+    name: '1301 30th Ave, Oakland, CA 94601',
+    lat: 37.7805,
+    lng: -122.2318,
+    url: 'https://sfgoodwill.org/programs/career-services/'
+  },
+  {
+    name: '301 Georgia Street, Vallejo, CA 94590',
+    lat: 38.1041,
+    lng: -122.2567,
+    url: 'https://sfgoodwill.org/programs/career-services/'
+  },
+  {
+    name: '2211 N Texas Street, Fairfield, CA 94533',
+    lat: 38.2732,
+    lng: -122.0438,
+    url: 'https://sfgoodwill.org/programs/career-services/'
+  },
+  {
+    name: '3517 Clayton Road, Concord, CA 94519',
+    lat: 37.9775,
+    lng: -122.0312,
+    url: 'https://sfgoodwill.org/programs/career-services/'
+  },
+  {
+    name: '1309 E Monte Vista Ave, Vacaville, CA 95688',
+    lat: 38.3563,
+    lng: -121.9717,
+    url: 'https://sfgoodwill.org/programs/career-services/'
+  },
 
   // Colorado
-  { name: '6850 Federal Blvd, Denver, CO 80221', lat: 39.8143, lng: -105.0259 },
-  { name: '1460 Garden of the Gods Road, Colorado Springs, CO 80907', lat: 38.8789, lng: -104.8555 },
-  { name: '3043 Walnut St, Boulder, CO 80301', lat: 40.0187, lng: -105.2753 },
-  { name: '6725 Camden Blvd, Fountain, CO 80817', lat: 38.6974, lng: -104.7009 },
+  {
+    name: '6850 Federal Blvd, Denver, CO 80221',
+    lat: 39.8143,
+    lng: -105.0259
+  },
+  {
+    name: '1460 Garden of the Gods Road, Colorado Springs, CO 80907',
+    lat: 38.8789,
+    lng: -104.8555,
+    url: 'https://goodwillcolorado.org/goodwill-jobs/career-development-services/'
+  },
+  {
+    name: '3043 Walnut St, Boulder, CO 80301',
+    lat: 40.0187,
+    lng: -105.2753
+  },
+  {
+    name: '6725 Camden Blvd, Fountain, CO 80817',
+    lat: 38.6974,
+    lng: -104.7009,
+    url: 'https://goodwillcolorado.org/services/it-training/'
+  },
 
   // Connecticut
-  { name: '315 New Park Avenue, Hartford, CT 06106', lat: 41.7533, lng: -72.7231 },
-  { name: '61 Amity Road, New Haven, CT 06515', lat: 41.3382, lng: -72.9213 },
-  { name: '201 Salem Turnpike, Norwich, CT 06360', lat: 41.5495, lng: -72.0882 },
+  {
+    name: '315 New Park Avenue, Hartford, CT 06106',
+    lat: 41.7533,
+    lng: -72.7231,
+    url: 'https://www.gwct.org/career-coaching/services'
+  },
+  {
+    name: '61 Amity Road, New Haven, CT 06515',
+    lat: 41.3382,
+    lng: -72.9213,
+    url: 'https://www.goodwillsne.org/job-training/'
+  },
+  {
+    name: '201 Salem Turnpike, Norwich, CT 06360',
+    lat: 41.5495,
+    lng: -72.0882,
+    url: 'https://www.goodwillsne.org/job-training/'
+  },
 
   // Delaware
-  { name: '300 E. Lea Blvd, Wilmington, DE 19802', lat: 39.7362, lng: -75.5683 },
-  { name: '1678 South Governors Avenue, Dover, DE 19904', lat: 39.1476, lng: -75.5194 },
-  { name: '18178 Sussex Hwy, Bridgeville, DE 19933', lat: 38.7423, lng: -75.6043 },
+  {
+    name: '300 E. Lea Blvd, Wilmington, DE 19802',
+    lat: 39.7362,
+    lng: -75.5683,
+    url: 'https://www.goodwillde.org/careers-at-goodwill/'
+  },
+  {
+    name: '1678 South Governors Avenue, Dover, DE 19904',
+    lat: 39.1476,
+    lng: -75.5194,
+    url: 'https://www.goodwillde.org/careers-at-goodwill/'
+  },
+  {
+    name: '18178 Sussex Hwy, Bridgeville, DE 19933',
+    lat: 38.7423,
+    lng: -75.6043,
+    url: 'https://www.goodwillde.org/workforce-development/'
+  },
 
   // Florida
-  { name: '1478 Florida Avenue, Jacksonville, FL 32206', lat: 30.3480, lng: -81.6580 },
-  { name: '1036 Beach Boulevard, Jacksonville Beach, FL 32250', lat: 30.2773, lng: -81.4059 },
-  { name: '5953 St. Augustine Road, Jacksonville, FL 32207', lat: 30.2972, lng: -81.6495 },
-  { name: '5150 Timuquana Road, Jacksonville, FL 32210', lat: 30.2630, lng: -81.7575 },
-  { name: '3520 SW 34th Street, Gainesville, FL 32608', lat: 29.6382, lng: -82.3936 },
-  { name: '103 State Road 19, Palatka, FL 32177', lat: 29.6488, lng: -81.6427 },
-  { name: '3200 W. Colonial Dr., Orlando, FL 32808', lat: 28.5524, lng: -81.4030 },
-  { name: '1312 E. Semoran Blvd., Apopka, FL 32703', lat: 28.6805, lng: -81.4796 },
-  { name: '7531 S. Orange Blossom Tr., Orlando, FL 32809', lat: 28.4541, lng: -81.3897 },
-  { name: '1356 E. Vine St., Kissimmee, FL 34744', lat: 28.3056, lng: -81.4072 },
-  { name: '4516 W. State Rd. 46, Sanford, FL 32771', lat: 28.7897, lng: -81.3080 },
-  { name: '2245 Coastal Lane, W. Melbourne, FL 32904', lat: 28.0695, lng: -80.6723 },
-  { name: '112 N. Nova Rd., Daytona Beach, FL 32114', lat: 29.2108, lng: -81.0374 },
-  { name: '1600 N. Woodland Ave., DeLand, FL 32720', lat: 29.0419, lng: -81.3256 },
-  { name: '10600 US Hwy. 41, Leesburg, FL 34788', lat: 28.7984, lng: -81.8691 },
-  { name: '1855 S. Grand Hwy., Clermont, FL 34711', lat: 28.5208, lng: -81.7329 },
-  { name: '2121 NW 21st Street, Miami, FL 33142', lat: 25.7984, lng: -80.2125 },
-  { name: '2104 W. Commercial Blvd., Ft. Lauderdale, FL 33309', lat: 26.1895, lng: -80.1523 },
-  { name: '461 Palm Ave., Hialeah, FL 33010', lat: 25.8337, lng: -80.2801 },
-  { name: '5100 Tice Street, Fort Myers, FL 33905', lat: 26.6715, lng: -81.8076 },
-  { name: '1499 SW Pine Island Rd., Cape Coral, FL 33991', lat: 26.6029, lng: -81.9555 },
-  { name: '25987 S. Tamiami Trail, Bonita Springs, FL 34134', lat: 26.3392, lng: -81.7934 },
-  { name: '15205 Collier Blvd. Ste 105, Naples, FL 34119', lat: 26.2164, lng: -81.7001 },
-  { name: '300 Mabry Street, Tallahassee, FL 32304', lat: 30.4502, lng: -84.2851 },
-  { name: '143 N John Sims Pkwy, Valparaiso, FL 32580', lat: 30.5091, lng: -86.4977 },
-  { name: '3207 East 4th Street, Panama City, FL 32401', lat: 30.1605, lng: -85.6323 },
+  {
+    name: '1478 Florida Avenue, Jacksonville, FL 32206',
+    lat: 30.3480,
+    lng: -81.6580
+  },
+  {
+    name: '1036 Beach Boulevard, Jacksonville Beach, FL 32250',
+    lat: 30.2773,
+    lng: -81.4059,
+    url: 'https://goodwillnorthfl.org/a-step-program-for-working-adults/'
+  },
+  {
+    name: '5953 St. Augustine Road, Jacksonville, FL 32207',
+    lat: 30.2972,
+    lng: -81.6495,
+    url: 'https://goodwillnorthfl.org/a-step-program-for-working-adults/'
+  },
+  {
+    name: '5150 Timuquana Road, Jacksonville, FL 32210',
+    lat: 30.2630,
+    lng: -81.7575,
+    url: 'https://goodwillnorthfl.org/a-step-program-for-working-adults/'
+  },
+  {
+    name: '3520 SW 34th Street, Gainesville, FL 32608',
+    lat: 29.6382,
+    lng: -82.3936,
+    url: 'https://goodwillnorthfl.org/a-step-program-for-working-adults/'
+  },
+  {
+    name: '103 State Road 19, Palatka, FL 32177',
+    lat: 29.6488,
+    lng: -81.6427,
+    url: 'https://goodwillnorthfl.org/a-step-program-for-working-adults/'
+  },
+  {
+    name: '3200 W. Colonial Dr., Orlando, FL 32808',
+    lat: 28.5524,
+    lng: -81.4030,
+    url: 'https://www.goodwillcfl.org/services/employment-training/'
+  },
+  {
+    name: '1312 E. Semoran Blvd., Apopka, FL 32703',
+    lat: 28.6805,
+    lng: -81.4796,
+    url: 'https://www.goodwillcfl.org/services/employment-training/'
+  },
+  {
+    name: '7531 S. Orange Blossom Tr., Orlando, FL 32809',
+    lat: 28.4541,
+    lng: -81.3897,
+    url: 'https://www.goodwillcfl.org/services/employment-training/'
+  },
+  {
+    name: '1356 E. Vine St., Kissimmee, FL 34744',
+    lat: 28.3056,
+    lng: -81.4072,
+    url: 'https://www.goodwillcfl.org/services/employment-training/'
+  },
+  {
+    name: '4516 W. State Rd. 46, Sanford, FL 32771',
+    lat: 28.7897,
+    lng: -81.3080,
+    url: 'https://www.goodwillcfl.org/services/employment-training/'
+  },
+  {
+    name: '2245 Coastal Lane, W. Melbourne, FL 32904',
+    lat: 28.0695,
+    lng: -80.6723,
+    url: 'https://www.goodwillcfl.org/services/employment-training/'
+  },
+  {
+    name: '112 N. Nova Rd., Daytona Beach, FL 32114',
+    lat: 29.2108,
+    lng: -81.0374
+  },
+  {
+    name: '1600 N. Woodland Ave., DeLand, FL 32720',
+    lat: 29.0419,
+    lng: -81.3256,
+    url: 'https://www.goodwillcfl.org/services/employment-training/'
+  },
+  {
+    name: '10600 US Hwy. 41, Leesburg, FL 34788',
+    lat: 28.7984,
+    lng: -81.8691,
+    url: 'https://www.goodwillcfl.org/services/employment-training/'
+  },
+  {
+    name: '1855 S. Grand Hwy., Clermont, FL 34711',
+    lat: 28.5208,
+    lng: -81.7329,
+    url: 'https://www.goodwillcfl.org/services/employment-training/'
+  },
+  {
+    name: '2121 NW 21st Street, Miami, FL 33142',
+    lat: 25.7984,
+    lng: -80.2125,
+    url: 'https://goodwillsouthflorida.org/jobs-services/'
+  },
+  {
+    name: '2104 W. Commercial Blvd., Ft. Lauderdale, FL 33309',
+    lat: 26.1895,
+    lng: -80.1523,
+    url: 'https://goodwillsouthflorida.org/jobs-services/'
+  },
+  {
+    name: '461 Palm Ave., Hialeah, FL 33010',
+    lat: 25.8337,
+    lng: -80.2801,
+    url: 'https://goodwillsouthflorida.org/jobs-services/'
+  },
+  {
+    name: '5100 Tice Street, Fort Myers, FL 33905',
+    lat: 26.6715,
+    lng: -81.8076,
+    url: 'https://goodwillswfl.org/digital-training-certifications'
+  },
+  {
+    name: '1499 SW Pine Island Rd., Cape Coral, FL 33991',
+    lat: 26.6029,
+    lng: -81.9555,
+    url: 'http://goodwillswfl.org/digital-training-certifications'
+  },
+  {
+    name: '25987 S. Tamiami Trail, Bonita Springs, FL 34134',
+    lat: 26.3392,
+    lng: -81.7934,
+    url: 'http://goodwillswfl.org/digital-training-certifications'
+  },
+  {
+    name: '15205 Collier Blvd. Ste 105, Naples, FL 34119',
+    lat: 26.2164,
+    lng: -81.7001,
+    url: 'http://goodwillswfl.org/digital-training-certifications'
+  },
+  {
+    name: '300 Mabry Street, Tallahassee, FL 32304',
+    lat: 30.4502,
+    lng: -84.2851,
+    url: 'https://www.goodwillbigbend.org/training/'
+  },
+  {
+    name: '143 N John Sims Pkwy, Valparaiso, FL 32580',
+    lat: 30.5091,
+    lng: -86.4977,
+    url: 'https://www.goodwillbigbend.org/training/'
+  },
+  {
+    name: '3207 East 4th Street, Panama City, FL 32401',
+    lat: 30.1605,
+    lng: -85.6323,
+    url: 'https://www.goodwillbigbend.org/training/'
+  },
 
   // Georgia
-  { name: '2201 Lawrenceville Hwy, Decatur, GA 30033', lat: 33.7861, lng: -84.2831 },
-  { name: '929 Joe Frank Harris Parkway SE, Cartersville, GA 30120', lat: 34.1779, lng: -84.7992 },
-  { name: '240 Broadway, Macon, GA 31201', lat: 32.8364, lng: -83.6300 },
-  { name: '306 Russell Parkway, Warner Robins, GA 31088', lat: 32.6200, lng: -83.6407 },
-  { name: '3179 Washington Road, Augusta, GA 30907', lat: 33.5357, lng: -82.0462 },
+  {
+    name: '2201 Lawrenceville Hwy, Decatur, GA 30033',
+    lat: 33.7861,
+    lng: -84.2831,
+    url: 'https://goodwillng.org/putting-people-to-work/get-job-training/'
+  },
+  {
+    name: '929 Joe Frank Harris Parkway SE, Cartersville, GA 30120',
+    lat: 34.1779,
+    lng: -84.7992,
+    url: 'https://goodwillng.org/putting-people-to-work/get-job-training/'
+  },
+  {
+    name: '240 Broadway, Macon, GA 31201',
+    lat: 32.8364,
+    lng: -83.6300,
+    url: 'https://www.goodwillworks.org/careers-and-education/education/'
+  },
+  {
+    name: '306 Russell Parkway, Warner Robins, GA 31088',
+    lat: 32.6200,
+    lng: -83.6407,
+    url: 'https://www.goodwillworks.org/careers-and-education/education/'
+  },
+  {
+    name: '3179 Washington Road, Augusta, GA 30907',
+    lat: 33.5357,
+    lng: -82.0462,
+    url: 'https://www.goodwillworks.org/careers-and-education/education/'
+  },
 
   // Hawaii
-  { name: '571 Quinn Lane, Unit 1, Honolulu, HI 96813', lat: 21.3157, lng: -157.8695 },
-  { name: '1075 S. Beretania Street, Honolulu, HI 96814', lat: 21.2989, lng: -157.8575 },
-  { name: '1085 S. Beretania Street, Suite 204, Honolulu, HI 96814', lat: 21.2987, lng: -157.8570 },
-  { name: '2140 Lauwiliwili Street, Kapolei, HI 96707', lat: 21.3356, lng: -158.0792 },
-  { name: '200 Kanoelehua Avenue, Suite 102, Hilo, HI 96720', lat: 19.7041, lng: -155.0819 },
-  { name: '17 Makaʻala Street, Hilo, HI 96720', lat: 19.7030, lng: -155.0798 },
-  { name: '74-5599 Luhia Street, Suite F-4, Kailua-Kona, HI 96740', lat: 19.6400, lng: -155.9944 },
-  { name: '250 Alamaha Street, Suite N16, Kahului, HI 96732', lat: 20.8885, lng: -156.4644 },
-  { name: '4334 Rice Street, Suite 205, Līhuʻe, HI 96766', lat: 21.9734, lng: -159.3655 },
+  {
+    name: '571 Quinn Lane, Unit 1, Honolulu, HI 96813',
+    lat: 21.3157,
+    lng: -157.8695,
+    url: 'https://www.goodwillhawaii.org/goodwill-programs/employment-services/'
+  },
+  {
+    name: '1075 S. Beretania Street, Honolulu, HI 96814',
+    lat: 21.2989,
+    lng: -157.8575,
+    url: 'https://www.goodwillhawaii.org/goodwill-programs/employment-services/'
+  },
+  {
+    name: '1085 S. Beretania Street, Suite 204, Honolulu, HI 96814',
+    lat: 21.2987,
+    lng: -157.8570,
+    url: 'https://www.goodwillhawaii.org/goodwill-programs/employment-services/'
+  },
+  {
+    name: '2140 Lauwiliwili Street, Kapolei, HI 96707',
+    lat: 21.3356,
+    lng: -158.0792,
+    url: 'https://www.goodwillhawaii.org/goodwill-programs/employment-services/'
+  },
+  {
+    name: '200 Kanoelehua Avenue, Suite 102, Hilo, HI 96720',
+    lat: 19.7041,
+    lng: -155.0819,
+    url: 'https://www.goodwillhawaii.org/goodwill-programs/employment-services/'
+  },
+  {
+    name: '17 Makaʻala Street, Hilo, HI 96720',
+    lat: 19.7030,
+    lng: -155.0798,
+    url: 'https://www.goodwillhawaii.org/goodwill-programs/employment-services/'
+  },
+  {
+    name: '74-5599 Luhia Street, Suite F-4, Kailua-Kona, HI 96740',
+    lat: 19.6400,
+    lng: -155.9944,
+    url: 'https://www.goodwillhawaii.org/goodwill-programs/employment-services/'
+  },
+  {
+    name: '250 Alamaha Street, Suite N16, Kahului, HI 96732',
+    lat: 20.8885,
+    lng: -156.4644,
+    url: 'https://www.goodwillhawaii.org/goodwill-programs/employment-services/'
+  },
+  {
+    name: '4334 Rice Street, Suite 205, Līhuʻe, HI 96766',
+    lat: 21.9734,
+    lng: -159.3655,
+    url: 'https://www.goodwillhawaii.org/goodwill-programs/employment-services/'
+  },
 
-   // Idaho
-  { name: '1465 S Vinnell Way, Boise, ID 83709', lat: 43.5772, lng: -116.2955 },
-  { name: '1212 N. 4th Street, Coeur d\'Alene, ID 83814', lat: 47.7012, lng: -116.7933 },
-  { name: '204 Larkspur Street, Ponderay, ID 83852', lat: 48.3065, lng: -116.5336 },
-  { name: '201 Warbonnet Drive, Moscow, ID 83843', lat: 46.7324, lng: -117.0000 },
+  // Idaho
+  {
+    name: '1465 S Vinnell Way, Boise, ID 83709',
+    lat: 43.5772,
+    lng: -116.2955,
+    url: 'https://www.goodwill.org/job-seekers/career-resources/'
+  },
+  {
+    name: '1212 N. 4th Street, Coeur d\'Alene, ID 83814',
+    lat: 47.7012,
+    lng: -116.7933
+  },
+  {
+    name: '204 Larkspur Street, Ponderay, ID 83852',
+    lat: 48.3065,
+    lng: -116.5336,
+    url: 'https://discovergoodwill.org/work-assessment-and-training-programs/'
+  },
+  {
+    name: '201 Warbonnet Drive, Moscow, ID 83843',
+    lat: 46.7324,
+    lng: -117.0000
+  },
 
   // Illinois
-  { name: '303 N Main St, Rockford, IL 61101', lat: 42.2711, lng: -89.0936 },
-  { name: '307 W Main St, Freeport, IL 61032', lat: 42.2973, lng: -89.6230 },
-  { name: '600 S State St, 2nd Floor, Belvidere, IL 61008', lat: 42.2562, lng: -88.8443 },
-  { name: '850 N Church St, Rockford, IL 61103', lat: 42.2833, lng: -89.0640 },
-  { name: '10405 Center Way Dr, Peoria, IL 61615', lat: 40.7469, lng: -89.6186 },
-  { name: 'Pekin, IL 61554', lat: 40.5675, lng: -89.6406 },
-  { name: 'Galesburg, IL 61401', lat: 40.9478, lng: -90.3711 },
-  { name: '2524 State St, Alton, IL 62002', lat: 38.9057, lng: -90.1657 },
-  { name: '5720 North Belt West, Suite 44, Belleville, IL 62226', lat: 38.5395, lng: -89.9846 },
-  { name: '6054 S Western Ave, Chicago, IL 60636', lat: 41.7829, lng: -87.6855 },
-  { name: '8600 W Bryn Mawr Ave, Suite 150N, Chicago, IL 60631', lat: 41.9753, lng: -87.8367 },
-  { name: '1790 Nations Dr, Suite 112, Gurnee, IL 60031', lat: 42.3704, lng: -87.9389 },
-  { name: '109 N Main St, Canton, IL 61520', lat: 40.5583, lng: -90.0353 },
-  { name: '607 S 4th St Suite A, Chillicothe, IL 61523', lat: 40.9183, lng: -89.4934 },
+  {
+    name: '303 N Main St, Rockford, IL 61101',
+    lat: 42.2711,
+    lng: -89.0936,
+    url: 'https://goodwillni.org/training/mission-services/'
+  },
+  {
+    name: '307 W Main St, Freeport, IL 61032',
+    lat: 42.2973,
+    lng: -89.6230,
+    url: 'https://goodwillni.org/training/mission-services/'
+  },
+  {
+    name: '600 S State St, 2nd Floor, Belvidere, IL 61008',
+    lat: 42.2562,
+    lng: -88.8443,
+    url: 'https://goodwillni.org/training/mission-services/'
+  },
+  {
+    name: '850 N Church St, Rockford, IL 61103',
+    lat: 42.2833,
+    lng: -89.0640,
+    url: 'https://goodwillni.org/training/mission-services/'
+  },
+  {
+    name: '10405 Center Way Dr, Peoria, IL 61615',
+    lat: 40.7469,
+    lng: -89.6186,
+    url: 'https://www.goodwillpeo.org/services/elearning/'
+  },
+  {
+    name: 'Pekin, IL 61554',
+    lat: 40.5675,
+    lng: -89.6406,
+    url: 'https://www.goodwillpeo.org/careers/'
+  },
+  {
+    name: 'Galesburg, IL 61401',
+    lat: 40.9478,
+    lng: -90.3711,
+    url: 'https://www.goodwillpeo.org/careers/'
+  },
+  {
+    name: '2524 State St, Alton, IL 62002',
+    lat: 38.9057,
+    lng: -90.1657,
+    url: 'https://mersgoodwill.org/programs-services/'
+  },
+  {
+    name: '5720 North Belt West, Suite 44, Belleville, IL 62226',
+    lat: 38.5395,
+    lng: -89.9846,
+    url: 'https://mersgoodwill.org/programs-services/'
+  },
+  {
+    name: '6054 S Western Ave, Chicago, IL 60636',
+    lat: 41.7829,
+    lng: -87.6855,
+    url: 'https://www.goodwillgreatermc.org/job-training-and-placement/overview'
+  },
+  {
+    name: '8600 W Bryn Mawr Ave, Suite 150N, Chicago, IL 60631',
+    lat: 41.9753,
+    lng: -87.8367,
+    url: 'https://www.goodwilltalentbridge.com/service-for-employers'
+  },
+  {
+    name: '1790 Nations Dr, Suite 112, Gurnee, IL 60031',
+    lat: 42.3704,
+    lng: -87.9389,
+    url: 'https://www.goodwillgreatermc.org/job-training-and-placement/job-training-and-success-programs'
+  },
+  {
+    name: '109 N Main St, Canton, IL 61520',
+    lat: 40.5583,
+    lng: -90.0353,
+    url: 'https://www.goodwillpeo.org/careers/'
+  },
+  {
+    name: '607 S 4th St Suite A, Chillicothe, IL 61523',
+    lat: 40.9183,
+    lng: -89.4934,
+    url: 'https://www.goodwillpeo.org/careers/'
+  },
 
   // Indiana
-  { name: '2701 Enterprise Dr, Anderson, IN 46013', lat: 40.0711, lng: -85.6788 },
-  { name: '2088 Liberty Dr, Bloomington, IN 47403', lat: 39.1653, lng: -86.5670 },
-  { name: '1329 Applegate Ln, Clarksville, IN 47129', lat: 38.3050, lng: -85.7644 },
-  { name: '940 N Marr Rd, Columbus, IN 47201', lat: 39.2225, lng: -85.9094 },
-  { name: '5001 Washington Ave, Evansville, IN 47715', lat: 37.9747, lng: -87.4644 },
-  { name: '1635 W Michigan St, Indianapolis, IN 46222', lat: 39.7725, lng: -86.1912 },
-  { name: '3919 Meadows Dr, Indianapolis, IN 46205', lat: 39.8180, lng: -86.1300 },
-  { name: '5106 S High School Rd, Suite C, Indianapolis, IN 46221', lat: 39.7018, lng: -86.2076 },
-  { name: '1412 S Western Ave, Marion, IN 46953', lat: 40.5353, lng: -85.6668 },
-  { name: '2525 N Harrison St, Shelbyville, IN 46176', lat: 39.5359, lng: -85.7755 },
-  { name: '2800 Poplar St, Terre Haute, IN 47803', lat: 39.4703, lng: -87.3892 },
-  { name: '1805 W Western Ave, South Bend, IN 46619', lat: 41.6727, lng: -86.2712 },
-  { name: '3420 Grape Rd, Mishawaka, IN 46545', lat: 41.6779, lng: -86.1731 },
-  { name: '3808 E Mishawaka Rd, Elkhart, IN 46517', lat: 41.6614, lng: -85.9372 },
-  { name: '751 Anchorage Point Dr, Warsaw, IN 46580', lat: 41.2362, lng: -85.8484 },
-  { name: '1601 W 45th Ave, Griffith, IN 46319', lat: 41.5302, lng: -87.4285 },
+  {
+    name: '2701 Enterprise Dr, Anderson, IN 46013',
+    lat: 40.0711,
+    lng: -85.6788,
+    url: 'https://excelcenter.org/academics/'
+  },
+  {
+    name: '2088 Liberty Dr, Bloomington, IN 47403',
+    lat: 39.1653,
+    lng: -86.5670,
+    url: 'https://gici.wd5.myworkdayjobs.com/Careers?q=Commercial+Services'
+  },
+  {
+    name: '1329 Applegate Ln, Clarksville, IN 47129',
+    lat: 38.3050,
+    lng: -85.7644,
+    url: 'https://excelcenter.org/academics/'
+  },
+  {
+    name: '940 N Marr Rd, Columbus, IN 47201',
+    lat: 39.2225,
+    lng: -85.9094,
+    url: 'https://excelcenter.org/academics/'
+  },
+  {
+    name: '5001 Washington Ave, Evansville, IN 47715',
+    lat: 37.9747,
+    lng: -87.4644,
+    url: 'https://excelcenter.org/academics/'
+  },
+  {
+    name: '1635 W Michigan St, Indianapolis, IN 46222',
+    lat: 39.7725,
+    lng: -86.1912,
+    url: 'https://www.goodwillindy.org/education/'
+  },
+  {
+    name: '3919 Meadows Dr, Indianapolis, IN 46205',
+    lat: 39.8180,
+    lng: -86.1300,
+    url: 'https://excelcenter.org/academics/'
+  },
+  {
+    name: '5106 S High School Rd, Suite C, Indianapolis, IN 46221',
+    lat: 39.7018,
+    lng: -86.2076,
+    url: 'https://excelcenter.org/academics/'
+  },
+  {
+    name: '1412 S Western Ave, Marion, IN 46953',
+    lat: 40.5353,
+    lng: -85.6668,
+    url: 'https://excelcenter.org/academics/'
+  },
+  {
+    name: '2525 N Harrison St, Shelbyville, IN 46176',
+    lat: 39.5359,
+    lng: -85.7755,
+    url: 'https://excelcenter.org/academics/'
+  },
+  {
+    name: '2800 Poplar St, Terre Haute, IN 47803',
+    lat: 39.4703,
+    lng: -87.3892,
+    url: 'https://excelcenter.org/academics/'
+  },
+  {
+    name: '1805 W Western Ave, South Bend, IN 46619',
+    lat: 41.6727,
+    lng: -86.2712,
+    url: 'https://goodwill-ni.org/goodwill-academy/'
+  },
+  {
+    name: '3420 Grape Rd, Mishawaka, IN 46545',
+    lat: 41.6779,
+    lng: -86.1731,
+    url: 'https://goodwill-ni.org/goodwill-academy/'
+  },
+  {
+    name: '3808 E Mishawaka Rd, Elkhart, IN 46517',
+    lat: 41.6614,
+    lng: -85.9372,
+    url: 'https://goodwill-ni.org/goodwill-academy/'
+  },
+  {
+    name: '751 Anchorage Point Dr, Warsaw, IN 46580',
+    lat: 41.2362,
+    lng: -85.8484,
+    url: 'https://goodwill-ni.org/goodwill-academy/'
+  },
+  {
+    name: '1601 W 45th Ave, Griffith, IN 46319',
+    lat: 41.5302,
+    lng: -87.4285,
+    url: 'https://goodwill-ni.org/goodwill-academy/'
+  },
 
   // Iowa
-  { name: '165 West Agency Road, West Burlington, IA 52655', lat: 40.8253, lng: -91.1763 },
-  { name: '2001 Cedar Street, Muscatine, IA 52761', lat: 41.4247, lng: -91.0432 },
-  { name: '5520 Council Street NE, Cedar Rapids, IA 52402', lat: 42.0241, lng: -91.6503 },
-  { name: '1228 E. 59th Street, Davenport, IA 52807', lat: 41.5632, lng: -90.5621 },
-  { name: '8200 6th Street SW, Cedar Rapids, IA 52404', lat: 41.9667, lng: -91.7056 },
-  { name: '4805 Elmore Avenue, Davenport, IA 52807', lat: 41.5621, lng: -90.5623 },
-  { name: '201 E Main Street, Ottumwa, IA 52501', lat: 41.0206, lng: -92.4110 },
+  {
+    name: '165 West Agency Road, West Burlington, IA 52655',
+    lat: 40.8253,
+    lng: -91.1763,
+    url: 'https://www.goodwillheartland.org/work/'
+  },
+  {
+    name: '2001 Cedar Street, Muscatine, IA 52761',
+    lat: 41.4247,
+    lng: -91.0432,
+    url: 'https://www.goodwillheartland.org/work/'
+  },
+  {
+    name: '5520 Council Street NE, Cedar Rapids, IA 52402',
+    lat: 42.0241,
+    lng: -91.6503,
+    url: 'https://www.goodwillheartland.org/work/'
+  },
+  {
+    name: '1228 E. 59th Street, Davenport, IA 52807',
+    lat: 41.5632,
+    lng: -90.5621,
+    url: 'https://www.goodwillheartland.org/work/'
+  },
+  {
+    name: '8200 6th Street SW, Cedar Rapids, IA 52404',
+    lat: 41.9667,
+    lng: -91.7056,
+    url: 'https://www.goodwillheartland.org/work/'
+  },
+  {
+    name: '4805 Elmore Avenue, Davenport, IA 52807',
+    lat: 41.5621,
+    lng: -90.5623,
+    url: 'https://www.goodwillheartland.org/work/'
+  },
+  {
+    name: '201 E Main Street, Ottumwa, IA 52501',
+    lat: 41.0206,
+    lng: -92.4110,
+    url: 'https://workforce.iowa.gov/vr/career-planning-other-services'
+  },
 
   // Kansas
-  { name: '3351 N Webb Rd, Wichita, KS 67226', lat: 37.7225, lng: -97.3377 },
-  { name: '2700 N Woodland, Ste. D, Wichita, KS 67204', lat: 37.7578, lng: -97.2631 },
-  { name: '110 S Main St #105, Wichita, KS 67202', lat: 37.6872, lng: -97.3301 },
+  {
+    name: '3351 N Webb Rd, Wichita, KS 67226',
+    lat: 37.7225,
+    lng: -97.3377,
+    url: 'https://goodwillks.org/adult-education/'
+  },
+  {
+    name: '2700 N Woodland, Ste. D, Wichita, KS 67204',
+    lat: 37.7578,
+    lng: -97.2631,
+    url: 'https://goodwillks.org/adult-education/'
+  },
+  {
+    name: '110 S Main St #105, Wichita, KS 67202',
+    lat: 37.6872,
+    lng: -97.3301,
+    url: 'https://goodwillks.org/adult-education/'
+  },
 
   // Kentucky
-  { name: '37 South Park Center Drive, Suite 11 and 12, Corbin, KY 40701', lat: 36.9398, lng: -84.0967 },
-  { name: '243 West Dixie Avenue, Elizabethtown, KY 42701', lat: 37.6939, lng: -85.8602 },
-  { name: '1806 US 31W Bypass, Bowling Green, KY 42101', lat: 36.9685, lng: -86.4808 },
-  { name: '130 West New Circle Road, Suite 110, Lexington, KY 40505', lat: 38.0569, lng: -84.4916 },
-  { name: '909 East Broadway, Louisville, KY 40204', lat: 38.2437, lng: -85.7541 },
-  { name: '6201 Preston Highway, Suite A, Louisville, KY 40219', lat: 38.1459, lng: -85.6892 },
-  { name: '2820 West Broadway, Louisville, KY 40211', lat: 38.2520, lng: -85.7934 },
-  { name: '330 Pinecrest Drive, Morehead, KY 40351', lat: 38.1899, lng: -83.4344 },
-  { name: '1601 Broadway Street, Paducah, KY 42001', lat: 37.0710, lng: -88.6316 },
-  { name: '126 Trivette Drive, Suite 104, Pikeville, KY 41501', lat: 37.4843, lng: -82.5191 },
-  { name: '2305 South Highway 27, Somerset, KY 42503', lat: 37.0703, lng: -84.6110 },
-  { name: '216 West Chestnut Street, Louisville, KY 40202', lat: 38.2542, lng: -85.7568 },
-  { name: '3965 South 7th Street Road, Louisville, KY 40216', lat: 38.1656, lng: -85.7838 },
+  {
+    name: '37 South Park Center Drive, Suite 11 and 12, Corbin, KY 40701',
+    lat: 36.9398,
+    lng: -84.0967,
+    url: 'https://goodwillky.org/our-programs-services-and-resources/'
+  },
+  {
+    name: '243 West Dixie Avenue, Elizabethtown, KY 42701',
+    lat: 37.6939,
+    lng: -85.8602,
+    url: 'https://goodwillky.org/our-programs-services-and-resources/'
+  },
+  {
+    name: '1806 US 31W Bypass, Bowling Green, KY 42101',
+    lat: 36.9685,
+    lng: -86.4808,
+    url: 'https://goodwillky.org/our-programs-services-and-resources/'
+  },
+  {
+    name: '130 West New Circle Road, Suite 110, Lexington, KY 40505',
+    lat: 38.0569,
+    lng: -84.4916
+  },
+  {
+    name: '909 East Broadway, Louisville, KY 40204',
+    lat: 38.2437,
+    lng: -85.7541,
+    url: 'https://goodwillky.org/our-programs-services-and-resources/'
+  },
+  {
+    name: '6201 Preston Highway, Suite A, Louisville, KY 40219',
+    lat: 38.1459,
+    lng: -85.6892,
+    url: 'https://goodwillky.org/our-programs-services-and-resources/'
+  },
+  {
+    name: '2820 West Broadway, Louisville, KY 40211',
+    lat: 38.2520,
+    lng: -85.7934,
+    url: 'https://goodwillky.org/our-programs-services-and-resources/'
+  },
+  {
+    name: '330 Pinecrest Drive, Morehead, KY 40351',
+    lat: 38.1899,
+    lng: -83.4344,
+    url: 'https://goodwillky.org/our-programs-services-and-resources/'
+  },
+  {
+    name: '1601 Broadway Street, Paducah, KY 42001',
+    lat: 37.0710,
+    lng: -88.6316,
+    url: 'https://goodwillky.org/our-programs-services-and-resources/'
+  },
+  {
+    name: '126 Trivette Drive, Suite 104, Pikeville, KY 41501',
+    lat: 37.4843,
+    lng: -82.5191,
+    url: 'https://goodwillky.org/our-programs-services-and-resources/'
+  },
+  {
+    name: '2305 South Highway 27, Somerset, KY 42503',
+    lat: 37.0703,
+    lng: -84.6110,
+    url: 'https://goodwillky.org/our-programs-services-and-resources/'
+  },
+  {
+    name: '216 West Chestnut Street, Louisville, KY 40202',
+    lat: 38.2542,
+    lng: -85.7568
+  },
+  {
+    name: '3965 South 7th Street Road, Louisville, KY 40216',
+    lat: 38.1656,
+    lng: -85.7838,
+    url: 'https://goodwillky.org/our-programs-services-and-resources/'
+  },
 
   // Louisiana
-  { name: '800 West 70th Street, Shreveport, LA 71106', lat: 32.4439, lng: -93.7820 },
-  { name: '8100 Jump Run, Shreveport, LA 71115', lat: 32.4225, lng: -93.7143 },
-  { name: '311 South Drive, Natchitoches, LA 71457', lat: 31.7418, lng: -93.0956 },
-  { name: '801 North 31st Street, Monroe, LA 71201', lat: 32.5399, lng: -92.0933 },
-  { name: '6501 Coliseum Blvd, Suite 400, Alexandria, LA 71303', lat: 31.2913, lng: -92.4456 },
-  { name: '3400 Tulane Avenue, Suite 1000, New Orleans, LA 70119', lat: 29.9511, lng: -90.0715 },
-  { name: '11358 Perkins Road, Baton Rouge, LA 70810', lat: 30.3639, lng: -91.1084 },
-  { name: '1750 Martin Luther King Blvd, Houma, LA 70360', lat: 29.5958, lng: -90.7195 },
-  { name: '4700 Highway 22, Mandeville, LA 70471', lat: 30.3919, lng: -90.0659 },
-  { name: '5770 Read Blvd, New Orleans, LA 70127', lat: 30.0260, lng: -89.9407 },
-  { name: '2435 W Congress Street, Lafayette, LA 70506', lat: 30.2182, lng: -92.0447 },
-  { name: '1225 Kaliste Saloom Road, Lafayette, LA 70508', lat: 30.1714, lng: -92.0276 },
+  {
+    name: '800 West 70th Street, Shreveport, LA 71106',
+    lat: 32.4439,
+    lng: -93.7820,
+    url: 'https://goodwillnla.org/training/'
+  },
+  {
+    name: '8100 Jump Run, Shreveport, LA 71115',
+    lat: 32.4225,
+    lng: -93.7143,
+    url: 'https://goodwillnla.org/training/'
+  },
+  {
+    name: '311 South Drive, Natchitoches, LA 71457',
+    lat: 31.7418,
+    lng: -93.0956,
+    url: 'https://goodwillnla.org/training/'
+  },
+  {
+    name: '801 North 31st Street, Monroe, LA 71201',
+    lat: 32.5399,
+    lng: -92.0933,
+    url: 'https://goodwillnla.org/training/'
+  },
+  {
+    name: '6501 Coliseum Blvd, Suite 400, Alexandria, LA 71303',
+    lat: 31.2913,
+    lng: -92.4456,
+    url: 'https://goodwillnla.org/training/'
+  },
+  {
+    name: '3400 Tulane Avenue, Suite 1000, New Orleans, LA 70119',
+    lat: 29.9511,
+    lng: -90.0715,
+    url: 'https://www.goodwilltechnicalcollege.edu/'
+  },
+  {
+    name: '11358 Perkins Road, Baton Rouge, LA 70810',
+    lat: 30.3639,
+    lng: -91.1084,
+    url: 'https://www.goodwilltechnicalcollege.edu/'
+
+  },
+  {
+    name: '1750 Martin Luther King Blvd, Houma, LA 70360',
+    lat: 29.5958,
+    lng: -90.7195,
+    url: 'https://goodwillno.org/mission-services/'
+  },
+  {
+    name: '4700 Highway 22, Mandeville, LA 70471',
+    lat: 30.3919,
+    lng: -90.0659,
+    url: 'https://goodwillno.org/about-us/contact-us/'
+  },
+  {
+    name: '5770 Read Blvd, New Orleans, LA 70127',
+    lat: 30.0260,
+    lng: -89.9407,
+    url: 'https://goodwillno.org/about-us/contact-us/'
+  },
+  {
+    name: '2435 W Congress Street, Lafayette, LA 70506',
+    lat: 30.2182,
+    lng: -92.0447,
+    url: 'https://www.goodwillacadiana.org/services'
+  },
+  {
+    name: '1225 Kaliste Saloom Road, Lafayette, LA 70508',
+    lat: 30.1714,
+    lng: -92.0276,
+    url: 'https://www.goodwillacadiana.org/services'
+  },
 
   // Maine
-  { name: '243 Leighton Rd, Augusta, ME 04330', lat: 44.3106, lng: -69.7795 },
-  { name: '939 Turner St, Auburn, ME 04210', lat: 44.0917, lng: -70.2458 },
-  { name: '102 Main Street, Gorham, ME 04038', lat: 43.6795, lng: -70.4447 },
-  { name: '805 Stillwater Avenue, Bangor, ME 04401', lat: 44.8010, lng: -68.7788 },
-  { name: '618 Main Street, Lewiston, ME 04240', lat: 44.0973, lng: -70.2171 },
+  {
+    name: '243 Leighton Rd, Augusta, ME 04330',
+    lat: 44.3106,
+    lng: -69.7795
+  },
+  {
+    name: '939 Turner St, Auburn, ME 04210',
+    lat: 44.0917,
+    lng: -70.2458,
+    url: 'https://www.goodwill.org/job-seekers/career-resources/'
+  },
+  {
+    name: '102 Main Street, Gorham, ME 04038',
+    lat: 43.6795,
+    lng: -70.4447,
+    url: 'https://goodwillnne.org/programs/workforce-services/'
+  },
+  {
+    name: '805 Stillwater Avenue, Bangor, ME 04401',
+    lat: 44.8010,
+    lng: -68.7788,
+    url: 'https://www.goodwill.org/job-seekers/career-resources/'
+  },
+  {
+    name: '618 Main Street, Lewiston, ME 04240',
+    lat: 44.0973,
+    lng: -70.2171,
+    url: 'https://goodwillnne.org/programs/workforce-services/'
+  },
 
   // Maryland
-  { name: '222 E Redwood Street, Baltimore, MD 21202', lat: 39.2904, lng: -76.6122 },
-  { name: '700 S Salisbury Blvd, Salisbury, MD 21801', lat: 38.3607, lng: -75.5994 },
-  { name: '1750 Monocacy Blvd, Suite C, Frederick, MD 21701', lat: 39.4023, lng: -77.4140 },
-  { name: '200 Baltimore Blvd, Westminster, MD 21157', lat: 39.5754, lng: -76.9958 },
+  {
+    name: '222 E Redwood Street, Baltimore, MD 21202',
+    lat: 39.2904,
+    lng: -76.6122,
+    url: 'https://excelcentermd.org/academics/'
+  },
+  {
+    name: '700 S Salisbury Blvd, Salisbury, MD 21801',
+    lat: 38.3607,
+    lng: -75.5994,
+    url: 'https://goodwillches.org/programs/'
+  },
+  {
+    name: '1750 Monocacy Blvd, Suite C, Frederick, MD 21701',
+    lat: 39.4023,
+    lng: -77.4140,
+    url: 'https://www.gimv.org/mission-services/'
+  },
+  {
+    name: '200 Baltimore Blvd, Westminster, MD 21157',
+    lat: 39.5754,
+    lng: -76.9958,
+    url: 'https://www.gimv.org/mission-services/'
+  },
 
   // Massachusetts
-  { name: '1010 Harrison Avenue, Boston, MA 02119', lat: 42.3281, lng: -71.0838 },
-  { name: '45 Congress Street, Salem, MA 01970', lat: 42.5195, lng: -70.8967 },
-  { name: '158 Tyler Street, Pittsfield, MA 01201', lat: 42.4501, lng: -73.2455 },
-  { name: '48 Dunham Ridge, Beverly, MA 01915', lat: 42.5680, lng: -70.8800 },
-  { name: '245 Cadwell Drive, Springfield, MA 01104', lat: 42.1707, lng: -72.6048 },
+  {
+    name: '1010 Harrison Avenue, Boston, MA 02119',
+    lat: 42.3281,
+    lng: -71.0838,
+    url: 'https://careercenter.goodwillmass.org/employer-resources/'
+  },
+  {
+    name: '45 Congress Street, Salem, MA 01970',
+    lat: 42.5195,
+    lng: -70.8967,
+    url: 'https://www.goodwillmass.org/careers/'
+  },
+  {
+    name: '158 Tyler Street, Pittsfield, MA 01201',
+    lat: 42.4501,
+    lng: -73.2455,
+    url: 'https://goodwill-berkshires.org/about/mission-and-values/'
+  },
+  {
+    name: '48 Dunham Ridge, Beverly, MA 01915',
+    lat: 42.5680,
+    lng: -70.8800,
+    url: 'https://www.goodwillmass.org/careers/'
+  },
+  {
+    name: '245 Cadwell Drive, Springfield, MA 01104',
+    lat: 42.1707,
+    lng: -72.6048,
+    url: 'https://www.goodwillmass.org/careers/'
+  },
 
   // Michigan
-  { name: '1150 E Paris Ave SE, Grand Rapids, MI 49546', lat: 42.9243, lng: -85.5856 },
-  { name: '1357 Division Street, Adrian, MI 49221', lat: 41.8973, lng: -84.0374 },
-  { name: '15 Capital Ave NE, Battle Creek, MI 49017', lat: 42.3216, lng: -85.1797 },
-  { name: '950 W Norton Ave, Muskegon, MI 49441', lat: 43.2270, lng: -86.2637 },
-  { name: '1850 N Perry Street, Pontiac, MI 48340', lat: 42.6526, lng: -83.2942 },
-  { name: '31186 Beck Road, Novi, MI 48377', lat: 42.4806, lng: -83.4755 },
-  { name: '1750 Colfax Ave, Benton Harbor, MI 49022', lat: 42.1164, lng: -86.4542 },
-  { name: 'Atlas Industrial Park, Duluth, MI 55807', lat: 46.7867, lng: -92.1005 },
+  {
+    name: '1150 E Paris Ave SE, Grand Rapids, MI 49546',
+    lat: 42.9243,
+    lng: -85.5856
+  },
+  {
+    name: '1357 Division Street, Adrian, MI 49221',
+    lat: 41.8973,
+    lng: -84.0374,
+    url: 'https://www.goodwillsemi.org/services/employment-training-services/'
+  },
+  {
+    name: '15 Capital Ave NE, Battle Creek, MI 49017',
+    lat: 42.3216,
+    lng: -85.1797,
+    url: 'https://www.goodwillcmh.org/program-services/'
+  },
+  {
+    name: '950 W Norton Ave, Muskegon, MI 49441',
+    lat: 43.2270,
+    lng: -86.2637,
+    url: 'https://www.goodwillwm.org/index.php?page=programs-and-services'
+  },
+  {
+    name: '1850 N Perry Street, Pontiac, MI 48340',
+    lat: 42.6526,
+    lng: -83.2942
+  },
+  {
+    name: '31186 Beck Road, Novi, MI 48377',
+    lat: 42.4806,
+    lng: -83.4755
+  },
+  {
+    name: '1750 Colfax Ave, Benton Harbor, MI 49022',
+    lat: 42.1164,
+    lng: -86.4542,
+    url: 'https://sjct.org/departments/economic-development'
+  },
+  {
+    name: 'Atlas Industrial Park, Duluth, MI 55807',
+    lat: 46.7867,
+    lng: -92.1005
+  },
 
   // Minnesota
-  { name: '553 Fairview Ave N, St. Paul, MN 55104', lat: 44.9537, lng: -93.0900 },
-  { name: '800 E Lake Street, Minneapolis, MN 55407', lat: 44.9480, lng: -93.2565 },
-  { name: '7051 W Broadway Ave, Brooklyn Park, MN 55428', lat: 45.0632, lng: -93.3760 },
-  { name: '50 2nd Ave S, Waite Park, MN 56387', lat: 45.5497, lng: -94.2242 },
+  {
+    name: '553 Fairview Ave N, St. Paul, MN 55104',
+    lat: 44.9537,
+    lng: -93.0900,
+    url: 'https://www.goodwilleasterseals.org/services/Career-Training-Support'
+  },
+  {
+    name: '800 E Lake Street, Minneapolis, MN 55407',
+    lat: 44.9480,
+    lng: -93.2565
+  },
+  {
+    name: '7051 W Broadway Ave, Brooklyn Park, MN 55428',
+    lat: 45.0632,
+    lng: -93.3760,
+    url: 'https://www.goodwilleasterseals.org/services/Career-Training-Support'
+  },
+  {
+    name: '50 2nd Ave S, Waite Park, MN 56387',
+    lat: 45.5497,
+    lng: -94.2242,
+    url: 'https://www.goodwilleasterseals.org/services/Career-Training-Support'
+  },
 
   // Mississippi
-  { name: '12100 US 49, Gulfport, MS 39503', lat: 30.4251, lng: -89.0707 },
-  { name: '1101 E. Northside Drive, Jackson, MS 39206', lat: 32.3376, lng: -90.1732 },
-  { name: '2015 MS-39, Meridian, MS 39301', lat: 32.3646, lng: -88.7037 },
+  {
+    name: '12100 US 49, Gulfport, MS 39503',
+    lat: 30.4251,
+    lng: -89.0707
+  },
+  {
+    name: '1101 E. Northside Drive, Jackson, MS 39206',
+    lat: 32.3376,
+    lng: -90.1732
+  },
+  {
+    name: '2015 MS-39, Meridian, MS 39301',
+    lat: 32.3646,
+    lng: -88.7037
+  },
 
   // Missouri
-  { name: '1214 N 15th Street, St. Louis, MO 63106', lat: 38.6386, lng: -90.2051 },
-  { name: '1903 N Westwood Blvd, Poplar Bluff, MO 63901', lat: 36.7736, lng: -90.4137 },
-  { name: '1514 S Glenstone Ave, Springfield, MO 65804', lat: 37.1806, lng: -93.2812 },
-  { name: '1010 Fay Street, Columbia, MO 65201', lat: 38.9517, lng: -92.3341 },
-  { name: '1817 Campbell Street, Kansas City, MO 64108', lat: 39.0820, lng: -94.5755 },
-  { name: '440 SE Douglas Street, Lee’s Summit, MO 64063', lat: 38.9108, lng: -94.3753 },
+  {
+    name: '1214 N 15th Street, St. Louis, MO 63106',
+    lat: 38.6386,
+    lng: -90.2051
+  },
+  {
+    name: '1903 N Westwood Blvd, Poplar Bluff, MO 63901',
+    lat: 36.7736,
+    lng: -90.4137
+  },
+  {
+    name: '1514 S Glenstone Ave, Springfield, MO 65804',
+    lat: 37.1806,
+    lng: -93.2812,
+    url: 'https://mersgoodwill.org/programs-services/'
+  },
+  {
+    name: '1010 Fay Street, Columbia, MO 65201',
+    lat: 38.9517,
+    lng: -92.3341
+  },
+  {
+    name: '1817 Campbell Street, Kansas City, MO 64108',
+    lat: 39.0820,
+    lng: -94.5755,
+    url: 'https://www.mokangoodwill.org/careers'
+  },
+  {
+    name: '440 SE Douglas Street, Lee’s Summit, MO 64063',
+    lat: 38.9108,
+    lng: -94.3753,
+    url: 'https://www.mokangoodwill.org/services'
+  },
 
-   // New Montana locations
-        { name: '1301 7th Street South, Great Falls, MT 59405', lat: 47.4947, lng: -111.2925 },
-        { name: '1805 S Russell Street, Missoula, MT 59801', lat: 46.8541, lng: -114.0197 },
-        { name: '2059 Highway 2 East, Kalispell, MT 59901', lat: 48.2251, lng: -114.2729 },
-        { name: '1500 Cedar Street, Helena, MT 59601', lat: 46.6024, lng: -112.0150 },
-        // New Nevada locations
-        { name: '1280 S Decatur Blvd, Las Vegas, NV 89102', lat: 36.1568, lng: -115.2087 },
-        { name: '250 East Pilot Road, Suite 140, Las Vegas, NV 89119', lat: 36.0717, lng: -115.1614 },
-        { name: '4440 E Tropicana Ave, Las Vegas, NV 89121', lat: 36.1004, lng: -115.0770 },
-        // New New Hampshire locations
-        { name: '165 John E. Devine Drive, Manchester, NH 03103', lat: 42.9570, lng: -71.4372 },
-        { name: '9 Wason Road, Hudson, NH 03051', lat: 42.7178, lng: -71.4139 },
-        { name: '1328 Hooksett Road, Hooksett, NH 03106', lat: 43.0437, lng: -71.4509 },
-        // New New Jersey locations
-        { name: '1245 State Hwy 33, Hamilton, NJ 08690', lat: 40.2274, lng: -74.6807 },
-        { name: '7060 Colonial Highway, Pennsauken, NJ 08109', lat: 39.9696, lng: -75.0545 },
-        // New New Mexico locations
-        { name: '6001 Lomas Blvd NE, Albuquerque, NM 87110', lat: 35.0872, lng: -106.5850 },
-        { name: '5000 San Mateo Blvd NE, Albuquerque, NM 87109', lat: 35.1370, lng: -106.5865 },
-        // New New York locations
-        { name: '111 East 59th Street, New York, NY 10022', lat: 40.7622, lng: -73.9690 },
-        { name: '1916 Park Avenue, New York, NY 10037', lat: 40.8102, lng: -73.9389 },
-        { name: '500 South Clinton Avenue, Rochester, NY 14620', lat: 43.1350, lng: -77.6008 },
-        { name: '1119 William Street, Buffalo, NY 14206', lat: 42.8793, lng: -78.8352 },
-        // New North Carolina locations
-        { name: '2701 University Parkway, Winston-Salem, NC 27105', lat: 36.1344, lng: -80.2557 },
-        { name: '1616 Patton Avenue, Asheville, NC 28806', lat: 35.5821, lng: -82.5939 },
-        { name: '1235 South Eugene Street, Greensboro, NC 27406', lat: 36.0539, lng: -79.7923 },
-        { name: '7332 Albemarle Road, Charlotte, NC 28227', lat: 35.2047, lng: -80.7347 },
-        // New North Dakota locations
-        { name: '3150 Moseley Drive, Greenville, ND 27858', lat: 35.5823, lng: -77.3728 },
-        { name: '1101 1st Avenue North, Grand Forks, ND 58203', lat: 47.9369, lng: -97.0416 },
-        { name: '113 2nd Avenue SW, Jamestown, ND 58401', lat: 46.9082, lng: -98.7107 },
-        { name: '1406 2nd Street NW, Mandan, ND 58554', lat: 46.8390, lng: -100.8970 },
+  // Montana
+  {
+    name: '1301 7th Street South, Great Falls, MT 59405',
+    lat: 47.4947,
+    lng: -111.2925
+  },
+  {
+    name: '1805 S Russell Street, Missoula, MT 59801',
+    lat: 46.8541,
+    lng: -114.0197
+  },
+  {
+    name: '2059 Highway 2 East, Kalispell, MT 59901',
+    lat: 48.2251,
+    lng: -114.2729
+  },
+  {
+    name: '1500 Cedar Street, Helena, MT 59601',
+    lat: 46.6024,
+    lng: -112.0150
+  },
 
-         // New Ohio locations
-        { name: '2675 Brice Road, Columbus, OH 43232', lat: 39.9189, lng: -82.8854 },
-        { name: '605 S Front St Suite 110, Columbus, OH 43206', lat: 39.9487, lng: -82.9946 },
-        { name: '1034 Nold Ave, Wooster, OH 44691', lat: 40.8114, lng: -81.9332 },
-        { name: '445 W Fair Ave, Lancaster, OH 43130', lat: 39.7298, lng: -82.6103 },
-        { name: '4178 Buckeye Pkwy, Grove City, OH 43123', lat: 39.8766, lng: -83.0651 },
-        { name: '345 E Fairground St, Marion, OH 43302', lat: 40.5850, lng: -83.1203 },
-        { name: '131 Main St, Wintersville, OH 43953', lat: 40.3758, lng: -80.6347 },
-        { name: '1856 Cedar Hill Rd, Lancaster, OH 43130', lat: 39.7396, lng: -82.5707 },
-        // New Oklahoma locations
-        { name: '410 SW 3rd St, Oklahoma City, OK 73109', lat: 35.4626, lng: -97.5200 },
-        { name: '2800 Southwest Blvd, Tulsa, OK 74107', lat: 36.1238, lng: -96.0158 },
-        { name: '1210 SW Summit Ave, Lawton, OK 73501', lat: 34.6055, lng: -98.4097 },
-        // New Oregon locations
-        { name: '1943 SE 6th Ave, Portland, OR 97214', lat: 45.5090, lng: -122.6599 },
-        { name: '3535 Lancaster Dr NE, Salem, OR 97305', lat: 44.9705, lng: -122.9830 },
-        { name: '1241 S Riverside Ave, Medford, OR 97501', lat: 42.3150, lng: -122.8705 },
-        { name: '61315 S Hwy 97, Bend, OR 97702', lat: 44.0178, lng: -121.3157 },
-        // New Pennsylvania locations
-        { name: '540-542 Central Avenue, Johnstown, PA 15902', lat: 40.3245, lng: -78.9142 },
-        { name: '118 52nd St, Pittsburgh, PA 15201', lat: 40.4807, lng: -79.9512 },
-        { name: '1440 E. Erie Ave, Philadelphia, PA 19124', lat: 40.0061, lng: -75.0994 },
-        { name: '1509 Cecil B. Moore Ave, 2nd Floor, Philadelphia, PA 19121', lat: 39.9797, lng: -75.1610 },
-        // New Rhode Island locations
-        { name: '100 Houghton Street, Providence, RI 02904', lat: 41.8495, lng: -71.4207 },
-        { name: '444 Quaker Lane, Warwick, RI 02886', lat: 41.6928, lng: -71.4752 },
-        // New South Carolina locations
-        { name: '1320 W Floyd Baker Blvd, Gaffney, SC 29341', lat: 35.0865, lng: -81.6592 },
-        { name: '45 E. Main Street, Greenville, SC 29611', lat: 34.8504, lng: -82.4239 },
-        { name: '40 John McCarroll Way, Greenville, SC 29607', lat: 34.8233, lng: -82.3350 },
-        { name: '101 West Columbia Avenue, Batesburg-Leesville, SC 29006', lat: 33.9123, lng: -81.5346 },
-        { name: '1925 Wilson Rd., Newberry, SC 29108', lat: 34.2864, lng: -81.6066 },
-        { name: '2164 Oakheart Rd., Carolina Forest, SC 29579', lat: 33.7665, lng: -78.9611 },
-        { name: '2150 Eagle Drive, North Charleston, SC 29406', lat: 32.9414, lng: -80.0307 },
-        { name: '1551 Second Loop Rd., Florence, SC 29505', lat: 34.1677, lng: -79.7850 },
-        { name: '829 Anderson Rd. N, Rock Hill, SC 29730', lat: 34.9617, lng: -81.0025 },
-        // New South Dakota locations
-        { name: '3011 West 4th Street, Sioux City, SD 51103', lat: 42.4984, lng: -96.4511 },
-        { name: '229 West Milwaukee Avenue, Storm Lake, SD 50588', lat: 42.6436, lng: -95.2031 },
-        // New Tennessee locations
-        { name: '937 Herman Street, Nashville, TN 37208', lat: 36.1719, lng: -86.7957 },
-        { name: '1499 Gallatin Pike North, Madison, TN 37115', lat: 36.2948, lng: -86.6939 },
-        { name: '5252 Hickory Hollow Parkway, Suite 1001, Antioch, TN 37013', lat: 36.0457, lng: -86.6578 },
-        { name: '2950 Old Fort Parkway, Murfreesboro, TN 37128', lat: 35.8493, lng: -86.4303 },
-        { name: '2001 Needmore Road, Clarksville, TN 37042', lat: 36.5858, lng: -87.4149 },
-        { name: '565 South Jefferson Avenue, Suite A, Cookeville, TN 38501', lat: 36.1517, lng: -85.4968 },
-        { name: '1320 South Highland Avenue, Jackson, TN 38301', lat: 35.6143, lng: -88.8197 },
-        { name: '6104 Preservation Drive, Chattanooga, TN 37416', lat: 35.0847, lng: -85.1810 },
-        { name: '7601 East Brainerd Road, Chattanooga, TN 37421', lat: 35.0130, lng: -85.1620 },
-        { name: '5307 Kingston Pike, Knoxville, TN 37919', lat: 35.9383, lng: -83.9936 },
-        // Note: Duplicate address '837 Herman Street, Nashville, TN 37208' not included
-        // New Texas locations
-        { name: '1904 Bell St, Amarillo, TX 79106', lat: 35.1938, lng: -101.8585 },
-        { name: '4005 Campus Dr, Fort Worth, TX 76119', lat: 32.6928, lng: -97.2698 },
-        { name: '1015 Norwood Park Blvd, Austin, TX 78753', lat: 30.3390, lng: -97.6880 },
-        { name: '9205 Cullen Blvd, Houston, TX 77051', lat: 29.6573, lng: -95.3535 },
-        { name: '3020 N Westmoreland Road, Dallas, TX 75212', lat: 32.7814, lng: -96.8742 },
-        { name: '2902 N Flores St, San Antonio, TX 78212', lat: 29.4633, lng: -98.4979 },
-        { name: '1940 34th Street, Lubbock, TX 79411', lat: 33.5632, lng: -101.8622 },
-        { name: '1910 SE 5th Avenue, Amarillo, TX 79102', lat: 35.2065, lng: -101.8287 },
-        { name: '1440 Miracle Way, El Paso, TX 79925', lat: 31.7746, lng: -106.3719 },
-        { name: '10321 Alameda, Socorro, TX 79927', lat: 31.6583, lng: -106.2977 },
-        { name: '700 N Zaragoza, El Paso, TX 79907', lat: 31.6961, lng: -106.3212 },
-        { name: '2600 S La Salle Ave, Waco, TX 76706', lat: 31.5121, lng: -97.1108 },
+  // Nevada
+  {
+    name: '1280 S Decatur Blvd, Las Vegas, NV 89102',
+    lat: 36.1568,
+    lng: -115.2087
+  },
+  {
+    name: '250 East Pilot Road, Suite 140, Las Vegas, NV 89119',
+    lat: 36.0717,
+    lng: -115.1614,
+    url: 'https://www.goodwillvegas.org/train-to-hire-programs'
+  },
+  {
+    name: '4440 E Tropicana Ave, Las Vegas, NV 89121',
+    lat: 36.1004,
+    lng: -115.0770,
+    url: 'https://www.goodwill.org/job-seekers/career-resources/'
+  },
 
-        // New Utah locations
-        // Note: '456 S Barre Rd, Barre, UT 05641' and '1080 Shelburne Rd, South Burlington, UT 05403' have Vermont ZIP codes; assuming Utah context
-        // Note: '329 Harvest Lane, Suite 100, UT 05495' lacks city; assuming Williston, UT based on ZIP code
-        { name: '432 Lincoln Ave, Ogden, UT 84401', lat: 41.2230, lng: -111.9750 },
-        { name: '1085 S Bluff St, St. George, UT 84770', lat: 37.0897, lng: -113.5887 },
-        { name: '456 S Barre Rd, Barre, UT 05641', lat: 40.7608, lng: -111.8910 }, // Approximate coordinates for Utah
-        { name: '1080 Shelburne Rd, South Burlington, UT 05403', lat: 40.7608, lng: -111.8910 }, // Approximate coordinates for Utah
-        { name: '329 Harvest Lane, Suite 100, Williston, UT 05495', lat: 40.7608, lng: -111.8910 }, // Approximate coordinates for Williston, UT
-        // New Virginia locations
-        { name: '1242 Richmond Road, Charlottesville, VA 22911', lat: 38.0293, lng: -78.4716 },
-        { name: '14055 Shoppers Best Way, Woodbridge, VA 22192', lat: 38.6390, lng: -77.2975 },
-        { name: '6220 Richmond Hwy, Alexandria, VA 22303', lat: 38.7883, lng: -77.0763 },
-        // New Washington locations
-        // Note: '1115 E Sunset Dr, Bellingham, WA 98226' is a duplicate and not included
-        { name: '110 SW Everett Mall Way, Everett, WA 98208', lat: 47.9114, lng: -122.2241 },
-        { name: '317 Wells Ave S, Renton, WA 98057', lat: 47.4797, lng: -122.2046 },
-        { name: '411 Westlake Ave N, Seattle, WA 98109', lat: 47.6226, lng: -122.3381 },
-        { name: '16500 Aurora Ave N, Shoreline, WA 98133', lat: 47.7500, lng: -122.3467 },
-        { name: '714 South 27th Street, Tacoma, WA 98409', lat: 47.2367, lng: -122.4758 },
-        { name: '815 N Kellogg St, Suite A, Kennewick, WA 99336', lat: 46.2180, lng: -119.1120 },
-        { name: '935 S Hwy 395, Hermiston, OR 97838', lat: 45.8343, lng: -119.2926 }, // Included as it serves WA residents
-        { name: '230 S Wenatchee Ave, Wenatchee, WA 98801', lat: 47.4214, lng: -120.3116 },
-        { name: '1705 SE Meadowbrook St, College Place, WA 99324', lat: 46.0470, lng: -118.3730 },
-        { name: '1243 15th Ave, Suite 100, Longview, WA 98632', lat: 46.1389, lng: -122.9367 },
-        // New West Virginia locations
-        { name: '215 Virginia St W, Charleston, WV 25302', lat: 38.3601, lng: -81.6435 },
-        { name: '1102 Memorial Blvd W, Huntington, WV 25701', lat: 38.4094, lng: -82.4513 },
-        { name: '202 N Viking Way, Martinsburg, WV 25401', lat: 39.4633, lng: -77.9602 },
-        // New Wisconsin locations
-        { name: '2551 8th St S, Wisconsin Rapids, WI 54494', lat: 44.3738, lng: -89.8164 },
-        { name: '2100 Omro Rd, Oshkosh, WI 54904', lat: 44.0427, lng: -88.5867 },
-        { name: '6055 N 91st St, Milwaukee, WI 53225', lat: 43.1260, lng: -88.0259 },
-        { name: '1800 Appleton Rd, Menasha, WI 54952', lat: 44.2280, lng: -88.4115 },
+  // New Hampshire
+  {
+    name: '165 John E. Devine Drive, Manchester, NH 03103',
+    lat: 42.9570,
+    lng: -71.4372,
+    url: 'https://goodwillnne.org/programs/'
+  },
+  {
+    name: '9 Wason Road, Hudson, NH 03051',
+    lat: 42.7178,
+    lng: -71.4139,
+    url: 'https://goodwillnne.org/programs/'
+  },
+  {
+    name: '1328 Hooksett Road, Hooksett, NH 03106',
+    lat: 43.0437,
+    lng: -71.4509,
+    url: 'https://goodwillnne.org/programs/'
+  },
+
+  // New Jersey
+  {
+    name: '1245 State Hwy 33, Hamilton, NJ 08690',
+    lat: 40.2274,
+    lng: -74.6807,
+    url: 'https://goodwillnj.org/training-overview/'
+  },
+  {
+    name: '7060 Colonial Highway, Pennsauken, NJ 08109',
+    lat: 39.9696,
+    lng: -75.0545,
+    url: 'https://goodwillnj.org/training-overview/'
+  },
+
+  // New Mexico
+  {
+    name: '6001 Lomas Blvd NE, Albuquerque, NM 87110',
+    lat: 35.0872,
+    lng: -106.5850,
+    url: 'https://www.goodwillnm.org/production-assistant-training.html'
+  },
+  {
+    name: '5000 San Mateo Blvd NE, Albuquerque, NM 87109',
+    lat: 35.1370,
+    lng: -106.5865,
+    url: 'https://www.goodwillnm.org/production-assistant-training.html'
+  },
+
+  // New York
+  {
+    name: '111 East 59th Street, New York, NY 10022',
+    lat: 40.7622,
+    lng: -73.9690
+  },
+  {
+    name: '1916 Park Avenue, New York, NY 10037',
+    lat: 40.8102,
+    lng: -73.9389
+  },
+  {
+    name: '500 South Clinton Avenue, Rochester, NY 14620',
+    lat: 43.1350,
+    lng: -77.6008
+  },
+  {
+    name: '1119 William Street, Buffalo, NY 14206',
+    lat: 42.8793,
+    lng: -78.8352,
+    url: 'https://www.goodwillwny.org/workforce'
+  },
+
+  // North Carolina
+  {
+    name: '2701 University Parkway, Winston-Salem, NC 27105',
+    lat: 36.1344,
+    lng: -80.2557,
+    url: 'https://www.goodwillnwnc.org/skills-classes/'
+  },
+  {
+    name: '1616 Patton Avenue, Asheville, NC 28806',
+    lat: 35.5821,
+    lng: -82.5939,
+    url: 'https://www.goodwillnwnc.org/skills-classes/'
+  },
+  {
+    name: '1235 South Eugene Street, Greensboro, NC 27406',
+    lat: 36.0539,
+    lng: -79.7923,
+    url: 'https://www.triadgoodwill.org/train/'
+  },
+  {
+    name: '7332 Albemarle Road, Charlotte, NC 28227',
+    lat: 35.2047,
+    lng: -80.7347,
+    url: 'https://goodwillsp.org/job-career-services/career-training-programs/'
+  },
+
+  // North Dakota
+  {
+    name: '3150 Moseley Drive, Greenville, ND 27858',
+    lat: 35.5823,
+    lng: -77.3728
+  },
+  {
+    name: '1101 1st Avenue North, Grand Forks, ND 58203',
+    lat: 47.9369,
+    lng: -97.0416
+  },
+  {
+    name: '113 2nd Avenue SW, Jamestown, ND 58401',
+    lat: 46.9082,
+    lng: -98.7107
+  },
+  {
+    name: '1406 2nd Street NW, Mandan, ND 58554',
+    lat: 46.8390,
+    lng: -100.8970
+  },
+
+  // Ohio
+  {
+    name: '2675 Brice Road, Columbus, OH 43232',
+    lat: 39.9189,
+    lng: -82.8854,
+    url: 'https://www.goodwillcolumbus.org/services/for-individuals/job-training/'
+  },
+  {
+    name: '605 S Front St Suite 110, Columbus, OH 43206',
+    lat: 39.9487,
+    lng: -82.9946,
+    url: 'https://www.goodwillcolumbus.org/services/for-individuals/job-training/'
+  },
+  {
+    name: '1034 Nold Ave, Wooster, OH 44691',
+    lat: 40.8114,
+    lng: -81.9332,
+    url: 'https://www.goodwillconnect.org/program-participants'
+  },
+  {
+    name: '445 W Fair Ave, Lancaster, OH 43130',
+    lat: 39.7298,
+    lng: -82.6103
+  },
+  {
+    name: '4178 Buckeye Pkwy, Grove City, OH 43123',
+    lat: 39.8766,
+    lng: -83.0651,
+    url: 'https://www.goodwillcolumbus.org/services/for-individuals/job-training/'
+  },
+  {
+    name: '345 E Fairground St, Marion, OH 43302',
+    lat: 40.5850,
+    lng: -83.1203,
+    url: 'https://www.goodhappenshere.org/services/job-readiness-training/'
+  },
+  {
+    name: '131 Main St, Wintersville, OH 43953',
+    lat: 40.3758,
+    lng: -80.6347
+  },
+  {
+    name: '1856 Cedar Hill Rd, Lancaster, OH 43130',
+    lat: 39.7396,
+    lng: -82.5707,
+    url: 'https://ohwvagoodwill.org/services/'
+  },
+
+  // Oklahoma
+  {
+    name: '410 SW 3rd St, Oklahoma City, OK 73109',
+    lat: 35.4626,
+    lng: -97.5200,
+    url: 'https://okgoodwill.org/services/employment-services-center/'
+  },
+  {
+    name: '2800 Southwest Blvd, Tulsa, OK 74107',
+    lat: 36.1238,
+    lng: -96.0158,
+    url: 'https://www.goodwilltulsa.org/gwt/Training.asp'
+  },
+  {
+    name: '1210 SW Summit Ave, Lawton, OK 73501',
+    lat: 34.6055,
+    lng: -98.4097,
+    url: 'https://goodwillsont.org/adult-day-services/'
+  },
+
+  // Oregon
+  {
+    name: '1943 SE 6th Ave, Portland, OR 97214',
+    lat: 45.5090,
+    lng: -122.6599
+  },
+  {
+    name: '3535 Lancaster Dr NE, Salem, OR 97305',
+    lat: 44.9705,
+    lng: -122.9830,
+    url: 'https://meetgoodwill.org/training-and-development/'
+  },
+  {
+    name: '1241 S Riverside Ave, Medford, OR 97501',
+    lat: 42.3150,
+    lng: -122.8705,
+    url: 'https://www.sogoodwill.org/careers/'
+  },
+  {
+    name: '61315 S Hwy 97, Bend, OR 97702',
+    lat: 44.0178,
+    lng: -121.3157,
+    url: 'https://meetgoodwill.org/training-and-development/'
+  },
+
+  // Pennsylvania
+  {
+    name: '540-542 Central Avenue, Johnstown, PA 15902',
+    lat: 40.3245,
+    lng: -78.9142,
+    url: 'https://www.gogoodwill.org/locationsmain/'
+  },
+  {
+    name: '118 52nd St, Pittsburgh, PA 15201',
+    lat: 40.4807,
+    lng: -79.9512,
+    url: 'https://www.goodwillswpa.org/life-changing-services/education-and-training/'
+  },
+  {
+    name: '1440 E. Erie Ave, Philadelphia, PA 19124',
+    lat: 40.0061,
+    lng: -75.0994,
+    url: 'https://goodwillnj.org/job-training-programs/'
+  },
+  {
+    name: '1509 Cecil B. Moore Ave, 2nd Floor, Philadelphia, PA 19121',
+    lat: 39.9797,
+    lng: -75.1610,
+    url: 'https://goodwillnj.org/job-training-programs/'
+  },
+
+  // Rhode Island
+  {
+    name: '100 Houghton Street, Providence, RI 02904',
+    lat: 41.8495,
+    lng: -71.4207,
+    url: 'https://www.goodwillsne.org/programs-services/'
+  },
+  {
+    name: '444 Quaker Lane, Warwick, RI 02886',
+    lat: 41.6928,
+    lng: -71.4752,
+    url: 'https://www.goodwillsne.org/programs-services/'
+  },
+
+  // South Carolina
+  {
+    name: '1320 W Floyd Baker Blvd, Gaffney, SC 29341',
+    lat: 35.0865,
+    lng: -81.6592,
+    url: 'https://www.goodwillsc.org/career-services/pathways/technology/'
+  },
+  {
+    name: '45 E. Main Street, Greenville, SC 29611',
+    lat: 34.8504,
+    lng: -82.4239,
+    url: 'https://www.goodwillsc.org/career-services/pathways/technology/'
+  },
+  {
+    name: '40 John McCarroll Way, Greenville, SC 29607',
+    lat: 34.8233,
+    lng: -82.3350
+  },
+  {
+    name: '101 West Columbia Avenue, Batesburg-Leesville, SC 29006',
+    lat: 33.9123,
+    lng: -81.5346
+  },
+  {
+    name: '1925 Wilson Rd., Newberry, SC 29108',
+    lat: 34.2864,
+    lng: -81.6066,
+    url: 'https://www.goodwillsc.org/career-services/pathways/technology/'
+  },
+  {
+    name: '2164 Oakheart Rd., Carolina Forest, SC 29579',
+    lat: 33.7665,
+    lng: -78.9611,
+    url: 'https://palmettogoodwill.org/training/'
+  },
+  {
+    name: '2150 Eagle Drive, North Charleston, SC 29406',
+    lat: 32.9414,
+    lng: -80.0307,
+    url: 'https://palmettogoodwill.org/training/'
+  },
+  {
+    name: '1551 Second Loop Rd., Florence, SC 29505',
+    lat: 34.1677,
+    lng: -79.7850,
+    url: 'https://palmettogoodwill.org/training/'
+  },
+  {
+    name: '829 Anderson Rd. N, Rock Hill, SC 29730',
+    lat: 34.9617,
+    lng: -81.0025
+  },
+
+  // South Dakota
+  {
+    name: '3011 West 4th Street, Sioux City, SD 51103',
+    lat: 42.4984,
+    lng: -96.4511
+  },
+  {
+    name: '229 West Milwaukee Avenue, Storm Lake, SD 50588',
+    lat: 42.6436,
+    lng: -95.2031,
+    url: 'https://www.goodwillgreatplains.org/programs/'
+  },
+
+  // Tennessee
+  {
+    name: '937 Herman Street, Nashville, TN 37208',
+    lat: 36.1719,
+    lng: -86.7957,
+    url: 'https://giveit2goodwill.org/gcta/'
+  },
+  {
+    name: '1499 Gallatin Pike North, Madison, TN 37115',
+    lat: 36.2948,
+    lng: -86.6939
+  },
+  {
+    name: '5252 Hickory Hollow Parkway, Suite 1001, Antioch, TN 37013',
+    lat: 36.0457,
+    lng: -86.6578
+  },
+  {
+    name: '2950 Old Fort Parkway, Murfreesboro, TN 37128',
+    lat: 35.8493,
+    lng: -86.4303,
+    url: 'https://giveit2goodwill.org/gcta/'
+  },
+  {
+    name: '2001 Needmore Road, Clarksville, TN 37042',
+    lat: 36.5858,
+    lng: -87.4149,
+    url: 'https://giveit2goodwill.org/gcta/'
+  },
+  {
+    name: '565 South Jefferson Avenue, Suite A, Cookeville, TN 38501',
+    lat: 36.1517,
+    lng: -85.4968,
+    url: 'https://giveit2goodwill.org/gcta/'
+  },
+  {
+    name: '1320 South Highland Avenue, Jackson, TN 38301',
+    lat: 35.6143,
+    lng: -88.8197,
+    url: 'https://giveit2goodwill.org/gcta/'
+  },
+  {
+    name: '6104 Preservation Drive, Chattanooga, TN 37416',
+    lat: 35.0847,
+    lng: -85.1810,
+    url: 'https://www.goodwillchatt.org/employment-and-training'
+  },
+  {
+    name: '7601 East Brainerd Road, Chattanooga, TN 37421',
+    lat: 35.0130,
+    lng: -85.1620,
+    url: 'https://www.goodwillchatt.org/employment-and-training'
+  },
+  {
+    name: '5307 Kingston Pike, Knoxville, TN 37919',
+    lat: 35.9383,
+    lng: -83.9936,
+    url: 'https://www.gwiktn.org/job-training'
+  },
+
+  // Texas
+  {
+    name: '1904 Bell St, Amarillo, TX 79106',
+    lat: 35.1938,
+    lng: -101.8585,
+    url: 'https://goodwillnwtexas.org/job-training/'
+  },
+  {
+    name: '4005 Campus Dr, Fort Worth, TX 76119',
+    lat: 32.6928,
+    lng: -97.2698,
+    url: 'https://goodwillnorthcentraltexas.org/work-at-goodwill/#good_life'
+  },
+  {
+    name: '1015 Norwood Park Blvd, Austin, TX 78753',
+    lat: 30.3390,
+    lng: -97.6880,
+    url: 'https://gctatraining.org/adult-education/'
+  },
+  {
+    name: '9205 Cullen Blvd, Houston, TX 77051',
+    lat: 29.6573,
+    lng: -95.3535
+  },
+  {
+    name: '3020 N Westmoreland Road, Dallas, TX 75212',
+    lat: 32.7814,
+    lng: -96.8742,
+    url: 'https://www.goodwilldallas.org/programs-services'
+  },
+  {
+    name: '2902 N Flores St, San Antonio, TX 78212',
+    lat: 29.4633,
+    lng: -98.4979
+  },
+  {
+    name: '1940 34th Street, Lubbock, TX 79411',
+    lat: 33.5632,
+    lng: -101.8622,
+    url: 'https://goodwillnwtexas.org/job-training/'
+  },
+  {
+    name: '1910 SE 5th Avenue, Amarillo, TX 79102',
+    lat: 35.2065,
+    lng: -101.8287,
+    url: 'https://goodwillnwtexas.org/job-training/'
+  },
+  {
+    name: '1440 Miracle Way, El Paso, TX 79925',
+    lat: 31.7746,
+    lng: -106.3719,
+    url: 'https://goodwillep.org/home/services/'
+  },
+  {
+    name: '10321 Alameda, Socorro, TX 79927',
+    lat: 31.6583,
+    lng: -106.2977,
+    url: 'https://goodwillep.org/home/services/'
+  },
+  {
+    name: '700 N Zaragoza, El Paso, TX 79907',
+    lat: 31.6961,
+    lng: -106.3212
+  },
+  {
+    name: '2600 S La Salle Ave, Waco, TX 76706',
+    lat: 31.5121,
+    lng: -97.1108,
+    url: 'https://hotgoodwill.org/services/'
+  },
+
+  // Utah
+  {
+    name: '432 Lincoln Ave, Ogden, UT 84401',
+    lat: 41.2230,
+    lng: -111.9750
+  },
+  {
+    name: '1085 S Bluff St, St. George, UT 84770',
+    lat: 37.0897,
+    lng: -113.5887
+  },
+  {
+    name: '456 S Barre Rd, Barre, UT 05641',
+    lat: 40.7608,
+    lng: -111.8910,
+    url: 'https://goodwillnne.org/programs/'
+  },
+  {
+    name: '1080 Shelburne Rd, South Burlington, UT 05403',
+    lat: 40.7608,
+    lng: -111.8910,
+    url: 'https://goodwillnne.org/programs/'
+  },
+  {
+    name: '329 Harvest Lane, Suite 100, Williston, UT 05495',
+    lat: 40.7608,
+    lng: -111.8910,
+    url: 'https://goodwillnne.org/programs/'
+  },
+
+  // Virginia
+  {
+    name: '1242 Richmond Road, Charlottesville, VA 22911',
+    lat: 38.0293,
+    lng: -78.4716,
+    url: 'https://www.goodwillvalleys.com/job-and-training-services/'
+  },
+  {
+    name: '14055 Shoppers Best Way, Woodbridge, VA 22192',
+    lat: 38.6390,
+    lng: -77.2975
+  },
+  {
+    name: '6220 Richmond Hwy, Alexandria, VA 22303',
+    lat: 38.7883,
+    lng: -77.0763,
+    url: 'https://dcgoodwill.org/careers/careers-at-dc-goodwill/'
+  },
+
+  // Washington
+  {
+    name: '110 SW Everett Mall Way, Everett, WA 98208',
+    lat: 47.9114,
+    lng: -122.2241
+  },
+  {
+    name: '317 Wells Ave S, Renton, WA 98057',
+    lat: 47.4797,
+    lng: -122.2046
+  },
+  {
+    name: '411 Westlake Ave N, Seattle, WA 98109',
+    lat: 47.6226,
+    lng: -122.3381
+  },
+  {
+    name: '16500 Aurora Ave N, Shoreline, WA 98133',
+    lat: 47.7500,
+    lng: -122.3467
+  },
+  {
+    name: '714 South 27th Street, Tacoma, WA 98409',
+    lat: 47.2367,
+    lng: -122.4758,
+    url: 'https://goodwillwa.org/career-support/'
+  },
+  {
+    name: '815 N Kellogg St, Suite A, Kennewick, WA 99336',
+    lat: 46.2180,
+    lng: -119.1120,
+    url: 'https://goodwillotc.org/mission-services/'
+  },
+  {
+    name: '935 S Hwy 395, Hermiston, OR 97838',
+    lat: 45.8343,
+    lng: -119.2926
+  },
+  {
+    name: '230 S Wenatchee Ave, Wenatchee, WA 98801',
+    lat: 47.4214,
+    lng: -120.3116,
+    url: 'https://goodwillotc.org/mission-services/'
+  },
+  {
+    name: '1705 SE Meadowbrook St, College Place, WA 99324',
+    lat: 46.0470,
+    lng: -118.3730
+  },
+  {
+    name: '1243 15th Ave, Suite 100, Longview, WA 98632',
+    lat: 46.1389,
+    lng: -122.9367
+  },
+
+  // West Virginia
+  {
+    name: '215 Virginia St W, Charleston, WV 25302',
+    lat: 38.3601,
+    lng: -81.6435,
+    url: 'https://www.goodwillsummit.com/career-services'
+  },
+  {
+    name: '1102 Memorial Blvd W, Huntington, WV 25701',
+    lat: 38.4094,
+    lng: -82.4513,
+    url: 'https://goodwillhunting.org/services/workforce-development/'
+  },
+  {
+    name: '202 N Viking Way, Martinsburg, WV 25401',
+    lat: 39.4633,
+    lng: -77.9602
+  },
+
+  // Wisconsin
+  {
+    name: '2551 8th St S, Wisconsin Rapids, WI 54494',
+    lat: 44.3738,
+    lng: -89.8164
+  },
+  {
+    name: '2100 Omro Rd, Oshkosh, WI 54904',
+    lat: 44.0427,
+    lng: -88.5867
+  },
+  {
+    name: '6055 N 91st St, Milwaukee, WI 53225',
+    lat: 43.1260,
+    lng: -88.0259,
+    url: 'https://www.goodwillgreatermc.org/job-training-and-placement/overview'
+  },
+  {
+    name: '1800 Appleton Rd, Menasha, WI 54952',
+    lat: 44.2280,
+    lng: -88.4115,
+    url: 'https://goodwillncw.org/employment-services/#employment-services-options'
+  },
+
         { name: '1103 S 3rd Ave, Wausau, WI 54401', lat: 44.9514, lng: -89.6252 },
-        { name: '5373 US Hwy 10 E, Stevens Point, WI 54482', lat: 44.5232, lng: -89.5130 },
+        { name: '5373 US Hwy 10 E, Stevens Point, WI 54482', lat: 44.5232, lng: -89.5130, url: 'https://goodwillncw.org/employment-services/#employment-services-options' },
         // New Wyoming locations
-        { name: '3301 Nationway, Cheyenne, WY 82001', lat: 41.1416, lng: -104.7712 },
+        { name: '3301 Nationway, Cheyenne, WY 82001', lat: 41.1416, lng: -104.7712, url: 'https://www.goodwillwy.org/programs--services.html' },
         { name: '851 Werner Ct, Suite 100, Casper, WY 82601', lat: 42.8425, lng: -106.3144 },
-        { name: '612 West 17th Street, Cheyenne, WY 82001', lat: 41.1357, lng: -104.8248 }
+        { name: '612 West 17th Street, Cheyenne, WY 82001', lat: 41.1357, lng: -104.8248, url: 'https://www.goodwillwy.org/programs--services.html'}
 
       ];
 
+
       // Draw pins and counts
-      function renderLocations() {
-        // Remove existing markers if needed
-        locations.forEach(loc => L.marker([loc.lat, loc.lng]).addTo(map).bindPopup(loc.name));
-      }
+     function renderLocations() {
+      locations.forEach(loc => {
+        L.marker([loc.lat, loc.lng])
+         .addTo(map)
+         .bindPopup(
+           `<strong><a href="${loc.url}" target="_blank">${loc.name}</a></strong>`
+         );
+      });
+    }
 
       // Initial render
       document.getElementById('date').value = new Date().toISOString().split('T')[0];
