@@ -97,6 +97,10 @@
                 height: 35px;
             }
           }
+          a{
+            text-decoration: none;
+            color: inherit;
+          }
 
     .custom-container {
       background: #fff;
@@ -169,10 +173,6 @@
       transform: translateY(-2px);
       background: linear-gradient(135deg, #00244b, #0a66c2, #1E3A8A);
     }
-     a{
-            text-decoration: none;
-            color: inherit;
-          }
 
     /* New styles for social login buttons */
     .social-login {
@@ -304,14 +304,14 @@
     <form id="loginForm" class="row g-4">
       <div class="col-12">
         <label for="email" class="form-label">Email Address</label>
-        <input type="email" id="email" class="form-control" placeholder="Coolsoft@gmail.com" required>
+        <input type="email" id="email" class="form-control" placeholder="Enter Email" required>
       </div>
       <div class="col-12">
         <label for="password" class="form-label">Password</label>
         <input type="password" id="password" class="form-control" placeholder="••••••••" required>
       </div>
       <div class="col-12">
-        <a type="submit" class="btn btn-gold w-100 py-2 Arlogin" href="DashBoard.html">Login</a>
+        <button type="submit" class="btn btn-gold w-100 py-2 Arlogin">Login</button>
       </div>
     </form>
 
@@ -333,22 +333,27 @@
     © 2025 GoodWill Courses. All Rights Reserved.
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    // Toggle the select arrow
-    const select = document.getElementById('roleSelect');
-    const wrapper = select.closest('.custom-select-wrapper');
-    select.addEventListener('mousedown', () => wrapper.classList.toggle('open'));
-    document.addEventListener('click', e => {
-      if (!wrapper.contains(e.target)) wrapper.classList.remove('open');
-    });
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Toggle the select arrow
+  const select = document.getElementById('roleSelect');
+  const wrapper = select.closest('.custom-select-wrapper');
+  select.addEventListener('mousedown', () => wrapper.classList.toggle('open'));
+  document.addEventListener('click', e => {
+    if (!wrapper.contains(e.target)) wrapper.classList.remove('open');
+  });
 
-    // (Optional) handle login submit
-    document.getElementById('loginForm').addEventListener('submit', e => {
-      e.preventDefault();
-      // TODO: authentication logic here
-      alert('Logged in as ' + (select.value || 'No role selected'));
-    });
-  </script>
+  // Handle login submit
+  document.getElementById('loginForm').addEventListener('submit', e => {
+    e.preventDefault();
+    // Optional: Add authentication logic here if needed
+    // For example, you can check the role, email, or password before redirecting
+    if (select.value) {
+      window.location.href = 'dashboard.html'; // Redirect to dashboard.html
+    } else {
+      alert('Please select a role before logging in.');
+    }
+  });
+</script>
 </body>
 </html>
