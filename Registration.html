@@ -8,395 +8,740 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="original_logo.jpg">
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
-    body { background: #f4f7fa; color: #333; animation: fadeIn 1s ease-out; }
-
-     @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
+    body { background: linear-gradient(135deg, #f3f4f6, #e2e8f0); color: #1a1a1a; animation: fadeIn 1s ease-out; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
     .btn-gold {
-            background: linear-gradient(135deg, #ffd700, #ffca28);
-            color: #1a1a1a;
-            border: none;
-            border-radius: 10px;
-            padding: 10px 20px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .btn-gold:hover {
-            background: linear-gradient(135deg, #ffca28, #ffb300);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .navbar {
-            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
-            padding: 1rem 2rem;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .navbar-brand {
-            display: flex;
-            align-items: center;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #fff !important;
-            transition: transform 0.3s ease;
-        }
-
-        .navbar-brand img {
-            width: 45px;
-            height: 45px;
-            margin-right: 0.75rem;
-            transition: transform 0.3s ease;
-        }
-
-        .navbar-brand:hover {
-            transform: scale(1.05);
-        }
-
-        .nav-link {
-            color: #fff !important;
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .nav-link:hover {
-            color: #ffd700 !important;
-            transform: translateY(-2px);
-        }
-         .footer {
-            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
-            color: #fff;
-            padding: 1.5rem;
-            font-weight: 500;
-        }
-
-        @media (max-width: 768px) {
-            .navbar-brand {
-                font-size: 1.5rem;
-            }
-
-            .navbar-brand img {
-                width: 35px;
-                height: 35px;
-            }
-          }
-          .Arlogin{
-      background: linear-gradient(135deg, #00244b, #0a66c2, #1E3A8A);
-      color: #fff;
+      background: linear-gradient(135deg, #facc15, #f97316);
+      color: #1a1a1a;
+      border: none;
+      border-radius: 12px;
+      padding: 12px 24px;
       font-weight: 600;
-    }
-    .Arlogin:hover {
-      background: linear-gradient(135deg, #0a66c2, #00244b, #1E3A8A);
-      transform: translateY(-2px);
-      color: #fff;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
     }
 
-    .custom-container { background: #fff; border-radius: 20px;
-                        box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-                        padding: 40px; animation: zoomIn 0.8s ease-out; }
-    h2 { color: #1E3A8A; font-weight: 700; }
+    .btn-gold::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.5s ease, height 0.5s ease;
+    }
+
+    .btn-gold:hover::after {
+      width: 200%;
+      height: 200%;
+    }
+
+    .btn-gold:hover {
+      background: linear-gradient(135deg, #f97316, #facc15);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-link {
+      color: #3b82f6;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .btn-link:hover {
+      color: #facc15;
+      text-decoration: none;
+    }
+
+    .navbar {
+      background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #fff !important;
+    }
+
+    .navbar-brand img {
+      width: 45px;
+      height: 45px;
+      margin-right: 0.75rem;
+    }
+
+    .nav-link {
+      color: #fff !important;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+    }
+
+    .nav-link:hover {
+      color: #facc15 !important;
+    }
+
+    .custom-container {
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      /* max-width: 720px; */
+      /* margin: 100px auto; */
+      animation: slideUp 0.6s ease-out;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .custom-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: linear-gradient(90deg, #3b82f6, #facc15);
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    h2 {
+      color: #1e3a8a;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      letter-spacing: 0.5px;
+    }
 
     .form-control, .form-select {
-      border: 2px solid #e0e0e0; border-radius: 12px; padding: 14px;
-      transition: border-color 0.3s, box-shadow 0.3s; background: #f9fafb;
+      border: 2px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 14px;
+      transition: all 0.3s ease;
+      background: #f9fafb;
+      font-size: 1rem;
     }
+
     .form-control:focus, .form-select:focus {
-      border-color: #1E3A8A; box-shadow: 0 0 0 0.2rem rgba(30,58,138,0.25);
-      outline: none; background: #fff;
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+      background: #fff;
+      outline: none;
     }
 
-      .drop-zone {
-    position: relative;        /* ← make this the positioning context */
-    border: 2px dashed #ccc;
-    border-radius: 12px;
-    padding: 30px;
-    text-align: center;
-    color: #888;
-    transition: background 0.2s, border-color 0.2s;
-  }
-  .drop-zone.dragover {
-    background: rgba(30,58,138,0.05);
-    border-color: #1E3A8A;
-    color: #1E3A8A;
-  }
-  .drop-zone input[type="file"] {
-    opacity: 0;
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-  }
-   .drop-icon {
-    width: 48px;
-    height: 48px;
-    margin-bottom: 16px;
-    fill: #888;
-  }
+    .form-label {
+      color: #1e3a8a;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
 
-  .custom-select-wrapper {
-  position: relative;
-}
+    .is-invalid {
+      border-color: #dc3545;
+    }
 
-.custom-select-wrapper .form-select {
-  appearance: none;
-  padding-right: 2rem;
-}
+    .drop-zone {
+      position: relative;
+      border: 2px dashed #d1d5db;
+      border-radius: 12px;
+      padding: 32px;
+      text-align: center;
+      background: #f9fafb;
+      color: #6b7280;
+      transition: all 0.3s ease;
+      margin-bottom: 2rem;
+    }
 
-.select-icon {
-  position: absolute;
-  right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  pointer-events: none;
-  transition: transform 0.3s ease;
-  color: #333;
-}
+    .drop-zone.dragover {
+      background: rgba(59, 130, 246, 0.05);
+      border-color: #3b82f6;
+      color: #1e3a8a;
+    }
 
-.custom-select-wrapper.open .select-icon {
-  transform: translateY(-50%) rotate(180deg);
-}
+    .drop-zone input[type="file"] {
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
 
+    .drop-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 16px;
+      fill: #6b7280;
+      transition: fill 0.3s ease;
+    }
 
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    @keyframes zoomIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    .drop-zone.dragover .drop-icon {
+      fill: #3b82f6;
+    }
+
+    .step-progress {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    .step-progress::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #e0e0e0;
+      z-index: 1;
+      transform: translateY(-50%);
+    }
+    .step {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #e0e0e0;
+      color: #888;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+      font-weight: 600;
+    }
+
+    .step.active {
+      background: #3b82f6;
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    .step.completed {
+      background: #4caf50;
+      color: #fff;
+    }
+
+    .step-label {
+      position: absolute;
+    top: 60px;
+    left: 92%;
+    transform: translateX(-50%);
+    font-size: 0.9rem;
+    color: #6b7280;
+    font-weight: 500;
+    width: 100px;
+      /* font-weight: 500; */
+    }
+
+    .form-step {
+      display: none;
+    }
+
+    .form-step.active {
+      display: block;
+      animation: fadeIn 0.5s ease-out;
+    }
+
+    .location-info {
+      background: #f8f9fa;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .location-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .location-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .location-card h6 {
+      color: #1e3a8a;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .location-card p {
+      color: #4b5563;
+      font-size: 0.95rem;
+    }
+
+    .search-box {
+      position: relative;
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #6b7280;
+      font-size: 1.2rem;
+      transition: color 0.3s ease;
+    }
+
+    .search-box input:focus + .search-icon {
+      color: #3b82f6;
+    }
+
+    .form-check-label {
+      color: #1e3a8a;
+      font-size: 0.95rem;
+    }
+
+    .form-check-input:checked {
+      background-color: #3b82f6;
+      border-color: #3b82f6;
+    }
+
+    .modal-content {
+      border-radius: 16px;
+      padding: 24px;
+    }
+
+    .modal-header {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .modal-title {
+      color: #1e3a8a;
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+
+    .modal-body {
+      padding: 2rem;
+    }
+
+    .modal-footer {
+      border-top: none;
+      padding-top: 0;
+    }
   </style>
 </head>
 <body>
- <header>
-        <nav class="navbar navbar-expand-md navbar-dark sticky-top">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    GoodWill &nbsp;
-                    <img src="original_logo.jpg" alt="Logo" class="d-inline-block align-text-top">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobileNav"
-                    aria-controls="mobileNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="mobileNav">
-                    <ul class="navbar-nav ms-auto mb-2 mb-md-0">
-                        <!-- <li class="nav-item"><a class="nav-link" href="login.html">Home</a></li> -->
-                        <li class="nav-item"><a class="nav-link" href="#">Courses</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Instructors</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          GoodWill <img src="original_logo.jpg" alt="Logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobileNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mobileNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="#">Courses</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Instructors</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Partners</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
 
   <main class="container my-5">
-    <div class="custom-container mx-auto" >
-      <!-- Role selector at top -->
-     <div class="mb-4 position-relative">
-  <label for="roleSelect" class="form-label"><h5>Register as:</h5></label>
-  <div class="custom-select-wrapper">
-    <select id="roleSelect" class="form-select">
-      <option value="">-- Select Role --</option>
-      <option value="partner">Partner</option>
-      <option value="trainee">Trainee</option>
-    </select>
-    <i class="fa fa-chevron-down select-icon"></i>
+    <div class="custom-container mx-auto">
+      <div class="step-progress mb-2">
+        <div class="step active" id="step1">1<span class="step-label">Personal Info</span></div>
+        <div class="step" id="step2">2<span class="step-label">Location</span></div>
+      </div>
+      
+      <h2 id="formTitle">Create an Account</h2>
+
+      <!-- Step 1: Personal Information -->
+      <div class="form-step active" id="step1Form">
+        <div class="drop-zone" id="dropZone">
+          <svg xmlns="http://www.w3.org/2000/svg" class="drop-icon" viewBox="0 0 640 512">
+            <path d="M537.6 226.6C549.2 205 560 180.3 560 152c0-61.9-50.1-112-112-112-44.8 0-83 26.6-100.7 64.5C332.1 79.4 297 64 256 64c-70.7 0-128 57.3-128 128 0 1.2 0 2.3.1 3.5C57 206.3 0 267 0 339.9 0 417.7 62.3 480 140.1 480h360.6c88.4 0 159.3-79.2 143.2-166.5-7.9-39.2-36.3-67.9-106.3-86.9z"/>
+            <path d="M336 352h-32v-96h-64v96h-32l80 80 80-80z"/>
+          </svg><br>
+          Drag & drop your resume here<br>(or click to select)
+          <input type="file" id="fileInput" accept=".pdf,.doc,.docx" />
+        </div>
+
+        <form id="regForm" class="row g-4">
+          <div class="col-12 col-md-6">
+            <label for="firstName" class="form-label">First Name</label>
+            <input type="text" id="firstName" class="form-control" placeholder="Enter first name" required>
+          </div>
+          <div class="col-12 col-md-6">
+            <label for="lastName" class="form-label">Last Name</label>
+            <input type="text" id="lastName" class="form-control" placeholder="Enter last name" required>
+          </div>
+          <div class="col-12 col-md-6">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" id="email" class="form-control" placeholder="Enter email" required>
+          </div>
+          <div class="col-12 col-md-6">
+            <label for="phone" class="form-label">Phone Number</label>
+            <input type="tel" id="phone" class="form-control" placeholder="Enter phone number" required>
+          </div>
+          <div class="col-12 col-md-6">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" id="password" class="form-control" placeholder="Create a password" required>
+          </div>
+          <div class="col-12 col-md-6">
+            <label for="confirmPassword" class="form-label">Confirm Password</label>
+            <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm password" required>
+          </div>
+          <div class="col-12">
+            <label for="interest" class="form-label">Select Course Interest</label>
+            <select id="interest" class="form-select" required>
+              <option value="">Select Course Interest</option>
+              <option value="web-dev">Web Development</option>
+              <option value="data-science">Data Science</option>
+              <option value="ai-ml">AI & Machine Learning</option>
+              <option value="cyber-security">Cyber Security</option>
+              <option value="digital-marketing">Digital Marketing</option>
+            </select>
+          </div>
+          <div class="col-12">
+            <button class="btn btn-gold w-100 py-3" type="button" id="continueBtn">Continue</button>
+          </div>
+          <div class="col-12 text-center">
+            <small>Already have an account? <a href="login.html">Sign In</a></small>
+          </div>
+        </form>
+      </div>
+
+      <!-- Step 2: Location Information -->
+      <div class="form-step" id="step2Form">
+        <div class="location-info mb-4">
+          <form class="row g-3">
+            <div class="col-12 col-md-4">
+              <label for="state" class="form-label">State</label>
+              <select id="state" class="form-select" required>
+                <option value="">Select State</option>
+                <option value="AL">Alabama</option>
+                <option value="AK">Alaska</option>
+                <option value="AZ">Arizona</option>
+                <option value="AR">Arkansas</option>
+                <option value="CA">California</option>
+                <option value="CO">Colorado</option>
+                <option value="CT">Connecticut</option>
+                <option value="DE">Delaware</option>
+                <option value="FL">Florida</option>
+                <option value="GA">Georgia</option>
+                <option value="HI">Hawaii</option>
+                <option value="ID">Idaho</option>
+                <option value="IL">Illinois</option>
+                <option value="IN">Indiana</option>
+                <option value="IA">Iowa</option>
+                <option value="KS">Kansas</option>
+                <option value="KY">Kentucky</option>
+                <option value="LA">Louisiana</option>
+                <option value="ME">Maine</option>
+                <option value="MD">Maryland</option>
+                <option value="MA">Massachusetts</option>
+                <option value="MI">Michigan</option>
+                <option value="MN">Minnesota</option>
+                <option value="MS">Mississippi</option>
+                <option value="MO">Missouri</option>
+                <option value="MT">Montana</option>
+                <option value="NE">Nebraska</option>
+                <option value="NV">Nevada</option>
+                <option value="NH">New Hampshire</option>
+                <option value="NJ">New Jersey</option>
+                <option value="NM">New Mexico</option>
+                <option value="NY">New York</option>
+                <option value="NC">North Carolina</option>
+                <option value="ND">North Dakota</option>
+                <option value="OH">Ohio</option>
+                <option value="OK">Oklahoma</option>
+                <option value="OR">Oregon</option>
+                <option value="PA">Pennsylvania</option>
+                <option value="RI">Rhode Island</option>
+                <option value="SC">South Carolina</option>
+                <option value="SD">South Dakota</option>
+                <option value="TN">Tennessee</option>
+                <option value="TX">Texas</option>
+                <option value="UT">Utah</option>
+                <option value="VT">Vermont</option>
+                <option value="VA">Virginia</option>
+                <option value="WA">Washington</option>
+                <option value="WV">West Virginia</option>
+                <option value="WI">Wisconsin</option>
+                <option value="WY">Wyoming</option>
+              </select>
+            </div>
+            <div class="col-12 col-md-4">
+              <label for="city" class="form-label">City</label>
+              <select id="city" class="form-select" required disabled>
+                <option value="">Select State First</option>
+              </select>
+            </div>
+            <div class="col-12 col-md-4">
+              <label for="zipCode" class="form-label">Zip Code</label>
+              <input type="text" id="zipCode" class="form-control" placeholder="Enter zip code" required>
+            </div>
+            <div class="col-12">
+              <label for="request" class="form-label">Request</label>
+              <div class="search-box">
+                <input type="text" id="request" class="form-control" placeholder="Enter your request">
+                <i class="fas fa-search search-icon"></i>
+              </div>
+            </div>
+          </form>
+        </div>
+
+<div class="location-card">
+  <div class="row">
+    <div class="col-md-3">
+      <h6>Address</h6>
+      <p>Goodwill Community Center<br>3200 South Central Ave,<br>Los Angeles, CA 90011</p>
+    </div>
+    <div class="col-md-3">
+      <h6>Contact Person</h6>
+      <p>Maria Sanchez</p>
+    </div>
+    <div class="col-md-3">
+      <h6>Phone Number</h6>
+      <p>(213) 555-0198</p>
+    </div>
+    <div class="col-md-3">
+      <h6>Miles</h6>
+      <p>2.3 miles</p>
+    </div>
+  </div>
+</div>
+
+<div class="location-card">
+  <div class="row">
+    <div class="col-md-3">
+      <h6>Address</h6>
+      <p>Goodwill Outlet Store<br>2155 Mission St,<br>San Francisco, CA 94110</p>
+    </div>
+    <div class="col-md-3">
+      <h6>Contact Person</h6>
+      <p>Brian Nguyen</p>
+    </div>
+    <div class="col-md-3">
+      <h6>Phone Number</h6>
+      <p>(415) 555-0234</p>
+    </div>
+    <div class="col-md-3">
+      <h6>Miles</h6>
+      <p>5.6 miles</p>
+    </div>
   </div>
 </div>
 
 
-      <!-- Dynamic heading -->
-      <h2 id="mainHeading" class="text-center mb-4"></h2>
-
-      <!-- Dynamic file upload section -->
-      <div id="fileSection" class="mb-4" style="display: none;">
-        <h6 id="fileHeading" class="mb-3">Attachment</h5>
-         <div id="dropZone" class="drop-zone">
-          <svg xmlns="http://www.w3.org/2000/svg" class="drop-icon" viewBox="0 0 640 512">
-      <!-- Cloud shape -->
-      <path d="M537.6 226.6C549.2 205 560 180.3 560 152c0-61.9-50.1-112-112-112-44.8 0-83 26.6-100.7 64.5C332.1 79.4 297 64 256 64c-70.7 0-128 57.3-128 128 0 1.2 0 2.3.1 3.5C57 206.3 0 267 0 339.9 0 417.7 62.3 480 140.1 480h360.6c88.4 0 159.3-79.2 143.2-166.5-7.9-39.2-36.3-67.9-106.3-86.9z"/>
-      <!-- Up arrow -->
-      <path d="M336 352h-32v-96h-64v96h-32l80 80 80-80z"/>
-    </svg><br>
-      Drag &amp; drop your file here<br>
-      (or click to select)
-      <input type="file" id="fileInput" accept=".pdf,.doc,.docx" />
-    </div>
-      </div>
-
-      <!-- Manual registration form -->
-      <form id="regForm" class="row g-4">
-        <div class="col-12 col-md-6">
-          <label for="firstName" class="form-label">First Name</label>
-          <input type="text" id="firstName" class="form-control" placeholder="Steve" required>
-        </div>
-        <div class="col-12 col-md-6">
-          <label for="lastName" class="form-label">Last Name</label>
-          <input type="text" id="lastName" class="form-control" placeholder="Reeves" required>
-        </div>
-        <div class="col-12 col-md-6">
-          <label for="email" class="form-label">Email Address</label>
-          <input type="email" id="email" class="form-control" placeholder="steve@gmail.com" required>
-        </div>
-        <div class="col-12 col-md-6">
-          <label for="phone" class="form-label">Phone Number</label>
-          <input type="tel" id="phone" class="form-control" placeholder="+1 (202) 555-0143" required>
-        </div>
-        <div class="col-12 col-md-6">
-          <label for="password" class="form-label">Password</label>
-          <input type="password" id="password" class="form-control" placeholder="Create a password" required>
-        </div>
-        <div class="col-12 col-md-6">
-          <label for="confirmPassword" class="form-label">Confirm Password</label>
-          <input type="password" id="confirmPassword" class="form-control" placeholder="Re-enter your password" required>
-        </div>
-        <!-- move the course-interest dropdown to the very end -->
-  <div class="col-12">
-    <label for="interest" class="form-label">Select Course Interest</label>
-    <select id="interest" class="form-select" required>
-      <option value="">-- Select Interest --</option>
-      <option value="web-dev">Web Development</option>
-      <option value="data-science">Data Science</option>
-      <option value="ai-ml">AI &amp; Machine Learning</option>
-      <option value="cyber-security">Cyber Security</option>
-      <option value="digital-marketing">Digital Marketing</option>
-    </select>
-  </div>
-        <div class="col-12">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="terms" required>
-            <label class="form-check-label" for="terms">I agree to the Terms &amp; Conditions</label>
+        <form class="row g-4 mt-3">
+          <div class="col-12">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="termsStep2" required>
+              <label class="form-check-label" for="termsStep2">I agree to the Terms & Conditions</label>
+            </div>
           </div>
-        </div>
-        <div class="col-12">
-          <button class="btn btn-gold w-100 py-2 Arlogin" type="submit">Register Now</button>
-        </div>
-        <div class="col-12 text-center">
-          <small>Already have an account? <a href="index.html">Login</a></small><br>
-          <!-- <small>Sign up using resume <a href="#"><i class="fas fa-upload"></i></a></small> -->
-        </div>
-      </form>
+          <div class="col-12">
+            <button class="btn btn-gold w-100 py-3" type="button" id="signUpBtn">Sign Up</button>
+          </div>
+          <div class="col-12 text-center">
+            <button class="btn btn-link" type="button" id="backBtn">Back to Personal Info</button>
+          </div>
+        </form>
+      </div>
     </div>
   </main>
 
   <footer class="text-white text-center py-3" style="background: linear-gradient(135deg, #00244b, #0a66c2);">
-    &copy; 2025 GoodWill Courses. All Rights Reserved.
+    © 2025 GoodWill Courses. All Rights Reserved.
   </footer>
 
-<!-- Registration Success Modal -->
-<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content rounded-2xl shadow-lg">
-      <div class="modal-header border-0">
-        <h5 class="modal-title" id="successModalLabel">Registration Successful</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body text-center">
-        <i class="fa fa-check-circle fa-3x text-success mb-3"></i>
-        <p>Your account has been created successfully!</p>
-      </div>
-      <div class="modal-footer border-0">
-        <button type="button" class="btn btn-gold w-100" data-bs-dismiss="modal">OK</button>
+  <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content rounded-2xl shadow-lg">
+        <div class="modal-header border-0">
+          <h5 class="modal-title">Registration Successful</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body text-center">
+          <i class="fa fa-check-circle fa-3x text-success mb-3"></i>
+          <p>Your account has been created successfully!</p>
+        </div>
+        <div class="modal-footer border-0">
+          <button type="button" class="btn btn-gold w-100" data-bs-dismiss="modal">OK</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-
-
-
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    const roleSelect   = document.getElementById('roleSelect');
-    const heading      = document.getElementById('mainHeading');
-    const fileSection  = document.getElementById('fileSection');
-    const fileHeading  = document.getElementById('fileHeading');
-    const dropZone     = document.getElementById('dropZone');
-    const fileInput    = document.getElementById('fileInput');
-
-    // Handle role change
-    roleSelect.addEventListener('change', () => {
-      const role = roleSelect.value;
-      if (role === 'partner') {
-        heading.textContent = 'Welcome Partner!! Create an account';
-        fileHeading.textContent = 'Auto fill with Attachment';
-        fileSection.style.display = 'block';
-      } else if (role === 'trainee') {
-        heading.textContent = 'Welcome Trainee!! Create an account now';
-        fileHeading.textContent = 'Auto fill with Your Resume';
-        fileSection.style.display = 'block';
-      } 
-      //else {
-      //   heading.textContent   = 'Create Your Account';
-      //   fileSection.style.display = 'none';
-      // }
-    });
-
-    // Drag & drop styling
+    const dropZone = document.getElementById('dropZone');
     ['dragenter','dragover'].forEach(evt =>
       dropZone.addEventListener(evt, e => {
-        e.preventDefault();
-        e.stopPropagation();
+        e.preventDefault(); e.stopPropagation();
         dropZone.classList.add('dragover');
       })
     );
     ['dragleave','drop'].forEach(evt =>
       dropZone.addEventListener(evt, e => {
-        e.preventDefault();
-        e.stopPropagation();
+        e.preventDefault(); e.stopPropagation();
         dropZone.classList.remove('dragover');
       })
     );
-    // on file selected
-    fileInput.addEventListener('change', () => {
-      if (fileInput.files.length) {
-        dropZone.textContent = fileInput.files[0].name;
+    document.getElementById('fileInput').addEventListener('change', e => {
+      if (e.target.files.length) {
+        dropZone.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="drop-icon" viewBox="0 0 640 512">
+          <path d="M537.6 226.6C549.2 205 560 180.3 560 152c0-61.9-50.1-112-112-112-44.8 0-83 26.6-100.7 64.5C332.1 79.4 297 64 256 64c-70.7 0-128 57.3-128 128 0 1.2 0 2.3.1 3.5C57 206.3 0 267 0 339.9 0 417.7 62.3 480 140.1 480h360.6c88.4 0 159.3-79.2 143.2-166.5-7.9-39.2-36.3-67.9-106.3-86.9z"/>
+          <path d="M336 352h-32v-96h-64v96h-32l80 80 80-80z"/>
+        </svg><br>${e.target.files[0].name}`;
       }
     });
 
-    // Handle drop event
-     const select = document.getElementById('roleSelect');
-  const wrapper = select.closest('.custom-select-wrapper');
+    const cityData = {
+      'CA': ['Los Angeles', 'San Francisco', 'San Diego', 'Sacramento'],
+      'NY': ['New York', 'Buffalo', 'Rochester', 'Albany'],
+      'TX': ['Houston', 'Dallas', 'Austin', 'San Antonio'],
+      'FL': ['Miami', 'Orlando', 'Tampa', 'Jacksonville'],
+      'AL': ['Birmingham', 'Montgomery', 'Huntsville', 'Mobile'],
+      'AK': ['Anchorage', 'Fairbanks', 'Juneau', 'Sitka'],
+      'AZ': ['Phoenix', 'Tucson', 'Mesa', 'Scottsdale'],
+      'AR': ['Little Rock', 'Fort Smith', 'Fayetteville', 'Springdale'],
+      'CO': ['Denver', 'Colorado Springs', 'Aurora', 'Fort Collins'],
+      'CT': ['Bridgeport', 'New Haven', 'Hartford', 'Stamford'],
+      'DE': ['Wilmington', 'Dover', 'Newark', 'Middletown'],
+      'GA': ['Atlanta', 'Augusta', 'Columbus', 'Savannah'],
+      'HI': ['Honolulu', 'Hilo', 'Kailua', 'Kapolei'],
+      'ID': ['Boise', 'Meridian', 'Nampa', 'Idaho Falls'],
+      'IL': ['Chicago', 'Aurora', 'Rockford', 'Springfield'],
+      'IN': ['Indianapolis', 'Fort Wayne', 'Evansville', 'South Bend'],
+      'IA': ['Des Moines', 'Cedar Rapids', 'Davenport', 'Sioux City'],
+      'KS': ['Wichita', 'Overland Park', 'Kansas City', 'Topeka'],
+      'KY': ['Louisville', 'Lexington', 'Bowling Green', 'Owensboro'],
+      'LA': ['New Orleans', 'Baton Rouge', 'Shreveport', 'Lafayette'],
+      'ME': ['Portland', 'Lewiston', 'Bangor', 'Auburn'],
+      'MD': ['Baltimore', 'Columbia', 'Germantown', 'Silver Spring'],
+      'MA': ['Boston', 'Worcester', 'Springfield', 'Cambridge'],
+      'MI': ['Detroit', 'Grand Rapids', 'Warren', 'Sterling Heights'],
+      'MN': ['Minneapolis', 'St. Paul', 'Rochester', 'Duluth'],
+      'MS': ['Jackson', 'Gulfport', 'Southaven', 'Hattiesburg'],
+      'MO': ['Kansas City', 'St. Louis', 'Springfield', 'Columbia'],
+      'MT': ['Billings', 'Missoula', 'Great Falls', 'Bozeman'],
+      'NE': ['Omaha', 'Lincoln', 'Bellevue', 'Grand Island'],
+      'NV': ['Las Vegas', 'Reno', 'Henderson', 'North Las Vegas'],
+      'NH': ['Manchester', 'Nashua', 'Concord', 'Dover'],
+      'NJ': ['Newark', 'Jersey City', 'Paterson', 'Elizabeth'],
+      'NM': ['Albuquerque', 'Las Cruces', 'Rio Rancho', 'Santa Fe'],
+      'NC': ['Charlotte', 'Raleigh', 'Greensboro', 'Durham'],
+      'ND': ['Fargo', 'Bismarck', 'Grand Forks', 'Minot'],
+      'OH': ['Columbus', 'Cleveland', 'Cincinnati', 'Toledo'],
+      'OK': ['Oklahoma City', 'Tulsa', 'Norman', 'Broken Arrow'],
+      'OR': ['Portland', 'Salem', 'Eugene', 'Gresham'],
+      'PA': ['Philadelphia', 'Pittsburgh', 'Allentown', 'Erie'],
+      'RI': ['Providence', 'Warwick', 'Cranston', 'Pawtucket'],
+      'SC': ['Charleston', 'Columbia', 'North Charleston', 'Mount Pleasant'],
+      'SD': ['Sioux Falls', 'Rapid City', 'Aberdeen', 'Brookings'],
+      'TN': ['Nashville', 'Memphis', 'Knoxville', 'Chattanooga'],
+      'UT': ['Salt Lake City', 'West Valley City', 'Provo', 'West Jordan'],
+      'VT': ['Burlington', 'South Burlington', 'Rutland', 'Barre'],
+      'VA': ['Virginia Beach', 'Norfolk', 'Chesapeake', 'Richmond'],
+      'WA': ['Seattle', 'Spokane', 'Tacoma', 'Vancouver'],
+      'WV': ['Charleston', 'Huntington', 'Morgantown', 'Parkersburg'],
+      'WI': ['Milwaukee', 'Madison', 'Green Bay', 'Kenosha'],
+      'WY': ['Cheyenne', 'Casper', 'Laramie', 'Gillette']
+    };
 
-  select.addEventListener('mousedown', () => {
-    wrapper.classList.toggle('open');
-  });
+    document.getElementById('state').addEventListener('change', function() {
+      const citySelect = document.getElementById('city');
+      citySelect.innerHTML = '<option value="">Select City</option>';
+      
+      if (this.value && cityData[this.value]) {
+        citySelect.disabled = false;
+        cityData[this.value].forEach(city => {
+          const option = document.createElement('option');
+          option.value = city.toLowerCase().replace(' ', '-');
+          option.textContent = city;
+          citySelect.appendChild(option);
+        });
+      } else {
+        citySelect.disabled = true;
+      }
+    });
 
-  // Remove the class when clicked outside
-  document.addEventListener('click', (e) => {
-    if (!wrapper.contains(e.target)) {
-      wrapper.classList.remove('open');
-    }
-  });
+    const continueBtn = document.getElementById('continueBtn');
+    const backBtn = document.getElementById('backBtn');
+    const signUpBtn = document.getElementById('signUpBtn');
+    const step1Form = document.getElementById('step1Form');
+    const step2Form = document.getElementById('step2Form');
+    const step1 = document.getElementById('step1');
+    const step2 = document.getElementById('step2');
+    const formTitle = document.getElementById('formTitle');
 
+    continueBtn.addEventListener('click', function() {
+      const form = document.getElementById('regForm');
+      const requiredFields = Array.from(form.querySelectorAll('[required]')).filter(f => f.id !== 'interest');
+      let isValid = true;
+      
+      requiredFields.forEach(field => {
+        if (!field.value) {
+          field.classList.add('is-invalid');
+          isValid = false;
+        } else {
+          field.classList.remove('is-invalid');
+        }
+      });
+      
+      if (isValid) {
+        step1Form.classList.remove('active');
+        step2Form.classList.add('active');
+        step1.classList.remove('active');
+        step1.classList.add('completed');
+        step2.classList.add('active');
+        formTitle.textContent = 'Complete Your Registration';
+      }
+    });
 
-  // Handle form submission
-   const regForm       = document.getElementById('regForm');
-    const successModalEl = document.getElementById('successModal');
-    const successModal   = new bootstrap.Modal(successModalEl);
+    backBtn.addEventListener('click', function() {
+      step2Form.classList.remove('active');
+      step1Form.classList.add('active');
+      step2.classList.remove('active');
+      step1.classList.add('active');
+      step1.classList.remove('completed');
+      formTitle.textContent = 'Welcome Trainee! Create an Account';
+    });
 
-    regForm.addEventListener('submit', function(e) {
-      e.preventDefault();
+    signUpBtn.addEventListener('click', function() {
+      const termsChecked = document.getElementById('termsStep2').checked;
+      
+      if (!termsChecked) {
+        alert('Please agree to the Terms & Conditions');
+        return;
+      }
+      
+      const successModal = new bootstrap.Modal(document.getElementById('successModal'));
       successModal.show();
-      successModalEl.addEventListener('hidden.bs.modal', () => {
-        regForm.reset();
-        document.getElementById('mainHeading').textContent = '';
-        document.getElementById('fileSection').style.display = 'none';
-      }, { once: true });
     });
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
