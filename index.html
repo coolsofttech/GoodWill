@@ -11,321 +11,330 @@
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
     body {
-            background: #e9ecef;
-            color: #1a1a1a;
-            animation: fadeIn 1s ease-out;
-            overflow-x: hidden;
-        }
+      background: linear-gradient(135deg, #f3f4f6, #e2e8f0);
+      color: #1a1a1a;
+      animation: fadeIn 1s ease-out;
+      overflow-x: hidden;
+    }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
 
     .btn-gold {
-            background: linear-gradient(135deg, #ffd700, #ffca28);
-            color: #1a1a1a;
-            border: none;
-            border-radius: 10px;
-            padding: 10px 20px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .btn-gold:hover {
-            background: linear-gradient(135deg, #ffca28, #ffb300);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .navbar {
-            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
-            padding: 1rem 2rem;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .navbar-brand {
-            display: flex;
-            align-items: center;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #fff !important;
-            transition: transform 0.3s ease;
-        }
-
-        .navbar-brand img {
-            width: 45px;
-            height: 45px;
-            margin-right: 0.75rem;
-            transition: transform 0.3s ease;
-        }
-
-        .navbar-brand:hover {
-            transform: scale(1.05);
-        }
-
-        .nav-link {
-            color: #fff !important;
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .nav-link:hover {
-            color: #ffd700 !important;
-            transform: translateY(-2px);
-        }
-         .footer {
-            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
-            color: #fff;
-            padding: 1.5rem;
-            font-weight: 500;
-        }
-
-        @media (max-width: 768px) {
-            .navbar-brand {
-                font-size: 1.5rem;
-            }
-
-            .navbar-brand img {
-                width: 35px;
-                height: 35px;
-            }
-          }
-          a{
-            text-decoration: none;
-            color: inherit;
-          }
-
-    .custom-container {
-      background: #fff;
-      border-radius: 20px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-      padding: 40px;
-      max-width: 480px;
-      margin: 80px auto;
-      animation: zoomIn 0.8s ease-out;
-    }
-    h2 { color: #1E3A8A; font-weight: 700; text-align: center; margin-bottom: 1.5rem; }
-
-    .form-control, .form-select {
-      border: 2px solid #e0e0e0;
+      background: linear-gradient(135deg, #facc15, #f97316);
+      color: #1a1a1a;
+      border: none;
       border-radius: 12px;
-      padding: 14px;
-      transition: border-color 0.3s, box-shadow 0.3s;
-      background: #f9fafb;
-    }
-    .form-control:focus, .form-select:focus {
-      border-color: #1E3A8A;
-      box-shadow: 0 0 0 0.2rem rgba(30,58,138,0.25);
-      outline: none;
-      background: #fff;
-    }
-
-    .custom-select-wrapper {
+      padding: 12px 24px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
       position: relative;
-      margin-bottom: 1rem;
-    }
-    .custom-select-wrapper .form-select {
-      appearance: none;
-      padding-right: 2rem;
-    }
-    .select-icon {
-      position: absolute;
-      right: 12px;
-      top: 50%;
-      transform: translateY(-50%);
-      pointer-events: none;
-      transition: transform 0.3s ease;
-      color: #333;
-    }
-    .custom-select-wrapper.open .select-icon {
-      transform: translateY(-50%) rotate(180deg);
+      overflow: hidden;
     }
 
-    .login-footer {
-      text-align: center;
-      margin-top: 1rem;
+    .btn-gold::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.5s ease, height 0.5s ease;
     }
-    .login-footer a {
-      color: #1E3A8A;
-      text-decoration: none;
-      font-weight: 500;
+
+    .btn-gold:hover::after {
+      width: 200%;
+      height: 200%;
     }
-    .login-footer a:hover {
-      text-decoration: underline;
+
+    .btn-gold:hover {
+      background: linear-gradient(135deg, #f97316, #facc15);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
     }
+
+    .navbar {
+      background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #fff !important;
+      transition: transform 0.3s ease;
+    }
+
+    .navbar-brand img {
+      width: 45px;
+      height: 45px;
+      margin-right: 0.75rem;
+      transition: transform 0.3s ease;
+    }
+
+    .navbar-brand:hover {
+      transform: scale(1.05);
+    }
+
     .nav-link {
       color: #fff !important;
-    }
-    .Arlogin{
-      background: linear-gradient(135deg, #00244b, #0a66c2, #1E3A8A);
-      color: #fff;
-      font-weight: 600;
-    }
-    .Arlogin:hover {
-     color: #cdd833;
-      transform: translateY(-2px);
-      background: linear-gradient(135deg, #00244b, #0a66c2, #1E3A8A);
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      transition: all 0.3s ease;
     }
 
-    /* New styles for social login buttons */
+    .nav-link:hover {
+      color: #facc15 !important;
+      transform: translateY(-2px);
+    }
+
+    .footer {
+      background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+      color: #fff;
+      padding: 1.5rem;
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      .navbar-brand {
+        font-size: 1.5rem;
+      }
+
+      .navbar-brand img {
+        width: 35px;
+        height: 35px;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .custom-container {
+      background: #ffffff;
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      padding: 48px;
+      max-width: 520px;
+      margin: 100px auto;
+      animation: slideUp 0.6s ease-out;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .custom-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: linear-gradient(90deg, #3b82f6, #facc15);
+    }
+
+    h2 {
+      color: #1e3a8a;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      letter-spacing: 0.5px;
+    }
+
+    .form-control {
+      border: 2px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 16px;
+      transition: all 0.3s ease;
+      background: #f9fafb;
+      font-size: 1rem;
+    }
+
+    .form-control:focus {
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+      background: #ffffff;
+      outline: none;
+    }
+
+    .form-label {
+      color: #1e3a8a;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+
     .social-login {
-      margin-top: 1.5rem;
-      margin-bottom: 1.5rem;
+      margin: 2rem 0;
       text-align: center;
     }
+
     .social-login p {
-      color: #666;
+      color: #6b7280;
       font-size: 0.9rem;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
       position: relative;
+      font-weight: 500;
     }
+
     .social-login p::before,
     .social-login p::after {
       content: '';
       position: absolute;
       top: 50%;
-      width: 40%;
+      width: 35%;
       height: 1px;
-      background: #e0e0e0;
+      background: #e5e7eb;
     }
+
     .social-login p::before {
       left: 0;
     }
+
     .social-login p::after {
       right: 0;
     }
-    /* General button styles */
-.btn-social {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 0.75rem;
-  border-radius: 12px;
-  color: #fff;
-  font-weight: 500;
-  transition: transform 0.2s, box-shadow 0.3s;
-  border: none;
-}
 
-/* Google */
-.btn-google {
-  background: linear-gradient(45deg, #4285F4, #34A853, #FBBC05, #EA4335);
-  background-size: 300% 300%;
-  animation: gradientShift 6s ease infinite;
-}
-.btn-google:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(66, 133, 244, 0.5);
-  color: #cdd833;
-}
+    .btn-social {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 0.75rem;
+      border-radius: 12px;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
 
-/* Apple */
-.btn-apple {
-  background: linear-gradient(135deg, #000, #434343);
-}
-.btn-apple:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-  color: #cdd833;
-}
+    .btn-social i {
+      margin-right: 10px;
+      font-size: 1.2rem;
+    }
 
-/* Microsoft */
-.btn-microsoft {
-  background: linear-gradient(135deg, #F25022, #7FBA00, #00A4EF, #FFB900);
-  background-size: 300% 300%;
-  animation: gradientShift 6s ease infinite;
-}
-.btn-microsoft:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0, 164, 239, 0.5);
-  color: #cdd833;
-}
+    .btn-google {
+      background: #ffffff;
+      border: 2px solid #e5e7eb;
+      color: #1e3a8a;
+    }
 
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
+    .btn-google:hover {
+      background: #f9fafb;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
 
+    .btn-apple {
+      background: #000000;
+      color: #ffffff;
+    }
 
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    @keyframes zoomIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    .btn-apple:hover {
+      background: #1f1f1f;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-microsoft {
+      background: #ffffff;
+      border: 2px solid #e5e7eb;
+      color: #1e3a8a;
+    }
+
+    .btn-microsoft:hover {
+      background: #f9fafb;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .login-footer {
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+
+    .login-footer a {
+      color: #3b82f6;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .login-footer a:hover {
+      color: #facc15;
+      text-decoration: none;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
   </style>
 </head>
 <body>
   <header>
-        <nav class="navbar navbar-expand-md navbar-dark sticky-top">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    GoodWill &nbsp;
-                    <img src="original_logo.jpg" alt="Logo" class="d-inline-block align-text-top">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobileNav"
-                    aria-controls="mobileNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="mobileNav">
-                    <ul class="navbar-nav ms-auto mb-2 mb-md-0">
-                      
-                        <li class="nav-item"><a class="nav-link" href="#">Courses</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Instructors</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+    <nav class="navbar navbar-expand-md navbar-dark sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          GoodWill &nbsp;
+          <img src="original_logo.jpg" alt="Logo" class="d-inline-block align-text-top">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobileNav"
+          aria-controls="mobileNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mobileNav">
+          <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+            <li class="nav-item"><a class="nav-link" href="#">Courses</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Instructors</a></li>
+            <li class="nav-item"><a class="nav-link" href="Registration.html">Participant</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Partners</a></li>
+            <!-- <li class="nav-item"><a class="nav-link" href="Registration.html">Register Now</a></li> -->
+            <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
 
   <div class="custom-container">
-    <h2>Login to Your Account</h2>
+    <h2>Sign in to GoodWill</h2>
 
-    <!-- Role selector -->
-    <div class="custom-select-wrapper">
-      <select id="roleSelect" class="form-select">
-        <option value="">-- Select Role --</option>
-        <option value="partner">Partner</option>
-        <option value="instructor">Instructor</option>
-        <option value="trainee">Trainee</option>
-      </select>
-      <i class="fa fa-chevron-down select-icon"></i>
-    </div>
-
-    <!-- Login form -->
     <form id="loginForm" class="row g-4">
       <div class="col-12">
         <label for="email" class="form-label">Email Address</label>
-        <input type="email" id="email" class="form-control" placeholder="Enter Email" required>
+        <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
       </div>
       <div class="col-12">
         <label for="password" class="form-label">Password</label>
-        <input type="password" id="password" class="form-control" placeholder="••••••••" required>
+        <input type="password" id="password" class="form-control" placeholder="Enter your password" required>
       </div>
       <div class="col-12">
-        <button type="submit" class="btn btn-gold w-100 py-2 Arlogin">Login</button>
+        <button type="submit" class="btn btn-gold w-100 py-3">Sign In</button>
       </div>
     </form>
 
-    <!-- Social login buttons -->
     <div class="social-login">
-  <p>&nbsp; Or login with &nbsp;</p>
-  <a href="#" class="btn-social btn-google"><i class="fab fa-google">&nbsp;</i> Continue with Google</a>
-  <a href="#" class="btn-social btn-apple"><i class="fab fa-apple">&nbsp;</i> Continue with Apple</a>
-  <a href="#" class="btn-social btn-microsoft"><i class="fab fa-microsoft">&nbsp;</i> Continue with Microsoft</a>
-</div>
-
+      <p>Or continue with</p>
+      <a href="#" class="btn-social btn-google"><i class="fab fa-google"></i> Google</a>
+      <a href="#" class="btn-social btn-apple"><i class="fab fa-apple"></i> Apple</a>
+      <a href="#" class="btn-social btn-microsoft"><i class="fab fa-microsoft"></i> Microsoft</a>
+    </div>
 
     <div class="login-footer">
-      <small>Don’t have an account? <a href="Registration.html">Register here.</a></small>
+      <small>Don't have an account? <a href="Registration.html">Sign Up here</a></small>
     </div>
   </div>
 
@@ -333,46 +342,23 @@
     © 2025 GoodWill Courses. All Rights Reserved.
   </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-  // Toggle the select arrow
-  const select = document.getElementById('roleSelect');
-  const wrapper = select.closest('.custom-select-wrapper');
-  select.addEventListener('mousedown', () => wrapper.classList.toggle('open'));
-  document.addEventListener('click', e => {
-    if (!wrapper.contains(e.target)) wrapper.classList.remove('open');
-  });
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
 
-  // Handle login submit
-  document.getElementById("loginForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    const role = document.getElementById("roleSelect").value;
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value.trim();
-
-    // Dummy hardcoded credentials (replace with backend logic for real apps)
-    const credentials = {
-      partner: { email: "coolsofttech@gmail.com", password: "Coolsoft@123" },
-      instructor: { email: "coolsofttech@gmail.com", password: "Coolsoft@123" },
-      trainee: { email: "coolsofttech@gmail.com", password: "Coolsoft@123" }
-    };
-
-    // Validate
-    if (!role || !credentials[role]) {
-      alert("Please select a valid role.");
-      return;
-    }
-
-    const user = credentials[role];
-    if (email === user.email && password === user.password) {
-      // alert(`Login successful as ${role}`);
-      // Redirect or do something
-      window.location.href = `DashBoard.html`;
-    } else {
-      alert("Invalid email or password.");
-    }
-  });
-</script>
+      if (email === "admin@coolsofttech.com" && password === "Admin@2026") {
+        window.location.href = "DashBoard.html";
+      }
+      else if (email === "partner@coolsofttech.com" && password === "Partner@2026") {
+        window.location.href = "TranieeDashboard.html";
+      }
+      else {
+        alert("Invalid email or password.");
+      }
+    });
+  </script>
 </body>
 </html>
