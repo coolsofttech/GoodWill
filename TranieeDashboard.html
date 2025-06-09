@@ -177,6 +177,18 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             cursor: pointer;
         }
+        .icon-circle2{
+             width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
 
         .card-title {
             font-size: 1.3rem;
@@ -348,7 +360,7 @@
             <div class="row g-4 mt-3 mb-5">
                 <!-- Course Search -->
                 <div class="col-md-6 col-xl-4">
-                    <a href="#CourseSearch" class="text-decoration-none">
+                    <a href="CourseSearch.html" class="text-decoration-none">
                         <div class="card h-100 hover-card">
                             <div class="card-body d-flex flex-column align-items-start">
                                 <div class="icon-circle bg-primary text-white mb-3">
@@ -363,7 +375,7 @@
 
                 <!-- My Wishlist -->
                 <div class="col-md-6 col-xl-4">
-                    <a href="#/wishlist" class="text-decoration-none">
+                    <a href="wishlist.html" class="text-decoration-none">
                         <div class="card h-100 hover-card">
                             <div class="card-body d-flex flex-column align-items-start">
                                 <div class="icon-circle bg-danger text-white mb-3">
@@ -378,7 +390,7 @@
 
                 <!-- My Courses -->
                 <div class="col-md-6 col-xl-4">
-                    <a href="#/courses" class="text-decoration-none">
+                    <a href="mycourses.html" class="text-decoration-none">
                         <div class="card h-100 hover-card">
                             <div class="card-body d-flex flex-column align-items-start">
                                 <div class="icon-circle bg-success text-white mb-3">
@@ -423,24 +435,43 @@
 
                 <!-- Help Center -->
                 <div class="col-md-6 col-xl-4">
-                    <div class="card h-100 hover-card">
-                        <div class="card-body d-flex flex-column align-items-start">
-                            <div class="icon-group">
-                                <div class="icon-circle bg-info text-white" data-bs-toggle="modal" data-bs-target="#imageModal" data-img-path="careerResume.png">
-                                    <i class="bi bi-file-earmark-text fs-3"></i>
-                                </div>
-                                <div class="icon-circle bg-info text-white" data-bs-toggle="modal" data-bs-target="#imageModal" data-img-path="https://picsum.photos/800/600?random=2">
-                                    <i class="bi bi-envelope fs-3"></i>
-                                </div>
-                                <div class="icon-circle bg-info text-white" data-bs-toggle="modal" data-bs-target="#imageModal" data-img-path="careerExpert.png">
-                                    <i class="bi bi-question-circle fs-3"></i>
-                                </div>
-                            </div>
-                            <h5 class="card-title">Help Center</h5>
-                            <p class="card-text">Access resume tools, support, and help resources.</p>
-                        </div>
+    <div class="card h-100 hover-card">
+        <div class="card-body d-flex flex-column align-items-start">
+            <div class="icon-group d-flex flex-wrap gap-3">
+                <div class="text-center">
+                    <div class="icon-circle2 bg-info text-white" data-bs-toggle="modal" data-bs-target="#imageModal" data-img-path="careerResume.png">
+                        <i class="bi bi-file-earmark-text fs-3"></i>
                     </div>
+                    <small class="d-block mt-1 text-muted">Resume Tools</small>
                 </div>
+                <div class="text-center">
+                    <div class="icon-circle2 bg-info text-white" data-bs-toggle="modal" data-bs-target="#imageModal" data-img-path="careerExpert.png">
+                        <i class="bi bi-person-check-fill fs-3"></i>
+                    </div>
+                    <small class="d-block mt-1 text-muted">Expert Advice</small>
+                </div>
+                <div class="text-center">
+                    <div class="icon-circle2 bg-info text-white">
+                        <i class="bi bi-question-square-fill fs-3"></i>
+                    </div>
+                    <small class="d-block mt-1 text-muted">FAQs</small>
+                </div>
+                <div class="text-center">
+                    <a href="StateMap.html" class="icon-circle2 bg-info text-white">
+                        
+                    <div class="icon-circle2 bg-success text-white">
+                        <i class="bi bi-geo-alt-fill fs-3"></i>
+                    </div>
+                </a>
+                    <small class="d-block mt-1 text-muted">Find Us</small>
+                </div>
+            </div>
+            <h5 class="card-title">Help Center</h5>
+            <p class="card-text">Access resume tools, get expert advice, post questions and find career centers across US</p>
+        </div>
+    </div>
+</div>
+
             </div>
         </div>
 
