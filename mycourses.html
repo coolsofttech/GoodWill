@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Courses - GoodWill Courses</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="original_logo.jpg">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #e9ecef, #f8f9fa);
+            color: #1a1a1a;
+            animation: fadeIn 1s ease-out;
+            overflow-x: hidden;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .slide-in {
+            animation: slideIn 0.5s ease-out forwards;
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            padding: 12px 24px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(245, 158, 11, 0.3);
+        }
+
+        .btn-gold:hover {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+        }
+
+        .btn-enrolled {
+            background: linear-gradient(135deg, #6b7280, #4b5563);
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            padding: 12px 24px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(107, 114, 128, 0.3);
+        }
+
+        .btn-enrolled:hover {
+            background: linear-gradient(135deg, #9ca3af, #6b7280);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(107, 114, 128, 0.4);
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff !important;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-brand img {
+            width: 45px;
+            height: 45px;
+            margin-right: 0.75rem;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-brand:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-link {
+            color: #fff !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #ffd700 !important;
+            transform: translateY(-2px);
+        }
+
+        .main {
+            background: #f8f9fa;
+            min-height: 85vh;
+            padding: 2rem 0;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: #fff;
+            padding: 1.5rem;
+            font-weight: 500;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+        }
+
+        .user-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #fff;
+            border: 2px solid #facc15;
+            color: #1e3a8a;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .user-icon:hover {
+            background: #facc15;
+            color: #1a1a1a;
+            transform: translateY(-2px);
+        }
+
+        .logout-btn {
+            color: #fff !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            color: #facc15 !important;
+            transform: translateY(-2px);
+        }
+
+        .logout-btn i {
+            margin-right: 0.3rem;
+        }
+
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .search-section {
+            background: linear-gradient(135deg, #ffffff, #e8f0ff);
+            border-radius: 20px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+        }
+
+        .course-card {
+            border: none;
+            border-radius: 20px;
+            background: #fff;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .course-card-header {
+            background: linear-gradient(135deg, #2563eb, #1e3a8a);
+            color: #fff;
+            padding: 1.5rem;
+            border-radius: 20px 20px 0 0;
+            position: relative;
+        }
+
+        .bookmark-icon {
+            color: #3b82f6;
+            cursor: pointer;
+            transition: transform 0.3s ease, color 0.3s ease;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+
+        .bookmark-icon:hover {
+            transform: scale(1.3);
+            color: #1e40af;
+        }
+
+        .rating-stars i {
+            color: #facc15;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .rating-stars i:hover {
+            transform: scale(1.2);
+        }
+
+        .rating-stars .bi-star {
+            color: #d1d5db;
+        }
+
+        .description-short {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .description-full {
+            display: none;
+        }
+
+        .see-more {
+            color: #2563eb;
+            cursor: pointer;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .see-more:hover {
+            color: #1e40af;
+            text-decoration: underline;
+        }
+
+        .progress-bar {
+            height: 8px;
+            border-radius: 4px;
+            background: #e5e7eb;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(135deg, #34d399, #10b981);
+            transition: width 0.5s ease;
+        }
+
+        .header-section {
+            background: linear-gradient(135deg, #2563eb, #1e3a8a);
+            color: #fff;
+            padding: 3rem 0;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1516321310762-479c4d55c4e8') no-repeat center center/cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .header-section h2, .header-section p {
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 768px) {
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+
+            .navbar-brand img {
+                width: 35px;
+                height: 35px;
+            }
+
+            .user-profile {
+                margin-top: 0.5rem;
+                justify-content: flex-start;
+            }
+
+            .search-section {
+                padding: 1.5rem;
+            }
+
+            .header-section {
+                padding: 2rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark sticky-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="https://goodwillng.org/gw-locations/cartersville-store-donation-career-center-30120" target="_blank">
+                    My GoodWill
+                    <img src="original_logo.jpg" alt="Logo" class="d-inline-block align-text-top">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobileNav"
+                    aria-controls="mobileNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mobileNav">
+                    <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+                        <li class="nav-item"><a class="nav-link" href="#">Certificates</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                        <li class="nav-item user-profile">
+                            <a href="#" class="user-icon" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-user"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#/profile">My Profile</a></li>
+                            </ul>
+                            <a href="index.html" class="nav-link logout-btn"><i class="fas fa-sign-out-alt"></i>Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main container">
+        <!-- Header Section -->
+        <div class="header-section text-center mb-5 slide-in">
+            <h2 class="display-5 fw-bold">My Enrolled Courses</h2>
+            <p class="lead mt-3">Track your progress and continue your learning journey with GoodWill Courses!</p>
+        </div>
+
+        <!-- Search Section -->
+        <div class="search-section mb-5 slide-in" style="animation-delay: 0.2s;">
+            <div class="row g-3 align-items-end justify-content-center">
+                <!-- State Dropdown -->
+                <div class="col-12 col-sm-6 col-md-auto">
+                    <label for="state" class="form-label fw-semibold">State</label>
+                    <select id="state" class="form-select" aria-label="Select State">
+                        <option value="">Select State</option>
+                        <option value="GA" selected>Georgia</option>
+                    </select>
+                </div>
+
+                <!-- City Dropdown -->
+                <div class="col-12 col-sm-6 col-md-auto">
+                    <label for="city" class="form-label fw-semibold">City</label>
+                    <select id="city" class="form-select" aria-label="Select City">
+                        <option value="">Select City</option>
+                        <option value="Rome">Rome</option>
+                        <option value="Dalton">Dalton</option>
+                        <option value="Cartersville">Cartersville</option>
+                    </select>
+                </div>
+
+                <!-- Search Input -->
+                <div class="col-12 col-sm-6 col-md-auto">
+                    <label for="search" class="form-label fw-semibold">Search</label>
+                    <div class="input-group">
+                        <input type="text" id="search" class="form-control" placeholder="Search my courses..." aria-label="Search courses">
+                        <button class="btn btn-primary" type="button" onclick="filterCourses()">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enrolled Course Cards -->
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4" id="courseContainer">
+            <!-- Course Card 2 (Enrolled) -->
+            <div class="col course-card-item" data-city="Rome" data-title="Q-Cells Open Interviews">
+                <div class="card course-card card-hover h-100 slide-in" style="animation-delay: 0.3s;">
+                    <div class="course-card-header">
+                        <h3 class="fs-4 mb-0">Q-Cells Open Interviews</h3>
+                        <i class="bi bi-bookmark fs-3 bookmark-icon"></i>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text description-short" id="desc-short-2">Meet onsite with Q-Cells representatives. Immediate opportunities available. Please arrive 30 minutes early to complete the Career Center registration before the hiring event begins...</p>
+                        <p class="card-text description-full" id="desc-full-2">Meet onsite with Q-Cells representatives. Immediate opportunities available. Please arrive 30 minutes early to complete the Career Center registration before the hiring event begins, if you're not currently registered. Interview attire required and please bring your resume.</p>
+                        <a class="see-more" onclick="toggleDescription(2)">See More</a>
+                        <p class="card-text"><strong>Location:</strong> Rome, GA</p>
+                        <p class="card-text"><strong>Date:</strong> August 1, 2025</p>
+                        <p class="card-text"><strong>Time:</strong> 10:00 AM - 5:00 PM</p>
+                        <div class="d-flex align-items-center mb-2">
+                            <span class="rating-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></span>
+                            <span class="ms-2 text-muted small">(412 reviews)</span>
+                        </div>
+                        <div class="progress-bar mt-3">
+                            <div class="progress-bar-fill" style="width: 60%;"></div>
+                        </div>
+                        <p class="text-muted small mt-2">Progress: 60%</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-0">
+                        <button class="btn btn-enrolled w-100" onclick="window.location.href='#/course/2'">View Course</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Card 5 (Enrolled) -->
+            <div class="col course-card-item" data-city="Dalton" data-title="Legacy Link Hiring Event">
+                <div class="card course-card card-hover h-100 slide-in" style="animation-delay: 0.4s;">
+                    <div class="course-card-header">
+                        <h3 class="fs-4 mb-0">Legacy Link Hiring Event</h3>
+                        <i class="bi bi-bookmark fs-3 bookmark-icon"></i>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text description-short" id="desc-short-5">Meet onsite with Legacy Link representatives. Immediate opportunities available. Please arrive 30 minutes early to complete the Career...</p>
+                        <p class="card-text description-full" id="desc-full-5">Meet onsite with Legacy Link representatives. Immediate opportunities available. Please arrive 30 minutes early to complete the Career Center registration before the hiring event begins, if you're not currently registered. Interview attire required and please bring your resume.</p>
+                        <a class="see-more" onclick="toggleDescription(5)">See More</a>
+                        <p class="card-text"><strong>Location:</strong> Dalton, GA</p>
+                        <p class="card-text"><strong>Date:</strong> November 12, 2025</p>
+                        <p class="card-text"><strong>Time:</strong> 9:30 AM - 4:30 PM</p>
+                        <div class="d-flex align-items-center mb-2">
+                            <span class="rating-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></span>
+                            <span class="ms-2 text-muted small">(489 reviews)</span>
+                        </div>
+                        <div class="progress-bar mt-3">
+                            <div class="progress-bar-fill" style="width: 45%;"></div>
+                        </div>
+                        <p class="text-muted small mt-2">Progress: 45%</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-0">
+                        <button class="btn btn-enrolled w-100" onclick="window.location.href='#/course/5'">View Course</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Card 6 (Enrolled) -->
+            <div class="col course-card-item" data-city="Cartersville" data-title="Adaptability/Flexibility">
+                <div class="card course-card card-hover h-100 slide-in" style="animation-delay: 0.5s;">
+                    <div class="course-card-header">
+                        <h3 class="fs-4 mb-0">Adaptability/Flexibility</h3>
+                        <i class="bi bi-bookmark fs-3 bookmark-icon"></i>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text description-short" id="desc-short-6">In today's fast-paced and ever-changing work environment, adaptability and flexibility are essential skills for success...</p>
+                        <p class="card-text description-full" id="desc-full-6">In today's fast-paced and ever-changing work environment, adaptability and flexibility are essential skills for success. Our dynamic workshop on Adaptability/Flexibility equips you with the tools and mindset to thrive amidst constant change. Discover how to effectively manage change, shift perspectives, and leverage your strengths to adapt to new situations. Explore strategies for overcoming resistance, embracing innovation, and fostering a growth-oriented mindset. Develop resilience, enhance problem-solving abilities, and embrace a proactive approach that empowers you to seize opportunities as they arise.</p>
+                        <a class="see-more" onclick="toggleDescription(6)">See More</a>
+                        <p class="card-text"><strong>Location:</strong> Cartersville, GA</p>
+                        <p class="card-text"><strong>Date:</strong> December 3, 2025</p>
+                        <p class="card-text"><strong>Time:</strong> 10:30 AM - 5:30 PM</p>
+                        <div class="d-flex align-items-center mb-2">
+                            <span class="rating-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i><i class="bi bi-star"></i></span>
+                            <span class="ms-2 text-muted small">(153 reviews)</span>
+                        </div>
+                        <div class="progress-bar mt-3">
+                            <div class="progress-bar-fill" style="width: 30%;"></div>
+                        </div>
+                        <p class="text-muted small mt-2">Progress: 30%</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-0">
+                        <button class="btn btn-enrolled w-100" onclick="window.location.href='#/course/6'">View Course</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer text-white text-center py-3">
+        © 2025 GoodWill Courses. All Rights Reserved.
+    </footer>
+
+    <script>
+        // JavaScript for dynamic city dropdown
+        const stateSelect = document.getElementById('state');
+        const citySelect = document.getElementById('city');
+        const searchInput = document.getElementById('search');
+
+        const cityData = {
+            GA: ['Rome', 'Dalton', 'Cartersville']
+        };
+
+        stateSelect.addEventListener('change', () => {
+            const state = stateSelect.value;
+            citySelect.innerHTML = '<option value="">Select City</option>';
+            
+            if (cityData[state]) {
+                cityData[state].forEach(city => {
+                    const option = document.createElement('option');
+                    option.value = city;
+                    option.textContent = city;
+                    citySelect.appendChild(option);
+                });
+            }
+        });
+
+        // Toggle description function
+        function toggleDescription(cardId) {
+            const shortDesc = document.getElementById(`desc-short-${cardId}`);
+            const fullDesc = document.getElementById(`desc-full-${cardId}`);
+            const seeMoreLink = document.querySelector(`#desc-short-${cardId} + a`);
+
+            if (fullDesc.style.display === 'none' || fullDesc.style.display === '') {
+                shortDesc.style.display = 'none';
+                fullDesc.style.display = 'block';
+                seeMoreLink.textContent = 'See Less';
+            } else {
+                shortDesc.style.display = '-webkit-box';
+                fullDesc.style.display = 'none';
+                seeMoreLink.textContent = 'See More';
+            }
+        }
+
+        // Bookmark icon toggle
+        document.querySelectorAll('.bookmark-icon').forEach(icon => {
+            icon.addEventListener('click', () => {
+                icon.classList.toggle('bi-bookmark');
+                icon.classList.toggle('bi-bookmark-fill');
+            });
+        });
+
+        // Filter courses based on city and search input
+        function filterCourses() {
+            const selectedCity = citySelect.value.toLowerCase();
+            const searchQuery = searchInput.value.toLowerCase();
+            const courseCards = document.querySelectorAll('.course-card-item');
+
+            courseCards.forEach(card => {
+                const cardCity = card.getAttribute('data-city').toLowerCase();
+                const cardTitle = card.getAttribute('data-title').toLowerCase();
+                const matchesCity = !selectedCity || cardCity === selectedCity;
+                const matchesSearch = !searchQuery || cardTitle.includes(searchQuery);
+
+                if (matchesCity && matchesSearch) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Trigger filter on input change
+        citySelect.addEventListener('change', filterCourses);
+        searchInput.addEventListener('input', filterCourses);
+    </script>
+</body>
+</html>
