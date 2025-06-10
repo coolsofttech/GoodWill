@@ -301,6 +301,37 @@
       color: #4b5563;
       font-size: 0.95rem;
     }
+    .location-radio {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  margin: 0;
+}
+
+.location-card .form-check {
+  position: relative;
+  padding-left: 40px;
+}
+
+.location-card .form-check-label {
+  cursor: pointer;
+}
+
+.location-card .form-check-input:checked {
+  background-color: #3b82f6;
+  border-color: #3b82f6;
+}
+
+.location-card .form-check-input:focus {
+  box-shadow: 0 0 0 0.25rem rgba(59, 130, 246, 0.25);
+}
+
+.location-card:hover .form-check-input:not(:checked) {
+  border-color: #3b82f6;
+}
 
     .search-box {
       position: relative;
@@ -456,8 +487,8 @@
         <div class="collapse navbar-collapse" id="mobileNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item"><a class="nav-link" href="#">Courses</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Instructors</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Partners</a></li>
+            <!-- <li class="nav-item"><a class="nav-link" href="#">Instructors</a></li> -->
+            <!-- <li class="nav-item"><a class="nav-link" href="#">Partners</a></li> -->
             <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
           </ul>
@@ -634,66 +665,81 @@
           </form>
         </div>
 
-       <div class="location-card">
-  <div class="row">
-    <div class="col-md-3">
-      <h6>Address</h6>
-      <p>Goodwill Outlet Columbus<br>3857 St Marys Rd,<br>Columbus, GA 31906</p>
-    </div>
-    <div class="col-md-3">
-      <h6>Contact Person</h6>
-      <p>Jessica Thompson</p>
-    </div>
-    <div class="col-md-3">
-      <h6>Phone Number</h6>
-      <p>(706) 405-2399</p>
-    </div>
-    <div class="col-md-3">
-      <h6>Miles</h6>
-      <p>112 miles</p>
-    </div>
+<div class="location-card">
+  <div class="form-check">
+    <input class="form-check-input location-radio" type="radio" name="location" id="location1" value="columbus" checked>
+    <label class="form-check-label w-100" for="location1">
+      <div class="row">
+        <div class="col-md-3">
+          <h6>Address</h6>
+          <p>1030 Lake Oconee<br>Parkway, Eatonton,<br>GA, 31024</p>
+        </div>
+        <div class="col-md-3">
+          <h6>Contact Person</h6>
+          <p>Jessica Thompson</p>
+        </div>
+        <div class="col-md-3">
+          <h6>Phone Number</h6>
+          <p>(706) 405-2399</p>
+        </div>
+        <div class="col-md-3">
+          <h6>Miles</h6>
+          <p>12 miles</p>
+        </div>
+      </div>
+    </label>
   </div>
 </div>
 
 <div class="location-card">
-  <div class="row">
-    <div class="col-md-3">
-      <h6>Address</h6>
-      <p>Goodwill Outlet Savannah<br>7220 Sallie Mood Dr,<br>Savannah, GA 31406</p>
-    </div>
-    <div class="col-md-3">
-      <h6>Contact Person</h6>
-      <p>Eric Davis</p>
-    </div>
-    <div class="col-md-3">
-      <h6>Phone Number</h6>
-      <p>(912) 354-6611</p>
-    </div>
-    <div class="col-md-3">
-      <h6>Miles</h6>
-      <p>250 miles</p>
-    </div>
+  <div class="form-check">
+    <input class="form-check-input location-radio" type="radio" name="location" id="location2" value="savannah">
+    <label class="form-check-label w-100" for="location2">
+      <div class="row">
+        <div class="col-md-3">
+          <h6>Address</h6>
+          <p>306 Russell Parkwaym,<br>Warner Robins,<br>GA, 31088</p>
+        </div>
+        <div class="col-md-3">
+          <h6>Contact Person</h6>
+          <p>Eric Davis</p>
+        </div>
+        <div class="col-md-3">
+          <h6>Phone Number</h6>
+          <p>(912) 354-6611</p>
+        </div>
+        <div class="col-md-3">
+          <h6>Miles</h6>
+          <p>25 miles</p>
+        </div>
+      </div>
+    </label>
   </div>
 </div>
 
 <div class="location-card">
-  <div class="row">
-    <div class="col-md-3">
-      <h6>Address</h6>
-      <p>Goodwill Store & Donation Center Augusta<br>3362 Wrightsboro Rd,<br>Augusta, GA 30909</p>
-    </div>
-    <div class="col-md-3">
-      <h6>Contact Person</h6>
-      <p>Angela Moore</p>
-    </div>
-    <div class="col-md-3">
-      <h6>Phone Number</h6>
-      <p>(762) 320-4330</p>
-    </div>
-    <div class="col-md-3">
-      <h6>Miles</h6>
-      <p>145 miles</p>
-    </div>
+  <div class="form-check">
+    <input class="form-check-input location-radio" type="radio" name="location" id="location3" value="augusta">
+    <label class="form-check-label w-100" for="location3">
+      <div class="row">
+        <div class="col-md-3">
+          <h6>Address</h6>
+          <p>2596 N. Columbia St<br>Milledgeville,<br>GA, 31061</p>
+        </div>
+        <div class="col-md-3">
+          <h6>Contact Person</h6>
+          <p>Angela Moore</p>
+        </div>
+        <div class="col-md-3">
+          <h6>Phone Number</h6>
+          <p>(762) 320-4330</p>
+        </div>
+        <div class="col-md-3">
+          <h6>Miles</h6>
+          <p>45 miles</p>
+        </div>
+      </div>
+    </label>
   </div>
 </div>
 
